@@ -41,6 +41,9 @@ class DomActions{
             if(obj.children){
                 obj.children.forEach(child=>{
                     const kind = node.appendChild(this.createNode(child.type, child.attributes));
+                    if(child.text_content){
+                        kind.textContent = child.text_content;
+                    }
                     if(child.listener){
                         kind.addEventListener(child.listener[0], (e)=>{
                             child.listener[1](e);
@@ -61,7 +64,11 @@ class DomActions{
 }
 
 function continentSettingsCb(e){
-
+    if(e.target.classList.contains("continent")){
+       const continentInput = document.getElementById("continents-input");
+        continentInput.value += el.target.id;
+        document.getElementById(e.target.id).style.backgroundColor = "blue";
+    }
 }
 
 function getGeneralSettings(mode){
@@ -89,6 +96,7 @@ function getGeneralSettings(mode){
                     ["name", "continents"],
                     ["disabled", "true"],
                     ["placeholder", "Continents Here"]
+                    ["id", "continents-input"]
                 ],
                 text_content: false,
                 listener: false,
