@@ -1,4 +1,4 @@
-export default countryArray = [
+const countryArray = [
 "Zimbabwe",
 "Kiribati",
 "Ghana",
@@ -248,4 +248,6 @@ export default countryArray = [
 "Guinea-Bissau",
 "Benin",
 "Lebanon",
-"Åland Islands"]
+"Åland Islands"];
+
+export default countryArray;

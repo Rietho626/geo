@@ -1,4 +1,4 @@
-export default transliterate = new Map(
+const transliterate = new Map(
     ("Å", "A"),
     ("é","e"),
     ("ç","c"),
@@ -18,4 +18,4 @@ export default transliterate = new Map(
     ("ô","o")
 );
 
-
+export default transliterate;
