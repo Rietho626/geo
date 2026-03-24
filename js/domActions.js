@@ -111,7 +111,7 @@ function getGeneralSettings(mode){
                     ["name", "continents"],
                 ],
                 text_content: false,
-                listener: ["click",continentSettingsCb()],
+                listener: ["click",continentSettingsCb],
                 children: [
                     {
                         type: "div",
