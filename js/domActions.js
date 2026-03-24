@@ -91,14 +91,12 @@ function showValueCbRange(){
   document.getElementById("num-questions-show").textContent = document.getElementById("num-questions").value;
 }
 
-function getGeneralSettings(mode){
-        return 
-    }
+
 
 function getSettings(mode, replaceGeneral = ""){
     switch(mode){
         case "general":
-        return getGeneralSettings.replaceAll('"{mode}"', replaceGeneral);
+        return generalSettings.replaceAll('"{mode}"', replaceGeneral);
         case "capitals":
         return capitalSettings;
         case "flags":
@@ -106,7 +104,7 @@ function getSettings(mode, replaceGeneral = ""){
     }
 }
 
-const getGeneralSettings = [
+const generalSettings = [
     {
         type: "input",
         attributes: [
