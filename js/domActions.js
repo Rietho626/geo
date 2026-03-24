@@ -1,12 +1,22 @@
-export default function getDomActions(word){
-    return new DomActions(word);
+export default function getDomActions(){
+    return new DomActions();
 }
 
 class DomActions{
-    constructor(test){
-        this.test = test;
+    constructor(){
+        this.nav = document.querySelector("nav");
+        this.createContainer = document.getElementById("create-quiz-container");
+        this.quizContainer = document.getElementById("quiz-container");
     }
-    bark(){
-        console.log(this.test + "woof");
+
+    enableListener(){
+        this.nav.addEventListener("click", (e)=>{
+            if(e.target.classList.contains("quiz-link")){
+                this.appendQuizForm(e.target.id);
+            }
+        })
+    }
+    appendQuizForm(mode){
+        this.createContainer.textContent = mode;
     }
 }
