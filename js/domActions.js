@@ -66,7 +66,7 @@ class DomActions{
 function continentSettingsCb(e){
     if(e.target.classList.contains("continent")){
        const continentInput = document.getElementById("continents-input");
-        continentInput.value += el.target.id;
+        continentInput.value += e.target.id;
         document.getElementById(e.target.id).style.backgroundColor = "blue";
     }
 }
