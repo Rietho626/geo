@@ -95,7 +95,7 @@ function getGeneralSettings(mode){
                     ["cols", "50"],
                     ["name", "continents"],
                     ["disabled", "true"],
-                    ["placeholder", "Continents Here"]
+                    ["placeholder", "Continents Here"],
                     ["id", "continents-input"]
                 ],
                 text_content: false,
