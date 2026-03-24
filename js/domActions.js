@@ -38,6 +38,18 @@ class DomActions{
                 .appendChild(tr)
                 .appendChild(td)
                 .appendChild(node);
+            if(obj.siblings){
+                obj.siblings.forEach(sibling=>{
+                    const sib = this.createNode(sibling.type, sibling.attributes);
+                    if(sibling.text_content){
+                        sib.textContent = sibling.text_content;
+                    }
+                    if(sibling.listener){
+                        sib.addEventListener(sibling.listener[0], sibling.listener[1])
+                    }
+                    td.appendChild(sib);
+                })
+            }
             if(obj.children){
                 obj.children.forEach(child=>{
                     const kind = node.appendChild(this.createNode(child.type, child.attributes));
@@ -71,6 +83,10 @@ function continentSettingsCb(e){
     }
 }
 
+function showValueCbRange(){
+  document.getElementById("num-questions-show").textContent = document.getElementById("num-questions").value;
+}
+
 function getGeneralSettings(mode){
         return [
             {
@@ -84,22 +100,97 @@ function getGeneralSettings(mode){
                     ["name", "num-questions"]
                 ],
                 text_content: false,
-                listener: false,
+                listener: ["change", showValueCbRange],
+                siblings: [
+                    {
+                        type: "span",
+                        attributes: [
+                            ["class", "show-value"],
+                            ["id", "num-questions-show"]
+                        ],
+                        text_content: false,
+                        listener: false,
+                        children: false
+                    }
+                ],
                 children: false
-            },
+            }, 
             {
-                type: "textarea",
+                type: "select",
                 attributes: [
                     ["class", mode+"-input"],
-                    ["rows", "1"],
-                    ["cols", "50"],
-                    ["name", "continents"],
-                    ["disabled", "true"],
-                    ["placeholder", "Continents Here"],
-                    ["id", "continents-input"]
+                    ["id", "time-questions"],
+                    ["name", "time-questions"]
                 ],
                 text_content: false,
                 listener: false,
+                siblings: false,
+                children: [
+                     {
+                        type: "option",
+                        attributes: [
+                            ["id", "time-no-limit"],
+                            ["value", "no-limit"],
+                            ["selected", "true"]
+                        ],
+                        text_content: "No Time Limit"
+                    },
+                    {
+                        type: "option",
+                        attributes: [
+                            ["id", "time-limit-5"],
+                            ["value", "5"],
+                        ],
+                        text_content: "5s/Question"
+                    },
+                    {
+                        type: "option",
+                        attributes: [
+                            ["id", "time-limit-10"],
+                            ["value", "10"],
+                        ],
+                        text_content: "10s/Qestion"
+                    },
+                    {
+                        type: "option",
+                        attributes: [
+                            ["id", "time-limit-20"],
+                            ["value", "20"],
+                        ],
+                        text_content: "20s/Question"
+                    },
+                    {
+                        type: "option",
+                        attributes: [
+                            ["id", "time-limit-30"],
+                            ["value", "30"],
+                        ],
+                        text_content: "30s/Question"
+                    },
+                    {
+                        type: "option",
+                        attributes: [
+                            ["id", "time-limit-60"],
+                            ["value", "60"],
+                        ],
+                        text_content: "60s/Question"
+                    }
+                ]
+            }, 
+            {
+                type: "input",
+                attributes: [
+                    ["class", mode+"-input"],
+                    ["type", "text"],
+                    ["name", "continents"],
+                    ["disabled", "true"],
+                    ["placeholder", "Continents Here"],
+                    ["id", "continents-input"],
+                    ["hidden", "true"]
+                ],
+                text_content: false,
+                listener: false,
+                siblings: false,
                 children: false
             },
             {
@@ -112,6 +203,13 @@ function getGeneralSettings(mode){
                 ],
                 text_content: false,
                 listener: ["click",continentSettingsCb],
+                siblings: [
+                    {
+                        type: "span",
+                        attributes: [],
+                        text_content: "Add Continent to Quiz (no continent = all continents)"
+                    }
+                ],
                 children: [
                     {
                         type: "div",
