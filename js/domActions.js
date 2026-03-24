@@ -14,6 +14,8 @@ class DomActions{
     enableListener(){
         this.nav.addEventListener("click", (e)=>{
             if(e.target.classList.contains("quiz-link")){
+                Array.from(document.querySelectorAll("tbody > *"))
+                    .forEach(node=>document.remove(node));
                 this.appendQuizForm(e.target.id);
             }
         })
