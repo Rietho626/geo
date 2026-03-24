@@ -9,9 +9,9 @@
             import countryArray from "./js/countryArray.js";
             import transliterate from "./js/transliterate.js";
             import getDomActions from "./js/domActions.js";
-            console.log(countryArray) // just checking
-            const testing = getDomActions("word");
-            testing.bark();
+        
+            const domActions = getDomActions();
+            domActions.enableListener();
         </script>
     </head>
     <body>
@@ -21,8 +21,8 @@
             </div>
             <nav>
                 <ul>
-                    <li>Flags</li>
-                    <li>Capitals</li>
+                    <li id="flags" class="quiz-link">Flags</li>
+                    <li id="capitals" class="quiz-link">Capitals</li>
                 </ul>
             </nav>
         </header>
