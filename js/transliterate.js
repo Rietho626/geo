@@ -1,4 +1,4 @@
-const transliterate = new Map(
+const transliterate = new Map([
     ["Å", "A"],
     ["é","e"],
     ["ç","c"],
@@ -16,6 +16,6 @@ const transliterate = new Map(
     ["ã","a"],
     ["á","a"],
     ["ô","o"]
-);
+]);
 
 export default transliterate;
