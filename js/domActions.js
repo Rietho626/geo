@@ -40,9 +40,9 @@ class DomActions{
                 .appendChild(node);
             if(obj.children){
                 obj.children.forEach(child=>{
-                    const child = node.appendChild(this.createNode(child.type, child.attributes));
+                    const kind = node.appendChild(this.createNode(child.type, child.attributes));
                     if(child.listener){
-                        child.addEventListener(child.listener[0], (e)=>{
+                        kind.addEventListener(child.listener[0], (e)=>{
                             child.listener[1](e);
                         })
                     }
