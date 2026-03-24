@@ -1,4 +1,5 @@
-export default countries = {
+
+const countries = {
     "Zimbabwe":{
         capital: "Harare",
         officialName: "Republic of Zimbabwe",
@@ -2252,4 +2253,5 @@ export default countries = {
 }
 
 
+export default countries;
 
