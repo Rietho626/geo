@@ -84,6 +84,7 @@ class DomActions{
         const nodes = Array.from(document.querySelectorAll("select."+topic+"-input")).concat(Array.from(document.querySelectorAll("input."+topic+"-input")));
         nodes.forEach(node=>settings[node.name] = node.value);
         const controller = createQuizController(settings);
+        controller.testSettings();
     }
 
     static continentSettingsCb(e){
