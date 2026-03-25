@@ -8,6 +8,6 @@ class QuizController{
     }
 
     testSettings(){
-        console.log(Array.from(this.settings));
+        console.log(this.settings);
     }
 }
