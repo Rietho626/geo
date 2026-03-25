@@ -1,0 +1,67 @@
+import countries from "./js/countries.js";
+import countryArray from "./js/countryArray.js";
+
+export default function createQuizCompiler(quizSettings){
+    return new QuizCompiler(quizSettings);
+}
+
+class QuizCompiler{
+    constructor(quizSettings){
+        this.settings = quizSettings;
+        const continents = [
+            "europe",
+            "asia",
+            "north-america",
+            "south-america",
+            "africa",
+            "oceania",
+            "antarctica"
+        ];
+        this.continents = [];
+        if(this.settings["continents-input"]){
+            continents.forEach(continent=>{
+                if(this.settings["continents-input"].includes(continent)){
+                    this.continents.push(continent);
+                }
+            })
+        }else{
+            this.continents = continents;
+        }
+        this.quiz = {
+            time: this.settings["time-questions"],
+            numQuestions: this.settings["num-questions"],
+            continents: this.continents,
+            questions: []
+        }
+    }
+
+    testSettings(){
+        console.log(this.quiz)
+    }
+}
+
+const quizOutputModel = {
+
+    time: "10",
+    numQestions: "40",
+    continents: ["euprope", "africa"],
+    questions:[
+        {
+            questionMode: "multipleChoice", // or typeIn bzw. search
+            questionType: "country->capital", // or capital->country, Maybe this is not needed
+            questionText: "What is the capital of",
+            questionObject: "Austria",
+            answer: "Vienna",
+            wrongAnswers: ["Prague", "Kopenhagen", "Lisbon"] // or false if different quiz mode
+        },
+        {
+            questionMode: "multipleChoice", // or typeIn bzw. search
+            questionType: "country->capital", // or capital->country, Maybe this is not needed
+            questionText: "What is the capital of",
+            questionObject: "Austria",
+            answer: "Vienna",
+            wrongAnswers: ["Prague", "Kopenhagen", "Lisbon"] // or false if different quiz mode
+        }
+    ]
+    
+}

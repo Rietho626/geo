@@ -1,4 +1,4 @@
-import createQuizController from "./quizController.js";
+import createQuizCompiler from "./quizCompiler.js";
 
 export default function getDomActions(){
     return new DomActions();
@@ -83,15 +83,23 @@ class DomActions{
         const topic = document.querySelector("input[type=submit]").name;
         const nodes = Array.from(document.querySelectorAll("select."+topic+"-input")).concat(Array.from(document.querySelectorAll("input."+topic+"-input")));
         nodes.forEach(node=>settings[node.name] = node.value);
-        const controller = createQuizController(settings);
-        controller.testSettings();
+        const compiler = createQuizCompiler(settings);
+        compiler.testSettings();
     }
 
     static continentSettingsCb(e){
         if(e.target.classList.contains("continent")){
             const continentInput = document.getElementById("continents-input");
-            continentInput.value += e.target.id;
-            document.getElementById(e.target.id).style.backgroundColor = "blue";
+            const cnt = document.getElementById(e.target.id);
+            if(cnt.classList.contains("off")){
+                continentInput.value += e.target.id;
+                cnt.classList.remove("off");
+                cnt.classList.add("on");
+            }else{
+                continentInput.value = continentInput.value.replaceAll(e.target.id, "");
+                cnt.classList.remove("on");
+                cnt.classList.add("off");
+            }
         }
     }
 
@@ -268,7 +276,6 @@ function getGeneralSettings(topic){
             attributes: [
                 ["class", topic+"-input"],
                 ["id", "continent-settings"],
-                ["cols", "50"],
                 ["name", "continents"],
             ],
             text_content: false,
@@ -284,7 +291,7 @@ function getGeneralSettings(topic){
                 {
                     type: "div",
                     attributes: [
-                        ["class", topic+"-input continent"],
+                        ["class", topic+"-input continent off"],
                         ["id", "europe"],
                     ],
                     text_content: "Europe",
@@ -293,7 +300,7 @@ function getGeneralSettings(topic){
                 {
                     type: "div",
                     attributes: [
-                        ["class", topic+"-input continent"],
+                        ["class", topic+"-input continent off"],
                         ["id", "asia"],
                     ],
                     text_content: "Asia",
@@ -302,7 +309,7 @@ function getGeneralSettings(topic){
                 {
                     type: "div",
                     attributes: [
-                        ["class", topic+"-input continent"],
+                        ["class", topic+"-input continent off"],
                         ["id", "north-america"],
                     ],
                     text_content: "North America",
@@ -311,7 +318,7 @@ function getGeneralSettings(topic){
                 {
                     type: "div",
                     attributes: [
-                        ["class", topic+"-input continent"],
+                        ["class", topic+"-input continent off"],
                         ["id", "south-america"],
                     ],
                     text_content: "South America",
@@ -320,7 +327,7 @@ function getGeneralSettings(topic){
                 {
                     type: "div",
                     attributes: [
-                        ["class", topic+"-input continent"],
+                        ["class", topic+"-input continent off"],
                         ["id", "africa"],
                     ],
                     text_content: "Africa",
@@ -329,7 +336,7 @@ function getGeneralSettings(topic){
                 {
                     type: "div",
                     attributes: [
-                        ["class", topic+"-input continent"],
+                        ["class", topic+"-input continent off"],
                         ["id", "oceania"],
                     ],
                     text_content: "Ozeanien",
@@ -338,7 +345,7 @@ function getGeneralSettings(topic){
                 {
                     type: "div",
                     attributes: [
-                        ["class", topic+"-input continent"],
+                        ["class", topic+"-input continent off"],
                         ["id", "antarctica"],
                     ],
                     text_content: "Antarcitca",
