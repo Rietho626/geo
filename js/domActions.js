@@ -120,10 +120,10 @@ function getSubmitButton(topic){
         type: "input",
         attributes: [
             ["type", "submit"],
-            ["class", topic+"-input"]
+            ["class", topic+"-input"],
             ["name", topic],
             ["id", "submit-"+topic+"-quiz"],
-            ["value", `Create ${topic} Quiz`]
+            ["value", `Create ${topic[0].toUpperCase()+topic.slice(1)} Quiz`]
         ],
         text_content: false,
         listener: false,
