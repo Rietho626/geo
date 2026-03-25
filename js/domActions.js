@@ -1,7 +1,8 @@
+import createQuizController from "./quizController";
+
 export default function getDomActions(){
     return new DomActions();
 }
-
 
 class DomActions{
     constructor(){
@@ -78,11 +79,11 @@ class DomActions{
 
     processForm(e){
         e.preventDefault();
-        const settings = [];
+        const settings = {};
         const topic = document.querySelector("input[type=submit]").name;
         const nodes = Array.from(document.querySelectorAll("select."+topic+"-input")).concat(Array.from(document.querySelectorAll("input."+topic+"-input")));
-        nodes.forEach(node=>settings.push([node.name, node.value]));
-        console.log(settings);
+        nodes.forEach(node=>settings[node.name] = node.value);
+        const controller = createQuizController(settings);
     }
 
     static continentSettingsCb(e){
