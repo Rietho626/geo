@@ -28,7 +28,7 @@ class DomActions{
         return node;
     }
     configureSettings(topic){
-        const settings = this.getSettings("general", topic).concat(this.getSettings(topic)).concat(getSubmitButton(topic));
+        const settings = DomActions.getSettings("general", topic).concat(DomActions.getSettings(topic)).concat(getSubmitButton(topic));
         this.appendQuizForm(settings);
     }
     appendQuizForm(settings){
