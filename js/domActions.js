@@ -1,4 +1,4 @@
-import createQuizController from "./quizController";
+import createQuizController from "./quizController.js";
 
 export default function getDomActions(){
     return new DomActions();
