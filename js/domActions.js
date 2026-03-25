@@ -81,7 +81,7 @@ class DomActions{
         const settings = [];
         const topic = document.querySelector("input[type=submit]").name;
         const nodes = Array.from(document.querySelectorAll("select."+topic+"-input")).concat(Array.from(document.querySelectorAll("input."+topic+"-input")));
-        nodes.forEach(node=>settings.push(node.value));
+        nodes.forEach(node=>settings.push([node.name, node.value]));
         console.log(settings);
     }
 
