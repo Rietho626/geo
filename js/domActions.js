@@ -79,7 +79,7 @@ class DomActions{
     processForm(e){
         e.preventDefault();
         const settings = [];
-        const topic = document.querySelector("inputy[type=submit]").name;
+        const topic = document.querySelector("input[type=submit]").name;
         const nodes = Array.from(document.querySelectorAll("select."+topic+"-input")).concat(Array.from(document.querySelector("input."+topic+"-input")));
         nodes.forEach(node=>settings.push(node.value));
         console.log(settings);
