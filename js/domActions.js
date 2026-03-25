@@ -26,8 +26,8 @@ class DomActions{
         attributes.forEach(attr=>node.setAttribute(attr[0], attr[1]));
         return node;
     }
-    configureSettings(mode){
-        const settings = getSettings("general", mode).concat(getSettings(mode));
+    configureSettings(topic){
+        const settings = getSettings("general", topic).concat(getSettings(topic)).concat(getSubmitButton(topic));
         this.appendQuizForm(settings);
     }
     appendQuizForm(settings){
@@ -75,41 +75,58 @@ class DomActions{
         })
     }
 
+    static continentSettingsCb(e){
+        if(e.target.classList.contains("continent")){
+            const continentInput = document.getElementById("continents-input");
+            continentInput.value += e.target.id;
+            document.getElementById(e.target.id).style.backgroundColor = "blue";
+        }
+    }
 
+    static showValueCbRange(){
+        document.getElementById("num-questions-show").textContent = document.getElementById("num-questions").value;
+    }
     
-}
-
-function continentSettingsCb(e){
-    if(e.target.classList.contains("continent")){
-       const continentInput = document.getElementById("continents-input");
-        continentInput.value += e.target.id;
-        document.getElementById(e.target.id).style.backgroundColor = "blue";
+    static getSettings(topic, replaceGeneral = ""){
+        switch(topic){
+            case "general":
+            return getGeneralSettings(replaceGeneral)
+            case "capitals":
+            return capitalSettings;
+            case "flags":
+            return flagSettings;
+        }
     }
-}
 
-function showValueCbRange(){
-  document.getElementById("num-questions-show").textContent = document.getElementById("num-questions").value;
-}
-
-
-
-function getSettings(mode, replaceGeneral = ""){
-    switch(mode){
-        case "general":
-        return getGeneralSettings(replaceGeneral)
-        case "capitals":
-        return capitalSettings;
-        case "flags":
-        return flagSettings;
+    static enableMultipleChoiceCb(){
+        //maybe
     }
+
 }
 
-function getGeneralSettings(mode){
+
+function getSubmitButton(topic){
+    return [{
+        type: "input",
+        attributes: [
+            ["type", "submit"],
+            ["class", topic+"-input"]
+            ["name", "sumbit-quiz"],
+            ["id", "submit-"+topic+"-quiz"]
+        ],
+        text_content: `Create ${topic[0].toUpperCase()+topic.slice(1)} Quiz`,
+        listener: false,
+        siblings: false,
+        children: false
+    }]
+}
+
+function getGeneralSettings(topic){
    return [
         {
             type: "input",
             attributes: [
-                ["class", mode+"-input"],
+                ["class", topic+"-input"],
                 ["type", "range"],
                 ["min", "10"],
                 ["max", "50"],
@@ -117,7 +134,7 @@ function getGeneralSettings(mode){
                 ["name", "num-questions"]
             ],
             text_content: false,
-            listener: ["change", showValueCbRange],
+            listener: ["change", DomActions.showValueCbRange],
             siblings: [
                 {
                     type: "span",
@@ -146,7 +163,7 @@ function getGeneralSettings(mode){
         {
             type: "select",
             attributes: [
-                ["class", mode+"-input"],
+                ["class", topic+"-input"],
                 ["id", "time-questions"],
                 ["name", "time-questions"]
             ],
@@ -220,7 +237,7 @@ function getGeneralSettings(mode){
         {
             type: "input",
             attributes: [
-                ["class", mode+"-input"],
+                ["class", topic+"-input"],
                 ["type", "text"],
                 ["name", "continents"],
                 ["disabled", "true"],
@@ -236,13 +253,13 @@ function getGeneralSettings(mode){
         {
             type: "div",
             attributes: [
-                ["class", mode+"-input"],
+                ["class", topic+"-input"],
                 ["id", "continent-settings"],
                 ["cols", "50"],
                 ["name", "continents"],
             ],
             text_content: false,
-            listener: ["click",continentSettingsCb],
+            listener: ["click",DomActions.continentSettingsCb],
             siblings: [
                 {
                     type: "span",
@@ -254,7 +271,7 @@ function getGeneralSettings(mode){
                 {
                     type: "div",
                     attributes: [
-                        ["class", mode+"-input continent"],
+                        ["class", topic+"-input continent"],
                         ["id", "europe"],
                     ],
                     text_content: "Europe",
@@ -263,7 +280,7 @@ function getGeneralSettings(mode){
                 {
                     type: "div",
                     attributes: [
-                        ["class", mode+"-input continent"],
+                        ["class", topic+"-input continent"],
                         ["id", "asia"],
                     ],
                     text_content: "Asia",
@@ -272,7 +289,7 @@ function getGeneralSettings(mode){
                 {
                     type: "div",
                     attributes: [
-                        ["class", mode+"-input continent"],
+                        ["class", topic+"-input continent"],
                         ["id", "north-america"],
                     ],
                     text_content: "North America",
@@ -281,7 +298,7 @@ function getGeneralSettings(mode){
                 {
                     type: "div",
                     attributes: [
-                        ["class", mode+"-input continent"],
+                        ["class", topic+"-input continent"],
                         ["id", "south-america"],
                     ],
                     text_content: "South America",
@@ -290,7 +307,7 @@ function getGeneralSettings(mode){
                 {
                     type: "div",
                     attributes: [
-                        ["class", mode+"-input continent"],
+                        ["class", topic+"-input continent"],
                         ["id", "africa"],
                     ],
                     text_content: "Africa",
@@ -299,7 +316,7 @@ function getGeneralSettings(mode){
                 {
                     type: "div",
                     attributes: [
-                        ["class", mode+"-input continent"],
+                        ["class", topic+"-input continent"],
                         ["id", "oceania"],
                     ],
                     text_content: "Ozeanien",
@@ -308,7 +325,7 @@ function getGeneralSettings(mode){
                 {
                     type: "div",
                     attributes: [
-                        ["class", mode+"-input continent"],
+                        ["class", topic+"-input continent"],
                         ["id", "antarctica"],
                     ],
                     text_content: "Antarcitca",
@@ -318,5 +335,131 @@ function getGeneralSettings(mode){
         }
     ];
 }
-const capitalSettings = [];
+const capitalSettings = [
+    {
+        type: "select",
+        attributes: [
+            ["class", "capital-input"],
+            ["id", "capital-quiz-q-type"],
+            ["name", "capital-quiz-q-type"]
+        ],
+        text_content: false,
+        listener: false,
+        siblings: [
+            {
+                type: "label",
+                attributes: [
+                    ["class", "input-label"],
+                    ["for", "capital-quiz-q-type"]
+                ],
+                text_content: "Choose Quiz Questions Type",
+                listener: false,
+                siblings: false,
+                children: false
+            }
+        ],
+        children: [
+            {
+                type: "option",
+                attributes: [
+                    ["class", "capitals-input"],
+                    ["id", "country-capital-q-type"],
+                    ["value", "country-capital"],
+                    ["selected", "true"]
+                ],
+                text_content: "Country -> Capital",
+                listener: false,
+                siblings: false,
+                children: false
+            },
+            {
+                type: "option",
+                attributes: [
+                    ["class", "capitals-input"],
+                    ["id", "capital-country-q-type"],
+                    ["value", "capital-country"]
+                ],
+                text_content: "Capital -> Country",
+                listener: false,
+                siblings: false,
+                children: false
+            },
+            {
+                type: "option",
+                attributes: [
+                    ["class", "capitals-input"],
+                    ["id", "capital-mixed-q-type"],
+                    ["value", "mixed"]
+                ],
+                text_content: "Mixed Questions",
+                listener: false,
+                siblings: false,
+                children: false
+            }
+        ]
+    },
+    {
+        type: "select",
+        attributes: [
+            ["class", "capital-input"],
+            ["id", "capital-quiz-mode"],
+            ["name", "capital-quiz-mode"]
+        ],
+        text_content: false,
+        listener: ["change", DomActions.enableMultipleChoiceCb],
+        siblings: [
+            {
+                type: "label",
+                attributes: [
+                    ["class", "input-label"],
+                    ["for", "capital-quiz-mode"]
+                ],
+                text_content: "Choose Quiz Mode",
+                listener: false,
+                siblings: false,
+                children: false
+            }
+        ],
+        children: [
+            {
+                type: "option",
+                attributes: [
+                    ["class", "capitals-input"],
+                    ["id", "multiple-choice-mode"],
+                    ["value", "multiple-choice"],
+                    ["selected", "true"]
+                ],
+                text_content: "Multiple Choice",
+                listener: false,
+                siblings: false,
+                children: false
+            },
+            {
+                type: "option",
+                attributes: [
+                    ["class", "capitals-input"],
+                    ["id", "search-mode"],
+                    ["value", "search-mode"]
+                ],
+                text_content: "Search Mode",
+                listener: false,
+                siblings: false,
+                children: false
+            },
+            {
+                type: "option",
+                attributes: [
+                    ["class", "capitals-input"],
+                    ["id", "type-in-mode"],
+                    ["value", "type-in-mode"]
+                ],
+                text_content: "Type-in Mode",
+                listener: false,
+                siblings: false,
+                children: false
+            }
+        ]
+    },
+    
+];
 const flagSettings = []
