@@ -352,7 +352,7 @@ const capitalSettings = [
         attributes: [
             ["class", "capitals-input"],
             ["id", "capitals-quiz-q-type"],
-            ["name", "capitals-quiz-q-type"]
+            ["name", "quiz-q-type"]
         ],
         text_content: false,
         listener: false,
@@ -414,7 +414,7 @@ const capitalSettings = [
         attributes: [
             ["class", "capitals-input"],
             ["id", "capitals-quiz-mode"],
-            ["name", "capitals-quiz-mode"]
+            ["name", "quiz-mode"]
         ],
         text_content: false,
         listener: ["change", DomActions.enableMultipleChoiceCb],
