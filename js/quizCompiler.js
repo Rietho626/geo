@@ -1,5 +1,5 @@
-import countries from "./js/countries.js";
-import countryArray from "./js/countryArray.js";
+import countries from "./countries.js";
+import countryArray from "./countryArray.js";
 
 export default function createQuizCompiler(quizSettings){
     return new QuizCompiler(quizSettings);
