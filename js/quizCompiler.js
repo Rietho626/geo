@@ -18,9 +18,9 @@ class QuizCompiler{
             "antarctica"
         ];
         this.continents = [];
-        if(this.settings["continents-input"]){
+        if(this.settings["continents"]){
             continents.forEach(continent=>{
-                if(this.settings["continents-input"].includes(continent)){
+                if(this.settings["continents"].includes(continent)){
                     this.continents.push(continent);
                 }
             })
