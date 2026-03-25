@@ -80,7 +80,7 @@ class DomActions{
         e.preventDefault();
         const settings = [];
         const topic = document.querySelector("input[type=submit]").name;
-        const nodes = Array.from(document.querySelectorAll("select."+topic+"-input")).concat(Array.from(document.querySelector("input."+topic+"-input")));
+        const nodes = Array.from(document.querySelectorAll("select."+topic+"-input")).concat(Array.from(document.querySelectorAll("input."+topic+"-input")));
         nodes.forEach(node=>settings.push(node.value));
         console.log(settings);
     }
@@ -351,8 +351,8 @@ const capitalSettings = [
         type: "select",
         attributes: [
             ["class", "capitals-input"],
-            ["id", "capital-quiz-q-type"],
-            ["name", "capital-quiz-q-type"]
+            ["id", "capitals-quiz-q-type"],
+            ["name", "capitals-quiz-q-type"]
         ],
         text_content: false,
         listener: false,
@@ -361,7 +361,7 @@ const capitalSettings = [
                 type: "label",
                 attributes: [
                     ["class", "input-label"],
-                    ["for", "capital-quiz-q-type"]
+                    ["for", "capitals-quiz-q-type"]
                 ],
                 text_content: "Choose Quiz Questions Type",
                 listener: false,
@@ -412,9 +412,9 @@ const capitalSettings = [
     {
         type: "select",
         attributes: [
-            ["class", "capital-input"],
-            ["id", "capital-quiz-mode"],
-            ["name", "capital-quiz-mode"]
+            ["class", "capitals-input"],
+            ["id", "capitals-quiz-mode"],
+            ["name", "capitals-quiz-mode"]
         ],
         text_content: false,
         listener: ["change", DomActions.enableMultipleChoiceCb],
@@ -423,7 +423,7 @@ const capitalSettings = [
                 type: "label",
                 attributes: [
                     ["class", "input-label"],
-                    ["for", "capital-quiz-mode"]
+                    ["for", "capitals-quiz-mode"]
                 ],
                 text_content: "Choose Quiz Mode",
                 listener: false,
