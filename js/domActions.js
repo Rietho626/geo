@@ -17,6 +17,7 @@ class DomActions{
                 Array.from(document.querySelectorAll("tbody > *"))
                     .forEach(node=>node.remove());
                 this.configureSettings(e.target.id);
+                this.form.addEventListener("submit", this.processForm);
             }
         })
     }
@@ -75,6 +76,15 @@ class DomActions{
         })
     }
 
+    processForm(e){
+        e.preventDefault();
+        const settings = [];
+        const topic = document.querySelector("inputy[type=submit]").name;
+        const nodes = Array.from(document.querySelectorAll("select."+topic+"-input")).concat(Array.from(document.querySelector("input."+topic+"-input")));
+        nodes.forEach(node=>settings.push(node.value));
+        console.log(settings);
+    }
+
     static continentSettingsCb(e){
         if(e.target.classList.contains("continent")){
             const continentInput = document.getElementById("continents-input");
@@ -111,10 +121,11 @@ function getSubmitButton(topic){
         attributes: [
             ["type", "submit"],
             ["class", topic+"-input"]
-            ["name", "sumbit-quiz"],
-            ["id", "submit-"+topic+"-quiz"]
+            ["name", topic],
+            ["id", "submit-"+topic+"-quiz"],
+            ["value", `Create ${topic[0].toUpperCase()+topic.slice(1)} Quiz`]
         ],
-        text_content: `Create ${topic[0].toUpperCase()+topic.slice(1)} Quiz`,
+        text_content: false,
         listener: false,
         siblings: false,
         children: false
@@ -339,7 +350,7 @@ const capitalSettings = [
     {
         type: "select",
         attributes: [
-            ["class", "capital-input"],
+            ["class", "capitals-input"],
             ["id", "capital-quiz-q-type"],
             ["name", "capital-quiz-q-type"]
         ],
