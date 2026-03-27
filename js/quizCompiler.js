@@ -8,6 +8,7 @@ export default function createQuizCompiler(quizSettings){
 class QuizCompiler{
     constructor(quizSettings){
         this.settings = quizSettings;
+        this.quizCountries = [];
         const continents = [
             "europe",
             "asia",
@@ -33,6 +34,21 @@ class QuizCompiler{
             continents: this.continents,
             questions: []
         }
+    }
+
+    filterContinents(){
+        if(this.continents.length !== 7){
+            for(let country in countries){
+                let isCountryElig = true;
+                country.continents.forEach(cc=>{
+                    if(!this.continents.find(tc=>tc===cc.toLowerCase().replaceAll(" ", "-"))){
+                        isCountryElig = false;
+                    }
+                })
+                if(isCountryElig)this.quizCountries.push(country);
+            }
+        }
+        console.log(this.quizCountries);
     }
 
     testSettings(){

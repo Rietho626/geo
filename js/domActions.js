@@ -85,6 +85,7 @@ class DomActions{
         nodes.forEach(node=>settings[node.name] = node.value);
         const compiler = createQuizCompiler(settings);
         compiler.testSettings();
+        compiler.filterContinents();
     }
 
     static continentSettingsCb(e){
