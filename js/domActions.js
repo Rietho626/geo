@@ -83,6 +83,7 @@ class DomActions{
         const topic = document.querySelector("input[type=submit]").name;
         const nodes = Array.from(document.querySelectorAll("select."+topic+"-input")).concat(Array.from(document.querySelectorAll("input."+topic+"-input")));
         nodes.forEach(node=>settings[node.name] = node.value);
+        settings["topic"] = topic;
         const compiler = createQuizCompiler(settings);
         compiler.testSettings();
         compiler.filterContinents();
@@ -112,7 +113,7 @@ class DomActions{
         switch(topic){
             case "general":
             return getGeneralSettings(replaceGeneral)
-            case "capitals":
+            case "capital":
             return capitalSettings;
             case "flags":
             return flagSettings;
@@ -360,8 +361,8 @@ const capitalSettings = [
     {
         type: "select",
         attributes: [
-            ["class", "capitals-input"],
-            ["id", "capitals-quiz-q-type"],
+            ["class", "capital-input"],
+            ["id", "capital-quiz-q-type"],
             ["name", "quiz-q-type"]
         ],
         text_content: false,
@@ -371,7 +372,7 @@ const capitalSettings = [
                 type: "label",
                 attributes: [
                     ["class", "input-label"],
-                    ["for", "capitals-quiz-q-type"]
+                    ["for", "capital-quiz-q-type"]
                 ],
                 text_content: "Choose Quiz Questions Type",
                 listener: false,
@@ -383,7 +384,7 @@ const capitalSettings = [
             {
                 type: "option",
                 attributes: [
-                    ["class", "capitals-input"],
+                    ["class", "capital-input"],
                     ["id", "country-capital-q-type"],
                     ["value", "country-capital"],
                     ["selected", "true"]
@@ -396,7 +397,7 @@ const capitalSettings = [
             {
                 type: "option",
                 attributes: [
-                    ["class", "capitals-input"],
+                    ["class", "capital-input"],
                     ["id", "capital-country-q-type"],
                     ["value", "capital-country"]
                 ],
@@ -408,7 +409,7 @@ const capitalSettings = [
             {
                 type: "option",
                 attributes: [
-                    ["class", "capitals-input"],
+                    ["class", "capital-input"],
                     ["id", "capital-mixed-q-type"],
                     ["value", "mixed"]
                 ],
@@ -422,8 +423,8 @@ const capitalSettings = [
     {
         type: "select",
         attributes: [
-            ["class", "capitals-input"],
-            ["id", "capitals-quiz-mode"],
+            ["class", "capital-input"],
+            ["id", "capital-quiz-mode"],
             ["name", "quiz-mode"]
         ],
         text_content: false,
@@ -433,7 +434,7 @@ const capitalSettings = [
                 type: "label",
                 attributes: [
                     ["class", "input-label"],
-                    ["for", "capitals-quiz-mode"]
+                    ["for", "capital-quiz-mode"]
                 ],
                 text_content: "Choose Quiz Mode",
                 listener: false,
@@ -445,7 +446,7 @@ const capitalSettings = [
             {
                 type: "option",
                 attributes: [
-                    ["class", "capitals-input"],
+                    ["class", "capital-input"],
                     ["id", "multiple-choice-mode"],
                     ["value", "multiple-choice"],
                     ["selected", "true"]
@@ -458,7 +459,7 @@ const capitalSettings = [
             {
                 type: "option",
                 attributes: [
-                    ["class", "capitals-input"],
+                    ["class", "capital-input"],
                     ["id", "search-mode"],
                     ["value", "search-mode"]
                 ],
@@ -470,7 +471,7 @@ const capitalSettings = [
             {
                 type: "option",
                 attributes: [
-                    ["class", "capitals-input"],
+                    ["class", "capital-input"],
                     ["id", "type-in-mode"],
                     ["value", "type-in-mode"]
                 ],

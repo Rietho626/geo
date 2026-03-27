@@ -54,6 +54,10 @@ class QuizCompiler{
     testSettings(){
         console.log(this.quiz)
     }
+
+    getWrongAnswers(){
+        
+    }
 }
 
 const quizOutputModel = {
