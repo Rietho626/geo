@@ -40,12 +40,12 @@ class QuizCompiler{
         if(this.continents.length !== 7){
             for(let country in countries){
                 let isCountryElig = true;
-                country.continents.forEach(cc=>{
+                countries[country].continents.forEach(cc=>{
                     if(!this.continents.find(tc=>tc===cc.toLowerCase().replaceAll(" ", "-"))){
                         isCountryElig = false;
                     }
                 })
-                if(isCountryElig)this.quizCountries.push(country);
+                if(isCountryElig)this.quizCountries.push(countries[country]);
             }
         }
         console.log(this.quizCountries);
