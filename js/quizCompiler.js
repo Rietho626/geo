@@ -79,12 +79,12 @@ class QuizCompiler{
                 : this.settings["quiz-q-type"];
     }
 
-    getQuestionText(qObject, aType){
+    getQuestionText(qObject, aType, qType){
         switch(aType){
             case "capital":
             return `What is the capital of ${qObject}?`;
             case "country":
-            return `Find the country, whose ${aType} is ${qObject}!`;
+            return `Find the country, whose ${qType} is ${qObject}!`;
             case "flag":
             return `Which Flag is the Flag of ${qObject}?`;
         }
@@ -102,7 +102,7 @@ class QuizCompiler{
             const activeQuestion = {
                 questionMode: this.settings["quiz-mode"], //maybe mixed question modes will be enabled in the future
                 questionType: qType,
-                questionText: this.getQuestionText(qObject, aType),
+                questionText: this.getQuestionText(qObject, aType, qType),
                 questionObject: qObject,
                 answer: answer,
                 wrongAnswers: this.settings["quiz-mode"] === "multiple-choice" ? this.getWrongAnswers(answer, aType) : false
