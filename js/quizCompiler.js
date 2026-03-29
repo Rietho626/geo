@@ -39,25 +39,19 @@ class QuizCompiler{
     }
 
     filterContinents(){
-            for(let country in countries){
-                let isCountryElig = true;
-                countries[country].continents.forEach(cc=>{
-                    if(!this.continents.find(tc=>tc===cc.toLowerCase().replaceAll(" ", "-"))){
-                        isCountryElig = false;
-                    }
-                })
-                if(isCountryElig){
-                    this.quizCountries[country] = countries[country]
-                    this.quizCountryNamesAll.push(country);
-                    this.quizCountryNames.push(country);               
-                };
-            }
-        
-        console.log(this.quizCountries);
-    }
-
-    testSettings(){
-        console.log(this.settings)
+        for(let country in countries){
+            let isCountryElig = true;
+            countries[country].continents.forEach(cc=>{
+                if(!this.continents.find(tc=>tc===cc.toLowerCase().replaceAll(" ", "-"))){
+                    isCountryElig = false;
+                }
+            })
+            if(isCountryElig){
+                this.quizCountries[country] = countries[country]
+                this.quizCountryNamesAll.push(country);
+                this.quizCountryNames.push(country);               
+            };
+        }
     }
 
     getWrongAnswers(answer, answerType, numAnswers = 4){
