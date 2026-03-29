@@ -343,15 +343,6 @@ function getGeneralSettings(topic){
                     ],
                     text_content: "Ozeanien",
                     listener: false,
-                },
-                {
-                    type: "div",
-                    attributes: [
-                        ["class", topic+"-input continent off"],
-                        ["id", "antarctica"],
-                    ],
-                    text_content: "Antarcitca",
-                    listener: false,
                 }
             ]
         }
