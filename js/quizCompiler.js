@@ -102,7 +102,7 @@ class QuizCompiler{
             const activeQuestion = {
                 questionMode: this.settings["quiz-mode"], //maybe mixed question modes will be enabled in the future
                 questionType: qType,
-                questionText: this.getQuestionText(qObject, aType, qType),
+                questionText: this.getQuestionText(qObject, aType, qObjectType),
                 questionObject: qObject,
                 answer: answer,
                 wrongAnswers: this.settings["quiz-mode"] === "multiple-choice" ? this.getWrongAnswers(answer, aType) : false
