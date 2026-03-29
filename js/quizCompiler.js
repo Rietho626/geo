@@ -79,6 +79,17 @@ class QuizCompiler{
                 : this.settings["quiz-q-type"];
     }
 
+    getQuestionText(qObject, aType){
+        switch(aType){
+            case "capital":
+            return `What is the capital of ${qObject}?`;
+            case "country":
+            return `Find the country, whose ${aType} is ${qObject}!`;
+            case "flag":
+            return `Which Flag is the Flag of ${qObject}?`;
+        }
+    }
+
     compileQuiz(){
         while(this.quiz.questions.length < this.quiz.numQuestions){
             const rndCountry = this.quizCountryNames[Math.floor(Math.random()*this.quizCountryNames.length)];
@@ -91,15 +102,16 @@ class QuizCompiler{
             const activeQuestion = {
                 questionMode: this.settings["quiz-mode"], //maybe mixed question modes will be enabled in the future
                 questionType: qType,
-                questionText: "", //tbd
+                questionText: this.getQuestionText(qObject, aType),
                 questionObject: qObject,
                 answer: answer,
                 wrongAnswers: this.settings["quiz-mode"] === "multiple-choice" ? this.getWrongAnswers(answer, aType) : false
-
             }   
-            //remove country from quizcountrynames
-            //push question into this.quiz.questions
+            this.quizCountryNames[this.quizCountryNames.indexOf(rndCountry)] = this.quizCountryNames[0];
+            this.quizCountryNames.shift();
+            this.quiz.questions.push(activeQuestion);
         }
+        console.log(this.quiz);
     }
 }
 
@@ -108,6 +120,8 @@ const quizTypes = new Map(
         ["capital", ["country-capital", "capital-country"]]
     ]
 )
+
+
 
 const quizOutputModel = {
 
