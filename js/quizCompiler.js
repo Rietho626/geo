@@ -39,7 +39,6 @@ class QuizCompiler{
     }
 
     filterContinents(){
-        if(this.continents.length !== 6){
             for(let country in countries){
                 let isCountryElig = true;
                 countries[country].continents.forEach(cc=>{
@@ -50,14 +49,15 @@ class QuizCompiler{
                 if(isCountryElig){
                     this.quizCountries[country] = countries[country]
                     this.quizCountryNamesAll.push(country);
-                    this.quizCountryNames.push(country);                };
+                    this.quizCountryNames.push(country);               
+                };
             }
-        }
+        
         console.log(this.quizCountries);
     }
 
     testSettings(){
-        console.log(this.quiz)
+        console.log(this.settings)
     }
 
     getWrongAnswers(answer, answerType, numAnswers = 4){
