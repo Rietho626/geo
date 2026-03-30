@@ -20,7 +20,7 @@ function startingScreen(quiz){
 
 function startQuiz(quiz){
     const logic = getQuizLogic(quiz);
-    quizDomActions.resetForm();
+    quizDomActions.resetQuiz();
     quizDomActions.constructQuiz(logic.getMode());
     quizDomActions.updateQuestion(logic);
 }
