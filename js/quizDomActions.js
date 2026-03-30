@@ -102,7 +102,7 @@ class QuizDomActions{
         this.wrongQuestionsLabel.textContent = this.lang.quiz.wrongQuestions;
     } 
 
-    randomizeAnswers(answers){
+    randomizeAnswers(answers, randomAnswers = []){
         const randomAnswers = [];
         console.log("random answers: " + randomAnswers);
         console.log("answers: " + answers);
@@ -113,7 +113,7 @@ class QuizDomActions{
             answers[answers.indexOf(rndm)] = answers[0];
             answers.shift();
             randomAnswers.push(rndm);
-            return this.randomizeAnswers(answers);
+            return this.randomizeAnswers(answers, randomAnswers);
         }
     }
 
