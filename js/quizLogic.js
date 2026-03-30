@@ -7,7 +7,7 @@ class QuizLogic{
         this.quiz = quiz;
         this.wrongQuestions = [];
         this.correctQuestions = []; 
-        this.activeQuestion = quiz.questions.unshift();
+        this.activeQuestion = quiz.questions.shift();
     }
 
     getAnswer = () => this.activeQuestion.answer;
