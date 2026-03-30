@@ -12,7 +12,7 @@ class QuizDomActions{
         attributes.forEach(attr=>node.setAttribute(attr[0], attr[1]));
         return node;
     }
-    startingScreen(quiz){
+    startingScreen(quiz, startQuiz, createQuiz){
         const startClass = ["class", "starting-screen"];
         const heading = this.createNode("h1", [["id","heading"],startClass]);
         const detailsContainer = this.createNode("div", [["id", "details-container"],startClass]);
@@ -22,7 +22,6 @@ class QuizDomActions{
         const continentContainer = this.createNode("div", [["id", "continent-container"], startClass])
         const numQuestionsContainer  = this.createNode("div", [["id", "num-questions-container"],startClass]);
         const submitContainer = this.createNode("div", [["id", "submit-container"], startClass]);
-
         const startQuizButton = this.createNode("button", [["id", "start-quiz-button"], startClass]);
         const createNewQuizButton = this.createNode("button", [["id", "create-new-button"], startClass]);
 
@@ -34,7 +33,6 @@ class QuizDomActions{
         continentContainer.textContent = quiz.continents.reduce((string, continent)=>{
             return string + ((string) ? ", " : "") + this.lang.continents[continent];
         }, "");
-
 
         startQuizButton.textContent = this.lang.startingScreen.startQuizButton;
         createNewQuizButton.textContent = this.lang.startingScreen.createNewQuizButton;
@@ -49,8 +47,96 @@ class QuizDomActions{
         detailsContainer.appendChild(submitContainer);
         submitContainer.appendChild(startQuizButton);
         submitContainer.appendChild(createNewQuizButton);
+
+        startQuizButton.addEventListener("click", ()=>{
+            startQuiz(quiz);
+        });
+        createNewQuizButton.addEventListener("click", createQuiz);
+    }
+
+    static resetQuiz = () => Array.from(document.querySelectorAll("quiz-container > *")).forEach(node=>node.remove());
+
+    constructQuiz(mode){
+        this.quizWrapper = this.createNode("div", [["id","quiz-wrapper"]]);
+        this.quizTopContainer = this.createNode("div", [["id", "quiz-top-container"]]);
+        this.heading = this.createNode("h1", [["id", "quiz-heading"]]);
+        this.correctQuestionsContainer = this.createNode("div", [["id", "correct-questions-container"]]);
+        this.wrongQuestionsContainer = this.createNode("div", [["id", "wrong-questions-container"]]);
+        this.correctQuestionsLabel = this.createNode("div", [["id", "correct-questions-label"]]);
+        this.wrongQuestionsLabel = this.createNode("div", [["id", "wrong-questions-label"]]);
+        this.correctQuestions = this.createNode("div", [["id", "correct-questions"]]);
+        this.wrongQuestions = this.createNode("div", [["id", "wrong-questions"]]);
+        this.questionBox = this.createNode("div", [["id", "question-box"]]);
+        this.question = this.createNode("div", [["id", "quiz-question"]]);
+        this.time = this.createNode("div", [["id", "quiz-time"]]);
+        this.answerBox = this.createNode("div", [["id", "answer-box"]]);
+        this.leftUpperAnswer = this.createNode("div", [["id", "left-upper-answer"]]);
+        this.leftLowerAnswer = this.createNode("div", [["id", "left-lower-answer"]]);
+        this.rightUpperAnswer = this.createNode("div", [["id", "right-upper-answer"]]);
+        this.rightLowerAnswer = this.createNode("div", [["id", "right-lower-answer"]]);
+        //Here search/type-in Mode expansion
+
+        this.quizContainer.appendChild(quizWrapper);
+        this.quizWrapper.appendChild(quizTopContainer);
+        this.quizTopContainer.appendChild(heading);
+        this.quizTopContainer.appendChild(correctQuestionsContainer);
+        this.quizTopContainer.appendChild(wrongQuestionsContainer);
+        this.correctQuestionsContainer.appendChild(correctQuestionsLabel);
+        this.correctQuestionsContainer.appendChild(correctQuestions);
+        this.wrongQuestionsContainer.appendChild(wrongQuestionsLabel);
+        this.wrongQuestionsContainer.appendChild(wrongQuestions);
+        this.quizWrapper.appendChild(questionBox);
+        this.questionBox.appendChild(question);
+        this.questionBox.appendChild(time);
+        this.quizWrapper.appendChild(answerBox);
+
+
+
+        //ofc only if mode is multiple choice, otherwise append search bar
+        this.answerBox.appendChild(leftUpperAnswer);
+        this.answerBox.appendChild(rightUpperAnswer);
+        this.answerBox.appendChild(leftLowerAnswer);
+        this.answerBox.appendChild(rightLowerAnswer);
+
+        this.correctQuestionsLabel.textContent = this.lang.quiz.correctQuestions;
+        this.wrongQuestionsLabel.textContent = this.lang.quiz.wrongQuestions;
+    } 
+
+    randomizeAnswers(answers){
+        const randomAnswers = [];
+        if(randomAnswers.length == 4){
+            return randomAnswers;
+        }else{
+            const rndm = answers[Math.floor(Math.random()*answers.length)];
+            answers[answers.indexOf(rndm)] = answers[0];
+            answers.shift();
+            randomAnswers.push(rndm);
+            this.randomizeAnswers(answers);
+        }
+    }
+
+    updateQuestion(logic){
+        this.correctQuestions.textContent = logic.getNumCorrectQuestions();
+        this.wrongQuestions.textContent = logic.getNumWrongQuestions();
+        this.heading.textContent = this.lang.quiz.heading + logic.getQuestionNr();
+        this.question.textContent = logic.getQuestion();
+        this.time.textContent = logic.getTime();
+
+        if(logic.getMode() === "multiple-choice"){
+            const answers = logic.getWrongAnswers().push(logic.getAnswer());
+            const randomizedAnswers = this.randomizeAnswers(answers);
+            this.leftUpperAnswer.textContent = randomizedAnswers[0];
+            this.rightUpperAnswer.textContent = randomizedAnswers[1];
+            this.leftLowerAnswer.textContent = randomizedAnswers[2];
+            this.rightLowerAnswer.textContent = randomizedAnswers[3];
+            return randomizedAnswers;
+        }else{
+            console.log("Not Multiple Choice")
+        }
     }
 }
+
+
 
 
 const languagePack =  {
@@ -70,9 +156,14 @@ const languagePack =  {
             europe: "Europe",
             asia: "Asia",
             "north-america": "North America",
-            "south-america": "Sourth America",
+            "south-america": "South America",
             africa: "Africa",
             oceania: "Oceania"
+        },
+        "quiz":{
+            correctQuestions: "Correct",
+            wrongQuestions: "Incorrect",
+            heading: "Question "
         }
     }
 }

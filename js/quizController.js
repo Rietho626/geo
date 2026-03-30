@@ -11,10 +11,21 @@ function initiateQuiz(settings){
     const compiler = createQuizCompiler(settings);
     compiler.compileQuiz();
     const quiz = compiler.quiz;
-    scopeTest(quiz);
+    startingScreen(quiz);
 }
 
-function scopeTest(quiz){
-    quizDomActions.startingScreen(quiz);
+function startingScreen(quiz){
+    quizDomActions.startingScreen(quiz, startQuiz, resetForm);
+}
+
+function startQuiz(quiz){
+    const logic = getQuizLogic(quiz);
+    quizDomActions.resetForm();
+    quizDomActions.constructQuiz(logic.getMode());
+    quizDomActions.updateQuestion(logic);
+}
+
+function resetForm(){
+
 }
 
