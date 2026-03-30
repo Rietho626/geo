@@ -32,7 +32,7 @@ class QuizDomActions{
         numQuestionsContainer.textContent = this.lang.startingScreen.numQuestionsContainer + quiz.numQuestions;
 
         startQuizButton.value = this.lang.startQuizButton;
-        createNewQuizButton = this.lang.createNewQuizButton;
+        createNewQuizButton.value = this.lang.createNewQuizButton;
 
         this.quizContainer.appendChild(heading);
         this.quizContainer.appendChild(detailsContainer);
