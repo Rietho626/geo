@@ -76,27 +76,27 @@ class QuizDomActions{
         this.rightLowerAnswer = this.createNode("div", [["id", "right-lower-answer"]]);
         //Here search/type-in Mode expansion
 
-        this.quizContainer.appendChild(quizWrapper);
-        this.quizWrapper.appendChild(quizTopContainer);
-        this.quizTopContainer.appendChild(heading);
-        this.quizTopContainer.appendChild(correctQuestionsContainer);
-        this.quizTopContainer.appendChild(wrongQuestionsContainer);
-        this.correctQuestionsContainer.appendChild(correctQuestionsLabel);
-        this.correctQuestionsContainer.appendChild(correctQuestions);
-        this.wrongQuestionsContainer.appendChild(wrongQuestionsLabel);
-        this.wrongQuestionsContainer.appendChild(wrongQuestions);
-        this.quizWrapper.appendChild(questionBox);
-        this.questionBox.appendChild(question);
-        this.questionBox.appendChild(time);
-        this.quizWrapper.appendChild(answerBox);
+        this.quizContainer.appendChild(this.quizWrapper);
+        this.quizWrapper.appendChild(this.quizTopContainer);
+        this.quizTopContainer.appendChild(this.heading);
+        this.quizTopContainer.appendChild(this.correctQuestionsContainer);
+        this.quizTopContainer.appendChild(this.wrongQuestionsContainer);
+        this.correctQuestionsContainer.appendChild(this.correctQuestionsLabel);
+        this.correctQuestionsContainer.appendChild(this.correctQuestions);
+        this.wrongQuestionsContainer.appendChild(this.wrongQuestionsLabel);
+        this.wrongQuestionsContainer.appendChild(this.wrongQuestions);
+        this.quizWrapper.appendChild(this.questionBox);
+        this.questionBox.appendChild(this.question);
+        this.questionBox.appendChild(this.time);
+        this.quizWrapper.appendChild(this.answerBox);
 
 
 
         //ofc only if mode is multiple choice, otherwise append search bar
-        this.answerBox.appendChild(leftUpperAnswer);
-        this.answerBox.appendChild(rightUpperAnswer);
-        this.answerBox.appendChild(leftLowerAnswer);
-        this.answerBox.appendChild(rightLowerAnswer);
+        this.answerBox.appendChild(this.leftUpperAnswer);
+        this.answerBox.appendChild(this.rightUpperAnswer);
+        this.answerBox.appendChild(this.leftLowerAnswer);
+        this.answerBox.appendChild(this.rightLowerAnswer);
 
         this.correctQuestionsLabel.textContent = this.lang.quiz.correctQuestions;
         this.wrongQuestionsLabel.textContent = this.lang.quiz.wrongQuestions;
