@@ -54,7 +54,7 @@ class QuizDomActions{
         createNewQuizButton.addEventListener("click", createQuiz);
     }
 
-    resetQuiz = () => Array.from(document.querySelectorAll("quiz-container > *")).forEach(node=>node.remove());
+    resetQuiz = () => Array.from(document.querySelectorAll("#quiz-container > *")).forEach(node=>node.remove());
 
     constructQuiz(mode){
         this.quizWrapper = this.createNode("div", [["id","quiz-wrapper"]]);

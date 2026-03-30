@@ -22,6 +22,7 @@ function startQuiz(quiz){
     const logic = getQuizLogic(quiz);
     quizDomActions.resetQuiz();
     quizDomActions.constructQuiz(logic.getMode());
+    console.log(logic.quiz, logic.activeQuestion)
     quizDomActions.updateQuestion(logic);
 }
 
