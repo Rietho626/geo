@@ -84,6 +84,7 @@ class QuizCompiler{
     }
 
     compileQuiz(){
+        this.filterContinents();
         while(this.quiz.questions.length < this.quiz.numQuestions){
             const rndCountry = this.quizCountryNames[Math.floor(Math.random()*this.quizCountryNames.length)];
             const qType = this.getQuestionType();

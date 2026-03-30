@@ -1,4 +1,3 @@
-import createQuizCompiler from "./quizCompiler.js";
 import getGeneralSettings  from "./settings/generalSettings.js";
 import getCapitalSettings from "./settings/capitalSettings.js";
 
@@ -10,17 +9,18 @@ class SettingsHandler{
     constructor(){
         this.nav = document.querySelector("nav");
         this.createContainer = document.getElementById("create-quiz-container");
-        this.quizContainer = document.getElementById("quiz-container");
         this.form = document.getElementById("create-form")
     }
 
-    enableListener(){
+    enableListener(cb){
         this.nav.addEventListener("click", (e)=>{
             if(e.target.classList.contains("quiz-link")){
                 Array.from(document.querySelectorAll("tbody > *"))
                     .forEach(node=>node.remove());
                 this.configureSettings(e.target.id);
-                this.form.addEventListener("submit", this.processForm);
+                this.form.addEventListener("submit", (e)=>{
+                    cb(this.processForm(e))
+                });
             }
         })
     }
@@ -86,9 +86,7 @@ class SettingsHandler{
         const nodes = Array.from(document.querySelectorAll("select."+topic+"-input")).concat(Array.from(document.querySelectorAll("input."+topic+"-input")));
         nodes.forEach(node=>settings[node.name] = node.value);
         settings["topic"] = topic;
-        const compiler = createQuizCompiler(settings);
-        compiler.filterContinents();
-        compiler.compileQuiz();
+        return settings;
     }
 
     static continentSettingsCb(e){
