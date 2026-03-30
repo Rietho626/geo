@@ -127,7 +127,7 @@ class QuizDomActions{
         if(logic.getMode() === "multiple-choice"){
             const answers = [...logic.getWrongAnswers()].push(logic.getAnswer());
             console.log(answers);
-            console.log([...logic.getWrongAnswers()])
+            console.log([...logic.getWrongAnswers()].push(logic.getAnswer()))
             const randomizedAnswers = this.randomizeAnswers(answers);
             this.leftUpperAnswer.textContent = randomizedAnswers[0];
             this.rightUpperAnswer.textContent = randomizedAnswers[1];
