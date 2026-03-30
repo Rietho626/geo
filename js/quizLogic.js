@@ -26,7 +26,7 @@ class QuizLogic{
 
     getQuestionNr = () => this.correctQuestions.length + this.wrongQuestions.length + 1;
 
-    checkAnswer = (answer) => answer === this.activeQuestion.answer;
+    checkAnswer = (answer) => answer === this.activeQuestion.answerText;
 
     handleInput(answer){
         this.checkAnswer(answer)

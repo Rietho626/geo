@@ -103,8 +103,6 @@ class QuizDomActions{
     } 
 
     randomizeAnswers(answers, randomAnswers = []){
-        console.log("random answers: " + randomAnswers);
-        console.log("answers: " + answers);
         if(randomAnswers.length == 4){
             return randomAnswers;
         }else{
