@@ -1,7 +1,7 @@
 import getQuizDomActions from "./quizDomActions";
 import getQuizLogic from "./quizLogic";
 import createQuizCompiler from "./quizCompiler";
-import getSettingsHandler from "./settingsHandler";
+import getSettingsHandler from "./js/settingsHandler";
 
 const settingsHandler = getSettingsHandler();
 settingsHandler.enableListener(initiateQuiz);
