@@ -32,8 +32,8 @@ class QuizDomActions{
         timeLimitContainer.textContent = this.lang.startingScreen.timeLimitContainer + quiz.time;
         numQuestionsContainer.textContent = this.lang.startingScreen.numQuestionsContainer + quiz.numQuestions;
         const continentString = quiz.continents.reduce((string, continent)=>{
-            string += this.lang.continents[continent];
-        })
+            return string + ", " + this.lang.continents[continent];
+        }, "")
         console.log(continentString);
 
         startQuizButton.textContent = this.lang.startingScreen.startQuizButton;
