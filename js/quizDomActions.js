@@ -34,6 +34,7 @@ class QuizDomActions{
         const continentString = quiz.continents.reduce((string, continent)=>{
             return string + ", " + this.lang.continents[continent];
         }, "")
+        console.log(quiz.continents);
         console.log(continentString);
 
         startQuizButton.textContent = this.lang.startingScreen.startQuizButton;
