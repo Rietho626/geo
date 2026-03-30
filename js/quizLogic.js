@@ -22,11 +22,11 @@ class QuizLogic{
 
     getWrongAnswers = () => this.activeQuestion.wrongAnswers;    
 
-    getQuestion = () => this.activeQuestion.question;
+    getQuestion = () => this.activeQuestion.questionText;
 
     getQuestionNr = () => this.correctQuestions.length + this.wrongQuestions.length + 1;
 
-    checkAnswer = (answer) => answer === this.activeQuestion.answerText;
+    checkAnswer = (answer) => answer === this.activeQuestion.answer;
 
     handleInput(answer){
         this.checkAnswer(answer)
