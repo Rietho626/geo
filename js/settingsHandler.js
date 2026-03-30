@@ -19,6 +19,7 @@ class SettingsHandler{
                     .forEach(node=>node.remove());
                 this.configureSettings(e.target.id);
                 this.form.addEventListener("submit", (e)=>{
+                    this.createContainer.style.display = "none";
                     cb(this.processForm(e))
                 });
             }

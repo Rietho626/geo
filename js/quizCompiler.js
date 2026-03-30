@@ -32,6 +32,9 @@ class QuizCompiler{
         this.quiz = {
             time: this.settings["time-questions"],
             numQuestions: this.settings["num-questions"],
+            topic: this.settings["topic"],
+            mode: this.settings["quiz-mode"],
+            type: this.settings["quiz-q-type"],
             continents: this.continents,
             questions: []
         }
@@ -105,7 +108,6 @@ class QuizCompiler{
             this.quizCountryNames.shift();
             this.quiz.questions.push(activeQuestion);
         }
-        console.log(this.quiz);
     }
 }
 

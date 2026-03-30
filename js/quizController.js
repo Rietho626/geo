@@ -4,6 +4,7 @@ import createQuizCompiler from "./quizCompiler.js";
 import getSettingsHandler from "./settingsHandler.js";
 
 const settingsHandler = getSettingsHandler();
+const quizDomActions = getQuizDomActions();
 settingsHandler.enableListener(initiateQuiz);
 
 function initiateQuiz(settings){
@@ -14,6 +15,6 @@ function initiateQuiz(settings){
 }
 
 function scopeTest(quiz){
-    console.log(quiz)
+    quizDomActions.startingScreen(quiz);
 }
 
