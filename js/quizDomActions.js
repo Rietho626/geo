@@ -32,7 +32,7 @@ class QuizDomActions{
         timeLimitContainer.textContent = this.lang.startingScreen.timeLimitContainer + quiz.time;
         numQuestionsContainer.textContent = this.lang.startingScreen.numQuestionsContainer + quiz.numQuestions;
         continentContainer.textContent = quiz.continents.reduce((string, continent)=>{
-            return string + (string) ? ", " : "" + this.lang.continents[continent];
+            return string + ((string) ? ", " : "") + this.lang.continents[continent];
         }, "");
 
 
