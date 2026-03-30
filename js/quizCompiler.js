@@ -1,5 +1,4 @@
 import countries from "./countries.js";
-//import countryArray from "./countryArray.js";
 
 export default function createQuizCompiler(quizSettings){
     return new QuizCompiler(quizSettings);
@@ -116,7 +115,7 @@ const quizTypes = new Map(
 )
 
 
-
+/*
 const quizOutputModel = {
 
     time: "10",
@@ -142,3 +141,5 @@ const quizOutputModel = {
     ]
     
 }
+
+*/
