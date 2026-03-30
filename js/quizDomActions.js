@@ -104,6 +104,8 @@ class QuizDomActions{
 
     randomizeAnswers(answers){
         const randomAnswers = [];
+        console.log("random answers: " + randomAnswers);
+        console.log("answers: " + answers);
         if(randomAnswers.length == 4){
             return randomAnswers;
         }else{
@@ -124,6 +126,7 @@ class QuizDomActions{
 
         if(logic.getMode() === "multiple-choice"){
             const answers = [...logic.getWrongAnswers()].push(logic.getAnswer());
+            console.log(answers);
             const randomizedAnswers = this.randomizeAnswers(answers);
             this.leftUpperAnswer.textContent = randomizedAnswers[0];
             this.rightUpperAnswer.textContent = randomizedAnswers[1];
