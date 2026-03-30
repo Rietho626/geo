@@ -19,6 +19,7 @@ class QuizDomActions{
         const questionTypeContainer = this.createNode("div", [["id", "type-container"],startClass]);
         const questionModeContainer = this.createNode("div", [["id", "mode-container"],startClass]);
         const timeLimitContainer = this.createNode("div", [["id", "time-limit-container"],startClass]);
+        const continentContainer = this.createNode("div", [["id", "continent-container"], startClass])
         const numQuestionsContainer  = this.createNode("div", [["id", "num-questions-container"],startClass]);
         const submitContainer = this.createNode("div", [["id", "submit-container"], startClass]);
 
@@ -30,6 +31,9 @@ class QuizDomActions{
         questionTypeContainer.textContent = this.lang.startingScreen.questionTypeContainer + quiz.type;
         timeLimitContainer.textContent = this.lang.startingScreen.timeLimitContainer + quiz.time;
         numQuestionsContainer.textContent = this.lang.startingScreen.numQuestionsContainer + quiz.numQuestions;
+        continentContainer.textContent = quiz.continents.reduce((string, continent)=>{
+            string += this.lang.continents[continent];
+        })
 
         startQuizButton.textContent = this.lang.startingScreen.startQuizButton;
         createNewQuizButton.textContent = this.lang.startingScreen.createNewQuizButton;
@@ -40,6 +44,7 @@ class QuizDomActions{
         detailsContainer.appendChild(questionModeContainer);
         detailsContainer.appendChild(timeLimitContainer);
         detailsContainer.appendChild(numQuestionsContainer);
+        detailsContainer.appendChild(continentContainer)
         detailsContainer.appendChild(submitContainer);
         submitContainer.appendChild(startQuizButton);
         submitContainer.appendChild(createNewQuizButton);
@@ -55,8 +60,18 @@ const languagePack =  {
             questionTypeContainer: "Question Type: ",
             timeLimitContainer: "Time per Question: ",
             numQuestionsContainer: "Number of Questions: ",
+            continentContainer: "Continents: ",
             startQuizButton: "Start Quiz",
             createNewQuizButton: "Create New Quiz"
+            
+        },
+        "continents":{
+            europe: "Europe",
+            asia: "Asia",
+            "north-america": "North America",
+            "south-america": "Sourth America",
+            africa: "Africa",
+            oceania: "Oceania"
         }
     }
 }
