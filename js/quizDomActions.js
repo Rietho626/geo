@@ -111,7 +111,7 @@ class QuizDomActions{
             answers[answers.indexOf(rndm)] = answers[0];
             answers.shift();
             randomAnswers.push(rndm);
-            this.randomizeAnswers(answers);
+            return this.randomizeAnswers(answers);
         }
     }
 
@@ -123,7 +123,7 @@ class QuizDomActions{
         this.time.textContent = logic.getTime();
 
         if(logic.getMode() === "multiple-choice"){
-            const answers = logic.getWrongAnswers().push(logic.getAnswer());
+            const answers = [...logic.getWrongAnswers()].push(logic.getAnswer());
             const randomizedAnswers = this.randomizeAnswers(answers);
             this.leftUpperAnswer.textContent = randomizedAnswers[0];
             this.rightUpperAnswer.textContent = randomizedAnswers[1];
