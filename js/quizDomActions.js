@@ -31,8 +31,8 @@ class QuizDomActions{
         timeLimitContainer.textContent = this.lang.startingScreen.timeLimitContainer + quiz.time;
         numQuestionsContainer.textContent = this.lang.startingScreen.numQuestionsContainer + quiz.numQuestions;
 
-        startQuizButton.value = this.lang.startQuizButton;
-        createNewQuizButton.value = this.lang.createNewQuizButton;
+        startQuizButton.textContent = this.lang.startingScreen.startQuizButton;
+        createNewQuizButton.textContent = this.lang.startingScreen.createNewQuizButton;
 
         this.quizContainer.appendChild(heading);
         this.quizContainer.appendChild(detailsContainer);
