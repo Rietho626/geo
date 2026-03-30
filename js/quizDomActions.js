@@ -31,9 +31,10 @@ class QuizDomActions{
         questionTypeContainer.textContent = this.lang.startingScreen.questionTypeContainer + quiz.type;
         timeLimitContainer.textContent = this.lang.startingScreen.timeLimitContainer + quiz.time;
         numQuestionsContainer.textContent = this.lang.startingScreen.numQuestionsContainer + quiz.numQuestions;
-        continentContainer.textContent = quiz.continents.reduce((string, continent)=>{
+        const continentString = quiz.continents.reduce((string, continent)=>{
             string += this.lang.continents[continent];
         })
+        console.log(continentString);
 
         startQuizButton.textContent = this.lang.startingScreen.startQuizButton;
         createNewQuizButton.textContent = this.lang.startingScreen.createNewQuizButton;
