@@ -151,7 +151,9 @@ class QuizDomActions{
                 }else if(this.rl === correctAnswer){
                     corrAnswerNode = document.getElementById("right-lower-answer")
                 }
-                if(corrAnswerNode) corrAnswerNode.style.backgroundColor = "lightgreen";
+                setTimeout(()=>{
+                  if(corrAnswerNode) corrAnswerNode.style.backgroundColor = "lightgreen";
+                },500);
             }
             setTimeout(()=>{
                 answerNode.style.backgroundColor =  "white";
