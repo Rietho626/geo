@@ -171,3 +171,60 @@ button:hover, input[type=submit]:hover{
     box-shadow: 2px 2px 5px black inset;
     cursor: pointer;
 }
+
+#quiz-container{
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+      margin-top: 7%;
+}
+
+#details-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+}
+
+#correct-questions-container{
+
+    position: absolute; 
+    text-align: center;
+}
+
+#wrong-questions-container{
+    width: 50%;
+    text-align: center;
+
+}
+
+#quiz-heading{
+    text-align: center;
+}
+
+#question-box{
+    font-size: 30px;
+}
+
+#answer-box{
+    display: flex;
+    width: 400px;
+    height: 130px;
+    flex-wrap: wrap;
+    column-gap: 10px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+#answer-box > div{
+    min-width: 45%;
+    min-height: 45px;
+    max-height: 50px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
