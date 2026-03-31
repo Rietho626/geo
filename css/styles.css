@@ -172,8 +172,12 @@ button:hover, input[type=submit]:hover{
     cursor: pointer;
 }
 
+#quiz-question{
+    text-align: center;
+}
+
 #quiz-container{
-    width: 50%;
+    width: 550px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -187,17 +191,19 @@ button:hover, input[type=submit]:hover{
     align-items: center;
   
 }
-
+#past-questions-container{
+    display: flex;
+    justify-content: space-evenly;
+}
 #correct-questions-container{
-
-    position: absolute; 
+    width: 20%;
     text-align: center;
+    position: static;
 }
 
 #wrong-questions-container{
-    width: 50%;
+    width: 20%;
     text-align: center;
-
 }
 
 #quiz-heading{
@@ -219,12 +225,20 @@ button:hover, input[type=submit]:hover{
 }
 
 #answer-box > div{
-    min-width: 45%;
+    
+    max-width: 45%;
     min-height: 45px;
     max-height: 50px;
     border: 2px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    transition: 0.1s;
+    text-align: center;
+}
+
+#answer-box > div:hover{
+    cursor: pointer;
+    transform: scale(105%);
+    box-shadow: 1px 1px 5px black;
 }
