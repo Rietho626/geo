@@ -66,6 +66,7 @@ class QuizDomActions{
         this.quizWrapper = this.createNode("div", [["id","quiz-wrapper"]]);
         this.quizTopContainer = this.createNode("div", [["id", "quiz-top-container"]]);
         this.heading = this.createNode("h1", [["id", "quiz-heading"]]);
+        this.pastQuestionsContainer = this.createNode("div", [["id", "past-questions-container"]]);
         this.correctQuestionsContainer = this.createNode("div", [["id", "correct-questions-container"]]);
         this.wrongQuestionsContainer = this.createNode("div", [["id", "wrong-questions-container"]]);
         this.correctQuestionsLabel = this.createNode("div", [["id", "correct-questions-label"]]);
@@ -84,7 +85,8 @@ class QuizDomActions{
 
         this.appendNodes(this.quizContainer, [this.quizWrapper]);
         this.appendNodes(this.quizWrapper, [this.quizTopContainer, this.questionBox, this.answerBox]);
-        this.appendNodes(this.quizTopContainer, [this.heading, this.correctQuestionsContainer, this.wrongQuestionsContainer]);
+        this.appendNodes(this.quizTopContainer, [this.heading, this.pastQuestionsContainer]);
+        this.appendNodes(this.pastQuestionsContainer, [this.correctQuestionsContainer, this.wrongQuestionsContainer])
         this.appendNodes(this.correctQuestionsContainer, [this.correctQuestionsLabel, this.correctQuestions]);
         this.appendNodes(this.wrongQuestionsContainer, [this.wrongQuestionsLabel, this.wrongQuestions]);
         this.appendNodes(this.questionBox, [this.question, this.time]);
