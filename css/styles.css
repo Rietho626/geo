@@ -1,13 +1,18 @@
 :root{
     --font: Verdana;
-    --navLinkBorderColor: black;
+    --linkBorderColor: black;
     --navLinkBorderSize: 2px;
     --navLinkPadding: 7px;
     --navLinkMargin: 2px;
     --mainColor: orangered;
+    --secondaryColor: orange;
     --navLinkShadowColor: yellow;
     --navLinkBg:radial-gradient(var(--navLinkShadowColor),var(--mainColor) 80%);
     --navLinkRevBg: radial-gradient(var(--mainColor),var(--navLinkShadowColor) 80%);
+}
+
+body{
+    background-color: var(--secondaryColor);
 }
 
 *{
@@ -29,7 +34,7 @@ ul{
 nav > ul > li{
     padding: var(--navLinkPadding);
     margin: var(--navLinkMargin);
-    border: var(--navLinkBorderSize) solid var(--navLinkBorderColor);
+    border: var(--navLinkBorderSize) solid var(--linkBorderColor);
     width: 30%;
     min-width: 90px;
     text-align: center;
@@ -65,7 +70,104 @@ header > div{
     text-align: center;
     margin-right: 5%;
     margin-top: calc(var(--navLinkBorderSize) + var(--navLinkPadding) + var(--navLinkMargin))
-    
+    font-weight: bold;
+    font-size: 30px;
+}
+
+
+.on{
+    background-color: var(--mainColor);
+}
+
+#create-form td:has(#continent-settings){
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+#continent-settings{
+    text-align: center
+}
+
+#continent-settings > div{
+    padding: 2px;
+    width: 30%;
+    margin: 5px auto;
+    border: 2px solid var(--linkBorderColor);
+    transition: 0.2s ease-in-out;
     
 }
 
+#continent-settings > div:hover{
+    cursor: pointer;
+    background-color: var(--navLinkShadowColor);
+}
+
+#create-form td{
+   display: flex;
+   flex-direction: row-reverse;
+    justify-content: center;
+}
+
+tbody span{
+    align-items: center;
+    display: flex;
+    padding: 5px;
+}
+
+#create-form label{
+     margin: 5px 20px 5px 5px;
+}
+
+#create-form{
+    width: 445.3px;
+    margin: 0 auto;
+    margin-top: 7%;
+}
+
+th{
+    font-weight: 1000;
+    font-size: 50px;
+    padding-bottom: 10%;
+    color: var(--mainColor);
+    text-shadow: 2px 1px 0px black
+}
+
+select{
+    background-color: var(--mainColor);
+}
+
+input[type=range]{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 50%;
+    background-color: transparent;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background: var(--mainColor);
+  height: 13px;
+  width: 13px;
+  margin-top: -4px;
+  transform: rotate(45deg);
+  border: 1px solid black;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    height: 5px;
+    background: var(--mainColor);
+    width: 40%;
+}
+
+button, input[type=submit]{
+    border: 0px;
+    padding: 5px;
+    margin: 10px;
+    background-color: var(--mainColor);
+    border-radius: 2px;
+}
+
+button:hover, input[type=submit]:hover{
+    box-shadow: 2px 2px 5px black inset;
+    cursor: pointer;
+}
