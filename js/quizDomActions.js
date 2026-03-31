@@ -133,8 +133,17 @@ class QuizDomActions{
 
     displayAnswerCheck(isCorrect, answerBoxId){
         return new Promise((resolve)=>{
-            document.getElementById(answerBoxId).style.backgroundColor = (isCorrect) ? "green" : "red";
+            const answerNode = document.getElementById(answerBoxId);
+            if(isCorrect){
+                answerNode.style.backgroundColor =  "green";
+                answerNode.style.color = "white";
+            }else{
+                answerNode.style.backgroundColor =  "red";
+                answerNode.style.color = "white";
+            }
             setTimeout(()=>{
+                answerNode.style.backgroundColor =  "white";
+                answerNode.style.color = "black";
                 resolve(this);
             }, 1500);
         })

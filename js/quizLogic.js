@@ -32,7 +32,7 @@ class QuizLogic{
         const isCorrect = this.checkAnswer(answer);
         isCorrect ? this.correctQuestions.push(this.activeQuestion) :  this.wrongQuestions.push(this.activeQuestion);
 
-        this.activeQuestion = this.quiz.questions.unshift();
+        this.activeQuestion = this.quiz.questions.shift();
         return isCorrect;
     }
 
