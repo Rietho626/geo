@@ -20,7 +20,7 @@ function startingScreen(quiz){
 
 async function checkAnswer(answered, logic, answerBoxId){
     const isCorrect = logic.handleInput(answered);
-    await quizDomActions.displayAnswerCheck(isCorrect, answerBoxId);
+    await quizDomActions.displayAnswerCheck(isCorrect, answerBoxId, logic.getAnswer());
     quizDomActions.updateQuestion(logic, checkAnswer);
 }
 
