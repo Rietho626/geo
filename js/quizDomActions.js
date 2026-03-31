@@ -120,14 +120,23 @@ class QuizDomActions{
     multipleChoiceListener(checkAnswer){
         this.answerBox.addEventListener("click", (e)=>{
             if(e.target.id === "left-upper-answer"){
-                checkAnswer(this.lu, this.logic);
+                checkAnswer(this.lu, this.logic, "left-upper-answer");
             }else if(e.target.id === "right-upper-answer"){
-                checkAnswer(this.ru, this.logic);
+                checkAnswer(this.ru, this.logic, "right-upper-answer");
             }else if(e.target.id === "left-lower-answer"){
-                checkAnswer(this.ll, this.logic);
+                checkAnswer(this.ll, this.logic, "left-lower-answer");
             }else if(e.target.id === "right-lower-answer"){
-                checkAnswer(this.rl, this.logic);
+                checkAnswer(this.rl, this.logic, "right-lower-answer");
             }
+        })
+    }
+
+    displayAnswerCheck(isCorrect, answerBoxId){
+        return new Promise((resolve)=>{
+            document.getElementById(answerBoxId).style.backgroundColor = (isCorrect) ? "green" : "red";
+            setTimeout(()=>{
+                resolve(this);
+            }, 1500);
         })
     }
 }

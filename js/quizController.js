@@ -18,8 +18,14 @@ function startingScreen(quiz){
     quizDomActions.startingScreen(quiz, startQuiz, resetForm);
 }
 
-function checkAnswer(answered, logic){
-    console.log(answered, logic);
+async function checkAnswer(answered, logic, answerBoxId){
+    const isCorrect = logic.handleInput(answered);
+    await quizDomActions.displayAnswerCheck(isCorrect, answerBoxId);
+    quizDomActions.updateQuestion(logic, checkAnswer);
+}
+
+function nextQuestion(logic){
+
 }
 
 function startQuiz(quiz){

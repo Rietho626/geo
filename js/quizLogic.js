@@ -29,12 +29,11 @@ class QuizLogic{
     checkAnswer = (answer) => answer === this.activeQuestion.answer;
 
     handleInput(answer){
-        this.checkAnswer(answer)
-            ?  this.correctQuestions.push(this.activeQuestion)
-            :  this.wrongQuestions.push(this.activeQuestion);
+        const isCorrect = this.checkAnswer(answer);
+        isCorrect ? this.correctQuestions.push(this.activeQuestion) :  this.wrongQuestions.push(this.activeQuestion);
 
         this.activeQuestion = this.quiz.questions.unshift();
-        return this;
+        return isCorrect;
     }
 
     randomizeAnswers(answers, randomAnswers = []){
@@ -48,4 +47,5 @@ class QuizLogic{
             return this.randomizeAnswers(answers, randomAnswers);
         }
     }
+
 }
