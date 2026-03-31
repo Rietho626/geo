@@ -227,6 +227,7 @@ button:hover, input[type=submit]:hover{
 #answer-box > div{
     
     max-width: 45%;
+    min-width: 45%;
     min-height: 45px;
     max-height: 50px;
     border: 2px solid black;
