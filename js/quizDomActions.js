@@ -156,9 +156,9 @@ class QuizDomActions{
                 },500);
             }
             setTimeout(()=>{
-                answerNode.style.backgroundColor =  "white";
+                answerNode.style.backgroundColor =  "transparent";
                 answerNode.style.color = "black";
-                if(corrAnswerNode) corrAnswerNode.style.backgroundColor = "white";
+                if(corrAnswerNode) corrAnswerNode.style.backgroundColor = "transparent";
                 resolve(this);
             }, 2000);
         })
