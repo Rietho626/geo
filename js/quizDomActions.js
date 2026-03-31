@@ -131,21 +131,33 @@ class QuizDomActions{
         })
     }
 
-    displayAnswerCheck(isCorrect, answerBoxId){
+    displayAnswerCheck(isCorrect, answerBoxId, correctAnswer){
         return new Promise((resolve)=>{
             const answerNode = document.getElementById(answerBoxId);
+            let corrAnswerNode = false;
             if(isCorrect){
                 answerNode.style.backgroundColor =  "green";
                 answerNode.style.color = "white";
             }else{
                 answerNode.style.backgroundColor =  "red";
                 answerNode.style.color = "white";
+                if(this.lu === correctAnswer){
+                    corrAnswerNode = document.getElementById("left-upper-answer")
+                }else if(this.ll === correctAnswer){
+                    corrAnswerNode = document.getElementById("left-lower-answer")
+                }else if(this.ru === correctAnswer){
+                    corrAnswerNode = document.getElementById("right-upper-answer")
+                }else if(this.rl === correctAnswer){
+                    corrAnswerNode = document.getElementById("right-lower-answer")
+                }
+                corrAnswerNode?.style.backgroundColor = "lightgreen";
             }
             setTimeout(()=>{
                 answerNode.style.backgroundColor =  "white";
                 answerNode.style.color = "black";
+                corrAnswerNode?.style.backgroundColor = "white";
                 resolve(this);
-            }, 1500);
+            }, 2000);
         })
     }
 }
