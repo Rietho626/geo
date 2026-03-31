@@ -19,8 +19,9 @@ function startingScreen(quiz){
 }
 
 async function checkAnswer(answered, logic, answerBoxId){
+    const prevAnswer = logic.getAnswer();
     const isCorrect = logic.handleInput(answered);
-    await quizDomActions.displayAnswerCheck(isCorrect, answerBoxId, logic.getAnswer());
+    await quizDomActions.displayAnswerCheck(isCorrect, answerBoxId, prevAnswer);
     quizDomActions.updateQuestion(logic, checkAnswer);
 }
 
