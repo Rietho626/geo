@@ -141,6 +141,7 @@ class QuizDomActions{
             }else{
                 answerNode.style.backgroundColor =  "red";
                 answerNode.style.color = "white";
+                console.log(correctAnswer, this.lu, this.ru, this.rl, this.ll);
                 if(this.lu === correctAnswer){
                     corrAnswerNode = document.getElementById("left-upper-answer")
                 }else if(this.ll === correctAnswer){
