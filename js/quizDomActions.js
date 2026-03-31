@@ -6,12 +6,17 @@ class QuizDomActions{
     constructor(){
         this.quizContainer = document.getElementById("quiz-container");
         this.lang = languagePack[localStorage.getItem("langPref") || "english"];
+        this.ru, this.lu, this.ll, this.rl, this.logic;
     }
+
+    appendNodes = (node, children) => children.forEach(child=>node.appendChild(child));
+
     createNode(type, attributes = [["class", "gneralContainer"]]){
         const node = document.createElement(type);
         attributes.forEach(attr=>node.setAttribute(attr[0], attr[1]));
         return node;
     }
+
     startingScreen(quiz, startQuiz, createQuiz){
         const startClass = ["class", "starting-screen"];
         const heading = this.createNode("h1", [["id","heading"],startClass]);
@@ -37,16 +42,17 @@ class QuizDomActions{
         startQuizButton.textContent = this.lang.startingScreen.startQuizButton;
         createNewQuizButton.textContent = this.lang.startingScreen.createNewQuizButton;
 
-        this.quizContainer.appendChild(heading);
-        this.quizContainer.appendChild(detailsContainer);
-        detailsContainer.appendChild(questionTypeContainer);
-        detailsContainer.appendChild(questionModeContainer);
-        detailsContainer.appendChild(timeLimitContainer);
-        detailsContainer.appendChild(numQuestionsContainer);
-        detailsContainer.appendChild(continentContainer)
-        detailsContainer.appendChild(submitContainer);
-        submitContainer.appendChild(startQuizButton);
-        submitContainer.appendChild(createNewQuizButton);
+        this.appendNodes(this.quizContainer, [heading, detailsContainer]);
+        this.appendNodes(detailsContainer, [
+            questionTypeContainer,
+            questionModeContainer,
+            timeLimitContainer,
+            numQuestionsContainer,
+            continentContainer,
+            submitContainer
+        ])
+        this.appendNodes(submitContainer, [startQuizButton, createNewQuizButton]);
+    
 
         startQuizButton.addEventListener("click", ()=>{
             startQuiz(quiz);
@@ -56,7 +62,7 @@ class QuizDomActions{
 
     resetQuiz = () => Array.from(document.querySelectorAll("#quiz-container > *")).forEach(node=>node.remove());
 
-    constructQuiz(mode){
+    constructQuiz(mode, checkAnswer){
         this.quizWrapper = this.createNode("div", [["id","quiz-wrapper"]]);
         this.quizTopContainer = this.createNode("div", [["id", "quiz-top-container"]]);
         this.heading = this.createNode("h1", [["id", "quiz-heading"]]);
@@ -76,45 +82,23 @@ class QuizDomActions{
         this.rightLowerAnswer = this.createNode("div", [["id", "right-lower-answer"]]);
         //Here search/type-in Mode expansion
 
-        this.quizContainer.appendChild(this.quizWrapper);
-        this.quizWrapper.appendChild(this.quizTopContainer);
-        this.quizTopContainer.appendChild(this.heading);
-        this.quizTopContainer.appendChild(this.correctQuestionsContainer);
-        this.quizTopContainer.appendChild(this.wrongQuestionsContainer);
-        this.correctQuestionsContainer.appendChild(this.correctQuestionsLabel);
-        this.correctQuestionsContainer.appendChild(this.correctQuestions);
-        this.wrongQuestionsContainer.appendChild(this.wrongQuestionsLabel);
-        this.wrongQuestionsContainer.appendChild(this.wrongQuestions);
-        this.quizWrapper.appendChild(this.questionBox);
-        this.questionBox.appendChild(this.question);
-        this.questionBox.appendChild(this.time);
-        this.quizWrapper.appendChild(this.answerBox);
-
-
-
+        this.appendNodes(this.quizContainer, [this.quizWrapper]);
+        this.appendNodes(this.quizWrapper, [this.quizTopContainer, this.questionBox, this.answerBox]);
+        this.appendNodes(this.quizTopContainer, [this.heading, this.correctQuestionsContainer, this.wrongQuestionsContainer]);
+        this.appendNodes(this.correctQuestionsContainer, [this.correctQuestionsLabel, this.correctQuestions]);
+        this.appendNodes(this.wrongQuestionsContainer, [this.wrongQuestionsLabel, this.wrongQuestions]);
+        this.appendNodes(this.questionBox, [this.question, this.time]);
         //ofc only if mode is multiple choice, otherwise append search bar
-        this.answerBox.appendChild(this.leftUpperAnswer);
-        this.answerBox.appendChild(this.rightUpperAnswer);
-        this.answerBox.appendChild(this.leftLowerAnswer);
-        this.answerBox.appendChild(this.rightLowerAnswer);
+        this.appendNodes(this.answerBox, [this.leftUpperAnswer, this.rightUpperAnswer, this.leftLowerAnswer, this.rightLowerAnswer]);
 
         this.correctQuestionsLabel.textContent = this.lang.quiz.correctQuestions;
         this.wrongQuestionsLabel.textContent = this.lang.quiz.wrongQuestions;
+
+        this.multipleChoiceListener(checkAnswer);
     } 
 
-    randomizeAnswers(answers, randomAnswers = []){
-        if(randomAnswers.length == 4){
-            return randomAnswers;
-        }else{
-            const rndm = answers[Math.floor(Math.random()*answers.length)];
-            answers[answers.indexOf(rndm)] = answers[0];
-            answers.shift();
-            randomAnswers.push(rndm);
-            return this.randomizeAnswers(answers, randomAnswers);
-        }
-    }
-
     updateQuestion(logic){
+        this.logic = logic;
         this.correctQuestions.textContent = logic.getNumCorrectQuestions();
         this.wrongQuestions.textContent = logic.getNumWrongQuestions();
         this.heading.textContent = this.lang.quiz.heading + logic.getQuestionNr();
@@ -123,15 +107,28 @@ class QuizDomActions{
 
         if(logic.getMode() === "multiple-choice"){
             const answers = [...logic.getWrongAnswers(), logic.getAnswer()];
-            const randomizedAnswers = this.randomizeAnswers(answers);
-            this.leftUpperAnswer.textContent = randomizedAnswers[0];
-            this.rightUpperAnswer.textContent = randomizedAnswers[1];
-            this.leftLowerAnswer.textContent = randomizedAnswers[2];
-            this.rightLowerAnswer.textContent = randomizedAnswers[3];
-            return randomizedAnswers;
+            const randomizedAnswers = logic.randomizeAnswers(answers);
+            this.leftUpperAnswer.textContent = randomizedAnswers[0], this.lu = randomizedAnswers[0];
+            this.rightUpperAnswer.textContent = randomizedAnswers[1], this.ru = randomizedAnswers[1];
+            this.leftLowerAnswer.textContent = randomizedAnswers[2], this.ll = randomizedAnswers[2];
+            this.rightLowerAnswer.textContent = randomizedAnswers[3], this.rl = randomizedAnswers[3];
         }else{
             console.log("Not Multiple Choice")
         }
+    }
+
+    multipleChoiceListener(checkAnswer){
+        this.answerBox.addEventListener("click", (e)=>{
+            if(e.target.id === "left-upper-answer"){
+                checkAnswer(this.lu, this.logic);
+            }else if(e.target.id === "right-upper-answer"){
+                checkAnswer(this.ru, this.logic);
+            }else if(e.target.id === "left-lower-answer"){
+                checkAnswer(this.ll, this.logic);
+            }else if(e.target.id === "right-lower-answer"){
+                checkAnswer(this.rl, this.logic);
+            }
+        })
     }
 }
 

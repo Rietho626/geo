@@ -36,4 +36,16 @@ class QuizLogic{
         this.activeQuestion = this.quiz.questions.unshift();
         return this;
     }
+
+    randomizeAnswers(answers, randomAnswers = []){
+        if(randomAnswers.length == 4){
+            return randomAnswers;
+        }else{
+            const rndm = answers[Math.floor(Math.random()*answers.length)];
+            answers[answers.indexOf(rndm)] = answers[0];
+            answers.shift();
+            randomAnswers.push(rndm);
+            return this.randomizeAnswers(answers, randomAnswers);
+        }
+    }
 }

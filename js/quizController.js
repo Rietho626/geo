@@ -18,12 +18,16 @@ function startingScreen(quiz){
     quizDomActions.startingScreen(quiz, startQuiz, resetForm);
 }
 
+function checkAnswer(answered, logic){
+    console.log(answered, logic);
+}
+
 function startQuiz(quiz){
     const logic = getQuizLogic(quiz);
     quizDomActions.resetQuiz();
-    quizDomActions.constructQuiz(logic.getMode());
+    quizDomActions.constructQuiz(logic.getMode(), checkAnswer);
     console.log(logic.quiz, logic.activeQuestion)
-    const randomAnswers = quizDomActions.updateQuestion(logic);
+    quizDomActions.updateQuestion(logic, checkAnswer);
 }
 
 function resetForm(){
