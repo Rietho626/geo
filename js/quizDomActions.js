@@ -150,12 +150,12 @@ class QuizDomActions{
                 }else if(this.rl === correctAnswer){
                     corrAnswerNode = document.getElementById("right-lower-answer")
                 }
-                corrAnswerNode?.style.backgroundColor = "lightgreen";
+                if(corrAnswerNode) corrAnswerNode.style.backgroundColor = "lightgreen";
             }
             setTimeout(()=>{
                 answerNode.style.backgroundColor =  "white";
                 answerNode.style.color = "black";
-                corrAnswerNode?.style.backgroundColor = "white";
+                if(corrAnswerNode) corrAnswerNode.style.backgroundColor = "white";
                 resolve(this);
             }, 2000);
         })
