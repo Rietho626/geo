@@ -23,7 +23,7 @@ function startQuiz(quiz){
     quizDomActions.resetQuiz();
     quizDomActions.constructQuiz(logic.getMode());
     console.log(logic.quiz, logic.activeQuestion)
-    quizDomActions.updateQuestion(logic);
+    const randomAnswers = quizDomActions.updateQuestion(logic);
 }
 
 function resetForm(){
