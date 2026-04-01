@@ -6,6 +6,7 @@ class QuizDomActions{
     constructor(){
         this.quizContainer = document.getElementById("quiz-container");
         this.lang = languagePack[localStorage.getItem("langPref") || "english"];
+        this.enabled = true;
         this.ru, this.lu, this.ll, this.rl, this.logic;
     }
 
@@ -123,6 +124,8 @@ class QuizDomActions{
         clearInterval(this.interval);
     }
 
+    toggleEnabled = (b) => this.enabled = b;
+
     updateQuestion(logic){
         this.logic = logic;
         this.correctQuestions.textContent = logic.getNumCorrectQuestions();
@@ -145,13 +148,13 @@ class QuizDomActions{
 
     multipleChoiceListener(checkAnswer){
         this.answerBox.addEventListener("click", (e)=>{
-            if(e.target.id === "left-upper-answer"){
+            if(e.target.id === "left-upper-answer" && this.enabled){
                 checkAnswer(this.lu, this.logic, "left-upper-answer");
-            }else if(e.target.id === "right-upper-answer"){
+            }else if(e.target.id === "right-upper-answer" && this.enabled){
                 checkAnswer(this.ru, this.logic, "right-upper-answer");
-            }else if(e.target.id === "left-lower-answer"){
+            }else if(e.target.id === "left-lower-answer" && this.enabled){
                 checkAnswer(this.ll, this.logic, "left-lower-answer");
-            }else if(e.target.id === "right-lower-answer"){
+            }else if(e.target.id === "right-lower-answer" && this.enabled){
                 checkAnswer(this.rl, this.logic, "right-lower-answer");
             }
         })

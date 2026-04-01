@@ -20,6 +20,7 @@ function startingScreen(quiz){
 
 async function checkAnswer(answered, logic, answerBoxId){
     quizDomActions.stopTimer();
+    quizDomActions.toggleEnabled(false);
     const hasQuizEnded = logic.checkForQuizEnd();
     const prevAnswer = logic.getAnswer();
     const isCorrect = logic.handleInput(answered);
@@ -28,6 +29,7 @@ async function checkAnswer(answered, logic, answerBoxId){
         quizDomActions.quizEnd(logic);
     }else{
         quizDomActions.updateQuestion(logic, checkAnswer);
+        quizDomActions.toggleEnabled(true);
     }
 }
 
