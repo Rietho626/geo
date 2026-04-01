@@ -260,7 +260,7 @@ select{
     margin: 0 auto;
 }
 
-#create-form p{
+#create-form p, #quiz-question{
     font-size: 30px;
     text-align: center;
     font-weight: bold;
