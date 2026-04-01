@@ -57,7 +57,9 @@ class QuizDomActions{
         startQuizButton.addEventListener("click", ()=>{
             startQuiz(quiz);
         });
-        this.createNewQuizButton.addEventListener("click", this.createQuiz);
+        this.createNewQuizButton.addEventListener("click", ()=>{
+            this.createQuiz();
+        });
     }
 
     createQuiz(){
@@ -178,7 +180,9 @@ class QuizDomActions{
         this.heading.textContent = "Quiz Over!";
         this.question.textContent = (this.logic.correctQuestions.length / Number(this.logic.quiz.numQuestions) *100) + "% Correct!";
         this.answerBox.appendChild(this.createNewQuizButton);
-        this.createNewQuizButton.addEventListener("click", this.createQuiz);
+        this.createNewQuizButton.addEventListener("click", ()=>{
+            this.createQuiz();
+        });
     }
 }
 
