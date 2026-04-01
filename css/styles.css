@@ -280,10 +280,8 @@ select{
     position: absolute;
     width: 817px !important;
     background-color: var(--mainColor);
+    border: 0px;
     height: 178px;
     transition: 0s;
     text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
