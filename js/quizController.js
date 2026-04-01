@@ -19,6 +19,7 @@ function startingScreen(quiz){
 }
 
 async function checkAnswer(answered, logic, answerBoxId){
+    quizDomActions.stopTimer();
     const hasQuizEnded = logic.checkForQuizEnd();
     const prevAnswer = logic.getAnswer();
     const isCorrect = logic.handleInput(answered);

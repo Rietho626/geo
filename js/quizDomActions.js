@@ -119,6 +119,9 @@ class QuizDomActions{
         }, 1000)
     }
 
+    stopTimer(){
+        clearInterval(this.interval);
+    }
 
     updateQuestion(logic){
         this.logic = logic;
