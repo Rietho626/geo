@@ -125,7 +125,7 @@ class QuizDomActions{
         this.wrongQuestions.textContent = logic.getNumWrongQuestions();
         this.heading.textContent = this.lang.quiz.heading + logic.getQuestionNr();
         this.question.textContent = logic.getQuestion();
-        if(logic.getTime() !== "no-limit") this.startTimer;
+        if(logic.getTime() !== "no-limit") this.startTimer(logic);
 
         if(logic.getMode() === "multiple-choice"){
             const answers = [...logic.getWrongAnswers(), logic.getAnswer()];
