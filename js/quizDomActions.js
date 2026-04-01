@@ -110,7 +110,7 @@ class QuizDomActions{
         this.multipleChoiceListener(checkAnswer);
         this.blockContainer.addEventListener("click", ()=>{
            if(this.enabled){
-                this.blockContainer.display = "none";
+                this.blockContainer.style.display = "none";
                 checkAnswer("timeout", this.logic, "timeout");
            } 
         })
