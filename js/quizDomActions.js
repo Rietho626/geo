@@ -116,12 +116,19 @@ class QuizDomActions{
             if(currTime === 0){
                 clearInterval(this.interval);
                 this.time.textContent = "Time Up!";
+                this.handleTimeUp();
             }
         }, 1000)
     }
 
     stopTimer(){
         clearInterval(this.interval);
+    }
+
+    handleTimeUp(){
+        this.enabled = false;
+        this.answerBox.style.zIndex = 2;
+        this.answerBox.style.backgroundColor = "rgba(255,255,255,0.4)";
     }
 
     toggleEnabled = (b) => this.enabled = b;

@@ -270,3 +270,8 @@ select{
     font-weight: bold;
     text-shadow: 1px 1px 1px var(--mainColor);
 }
+
+#quiz-time{
+    text-align: center;
+    font-family: "Courier New"
+}
