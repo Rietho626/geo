@@ -24,7 +24,9 @@ async function checkAnswer(answered, logic, answerBoxId){
     const hasQuizEnded = logic.checkForQuizEnd();
     const prevAnswer = logic.getAnswer();
     const isCorrect = logic.handleInput(answered);
-    await quizDomActions.displayAnswerCheck(isCorrect, answerBoxId, prevAnswer);
+    if(answered !== "timeout"){
+        await quizDomActions.displayAnswerCheck(isCorrect, answerBoxId, prevAnswer);
+    }
     if(hasQuizEnded){
         quizDomActions.quizEnd(logic);
     }else{
