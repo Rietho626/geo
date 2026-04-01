@@ -278,9 +278,9 @@ select{
 
 #block-container{
     position: absolute;
-    width: 813px !important;
+    width: 817px !important;
     background-color: var(--mainColor);
-    height: 173px;
+    height: 178px;
     transition: 0s;
     text-align: center;
     display: flex;
