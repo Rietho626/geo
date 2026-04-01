@@ -89,6 +89,7 @@ class QuizDomActions{
         this.leftLowerAnswer = this.createNode("div", [["id", "left-lower-answer"]]);
         this.rightUpperAnswer = this.createNode("div", [["id", "right-upper-answer"]]);
         this.rightLowerAnswer = this.createNode("div", [["id", "right-lower-answer"]]);
+        this.blockContainer = this.createNode("div", [["id", "block-container"]]);
         //Here search/type-in Mode expansion
 
         this.appendNodes(this.quizContainer, [this.quizWrapper]);
@@ -99,7 +100,7 @@ class QuizDomActions{
         this.appendNodes(this.wrongQuestionsContainer, [this.wrongQuestionsLabel, this.wrongQuestions]);
         this.appendNodes(this.questionBox, [this.question, this.time]);
         //ofc only if mode is multiple choice, otherwise append search bar
-        this.appendNodes(this.answerBox, [this.leftUpperAnswer, this.rightUpperAnswer, this.leftLowerAnswer, this.rightLowerAnswer]);
+        this.appendNodes(this.answerBox, [this.leftUpperAnswer, this.rightUpperAnswer, this.leftLowerAnswer, this.rightLowerAnswer, this.blockContainer]);
 
         this.correctQuestionsLabel.textContent = this.lang.quiz.correctQuestions;
         this.wrongQuestionsLabel.textContent = this.lang.quiz.wrongQuestions;
@@ -127,8 +128,7 @@ class QuizDomActions{
 
     handleTimeUp(){
         this.enabled = false;
-        this.answerBox.style.zIndex = 2;
-        this.answerBox.style.backgroundColor = "rgba(255,255,255,0.4)";
+        this.blockContainer.style.display = "block";
     }
 
     toggleEnabled = (b) => this.enabled = b;
