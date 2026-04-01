@@ -65,7 +65,7 @@ class QuizDomActions{
 
     createQuiz(){
         this.resetQuiz();
-        document.getElementById("create-quiz.container").style.display = "block";
+        document.getElementById("create-quiz-container").style.display = "block";
     }
 
     resetQuiz = () => Array.from(document.querySelectorAll("#quiz-container > *")).forEach(node=>node.remove());
@@ -179,7 +179,7 @@ class QuizDomActions{
         Array.from(this.answerBox.querySelectorAll("div")).forEach(node=>node.remove());
         this.pastQuestionsContainer.remove();
         this.heading.textContent = "Quiz Over!";
-        this.question.textContent = (this.logic.correctQuestions.length / Number(this.logic.numQuestions) *100) + "% Correct!";
+        this.question.textContent = (this.logic.correctQuestions.length / Number(this.logic.quiz.numQuestions) *100) + "% Correct!";
         this.answerBox.appendChild(this.createNewQuizButton);
         this.createNewQuizButton.addEventListener("click", ()=>{
             this.createQuiz();
