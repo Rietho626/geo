@@ -28,6 +28,8 @@ class QuizLogic{
 
     checkAnswer = (answer) => answer === this.activeQuestion.answer;
 
+    checkForQuizEnd = () => (!this.quiz.questions.length) ? true : false;
+
     handleInput(answer){
         const isCorrect = this.checkAnswer(answer);
         isCorrect ? this.correctQuestions.push(this.activeQuestion) :  this.wrongQuestions.push(this.activeQuestion);

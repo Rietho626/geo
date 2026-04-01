@@ -22,12 +22,13 @@ async function checkAnswer(answered, logic, answerBoxId){
     const prevAnswer = logic.getAnswer();
     const isCorrect = logic.handleInput(answered);
     await quizDomActions.displayAnswerCheck(isCorrect, answerBoxId, prevAnswer);
-    quizDomActions.updateQuestion(logic, checkAnswer);
+    if(logic.checkForQuizEnd()){
+        quizDomActions.quizEnd(logic);
+    }else{
+        quizDomActions.updateQuestion(logic, checkAnswer);
+    }
 }
 
-function nextQuestion(logic){
-
-}
 
 function startQuiz(quiz){
     const logic = getQuizLogic(quiz);
