@@ -16,7 +16,7 @@ class QuizLogic{
 
     getNumWrongQuestions = () => this.wrongQuestions.length;
 
-    getTime = () => this.activeQuestion.time;
+    getTime = () => this.quiz.time;
 
     getMode = () => this.quiz.mode;
 
