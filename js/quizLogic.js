@@ -30,6 +30,13 @@ class QuizLogic{
 
     checkForQuizEnd = () => (!this.quiz.questions.length) ? true : false;
 
+    getDecrementor(time){
+        return function(){
+            time--;
+            return time;
+        }
+    }
+
     handleInput(answer){
         const isCorrect = this.checkAnswer(answer);
         isCorrect ? this.correctQuestions.push(this.activeQuestion) :  this.wrongQuestions.push(this.activeQuestion);

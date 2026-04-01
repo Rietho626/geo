@@ -106,13 +106,26 @@ class QuizDomActions{
         this.multipleChoiceListener(checkAnswer);
     } 
 
+    startTimer(logic){
+        this.time.textContent = logic.getTime();
+        const decrementor = logic.getDecrementor(logic.getTime());
+        setInterval(()=>{
+            const currTime = decrementor();
+            this.time.textContent = currTime;
+            if(currTime === 0){
+                clearInterval;
+            }
+        }, 1000)
+    }
+
+
     updateQuestion(logic){
         this.logic = logic;
         this.correctQuestions.textContent = logic.getNumCorrectQuestions();
         this.wrongQuestions.textContent = logic.getNumWrongQuestions();
         this.heading.textContent = this.lang.quiz.heading + logic.getQuestionNr();
         this.question.textContent = logic.getQuestion();
-        this.time.textContent = logic.getTime();
+        if(logic.getTime() !== "no-limit") this.startTimer;
 
         if(logic.getMode() === "multiple-choice"){
             const answers = [...logic.getWrongAnswers(), logic.getAnswer()];
