@@ -3,8 +3,8 @@ import getQuizLogic from "./quizLogic.js";
 import createQuizCompiler from "./quizCompiler.js";
 import getSettingsHandler from "./settingsHandler.js";
 
-const settingsHandler = getSettingsHandler();
-const quizDomActions = getQuizDomActions();
+let settingsHandler = getSettingsHandler();
+let quizDomActions = getQuizDomActions();
 settingsHandler.enableListener(initiateQuiz);
 
 function initiateQuiz(settings){
@@ -15,7 +15,7 @@ function initiateQuiz(settings){
 }
 
 function startingScreen(quiz){
-    quizDomActions.startingScreen(quiz, startQuiz, resetForm);
+    quizDomActions.startingScreen(quiz, startQuiz, newQuiz);
 }
 
 async function checkAnswer(answered, logic, answerBoxId){
@@ -30,6 +30,11 @@ async function checkAnswer(answered, logic, answerBoxId){
     }
 }
 
+function newQuiz(){
+    quizDomActions = getQuizDomActions();
+    settingsHandler = getSettingsHandler();
+    settingsHandler.enableListener(initiateQuiz);
+}
 
 function startQuiz(quiz){
     const logic = getQuizLogic(quiz);

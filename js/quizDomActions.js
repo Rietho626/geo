@@ -17,7 +17,7 @@ class QuizDomActions{
         return node;
     }
 
-    startingScreen(quiz, startQuiz, createQuiz){
+    startingScreen(quiz, startQuiz, newQuiz){
         const startClass = ["class", "starting-screen"];
         const heading = this.createNode("h1", [["id","heading"],startClass]);
         const detailsContainer = this.createNode("div", [["id", "details-container"],startClass]);
@@ -28,7 +28,7 @@ class QuizDomActions{
         const numQuestionsContainer  = this.createNode("div", [["id", "num-questions-container"],startClass]);
         const submitContainer = this.createNode("div", [["id", "submit-container"], startClass]);
         const startQuizButton = this.createNode("button", [["id", "start-quiz-button"], startClass]);
-        const createNewQuizButton = this.createNode("button", [["id", "create-new-button"], startClass]);
+        this.createNewQuizButton = this.createNode("button", [["id", "create-new-button"], startClass]);
 
         heading.textContent = quiz["topic"].split("")[0].toUpperCase() + quiz["topic"].slice(1) + this.lang.startingScreen.heading;
         questionModeContainer.textContent = this.lang.startingScreen.questionModeContainer + quiz.mode;
@@ -40,7 +40,7 @@ class QuizDomActions{
         }, "");
 
         startQuizButton.textContent = this.lang.startingScreen.startQuizButton;
-        createNewQuizButton.textContent = this.lang.startingScreen.createNewQuizButton;
+        this.createNewQuizButton.textContent = this.lang.startingScreen.createNewQuizButton;
 
         this.appendNodes(this.quizContainer, [heading, detailsContainer]);
         this.appendNodes(detailsContainer, [
@@ -51,13 +51,21 @@ class QuizDomActions{
             continentContainer,
             submitContainer
         ])
-        this.appendNodes(submitContainer, [startQuizButton, createNewQuizButton]);
+        this.appendNodes(submitContainer, [startQuizButton, this.createNewQuizButton]);
     
 
         startQuizButton.addEventListener("click", ()=>{
             startQuiz(quiz);
         });
-        createNewQuizButton.addEventListener("click", createQuiz);
+        this.createNewQuizButton.addEventListener("click", ()=>{
+            this.createQuiz();
+            newQuiz();
+        });
+    }
+
+    createQuiz(){
+        this.resetQuiz();
+        document.getElementById("create-quiz.container").style.display = "block";
     }
 
     resetQuiz = () => Array.from(document.querySelectorAll("#quiz-container > *")).forEach(node=>node.remove());
@@ -168,10 +176,15 @@ class QuizDomActions{
 
     quizEnd(logic){
         this.logic = logic;
-        this.answerBox.remove();
+        Array.from(this.answerBox.querySelectorAll("div")).forEach(node=>node.remove());
         this.pastQuestionsContainer.remove();
         this.heading.textContent = "Quiz Over!";
-        this.question.textContent = (this.logic.correctQuestions.length / this.logic.numQuestions *100) + "% Correct!";
+        this.question.textContent = (this.logic.correctQuestions.length / Number(this.logic.numQuestions) *100) + "% Correct!";
+        this.answerBox.appendChild(this.createNewQuizButton);
+        this.createNewQuizButton.addEventListener("click", ()=>{
+            this.createQuiz();
+            newQuiz();
+        });
     }
 }
 
