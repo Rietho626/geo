@@ -168,7 +168,7 @@ class QuizDomActions{
 
     quizEnd(logic){
         this.logic = logic;
-        this.questionBox.remove();
+        this.answerBox.remove();
         this.pastQuestionsContainer.remove();
         this.heading.textContent = "Quiz Over!";
         this.question.textContent = (this.logic.correctQuestions.length / this.logic.numQuestions *100) + "% Correct!";
