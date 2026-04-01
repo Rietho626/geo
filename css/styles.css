@@ -275,3 +275,15 @@ select{
     text-align: center;
     font-family: "Courier New"
 }
+
+#block-container{
+    position: absolute;
+    width: 813px;
+    background-color: grey;
+    height: 173px;
+    transition: 0s;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

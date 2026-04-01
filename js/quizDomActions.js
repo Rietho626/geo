@@ -104,6 +104,8 @@ class QuizDomActions{
 
         this.correctQuestionsLabel.textContent = this.lang.quiz.correctQuestions;
         this.wrongQuestionsLabel.textContent = this.lang.quiz.wrongQuestions;
+        this.blockContainer.textContent = "Click here to continue!";
+        this.blockContainer.style.display = "none";
 
         this.multipleChoiceListener(checkAnswer);
     } 
