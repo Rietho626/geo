@@ -283,5 +283,6 @@ select{
     border: 0px !important;
     height: 300px;
     text-align: center;
+    margin: 5px auto !important;
     font-size: 50px !important;
 }
