@@ -249,3 +249,9 @@ button:hover, input[type=submit]:hover{
 select{
     border: 0px;
 }
+
+#answer-box:has(#create-new-button){
+    width: 100%;
+    height: 10%;
+    justify-content: center;
+}
