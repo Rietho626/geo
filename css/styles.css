@@ -175,6 +175,10 @@ button:hover, input[type=submit]:hover{
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    font-size: 50px;
+    text-shadow: 1px 1px 1px var(--mainColor);
 }
 
 #quiz-container{
@@ -260,7 +264,7 @@ select{
     margin: 0 auto;
 }
 
-#create-form p, #quiz-question{
+#create-form p{
     font-size: 30px;
     text-align: center;
     font-weight: bold;
