@@ -109,11 +109,12 @@ class QuizDomActions{
     startTimer(logic){
         this.time.textContent = logic.getTime();
         const decrementor = logic.getDecrementor(logic.getTime());
-        setInterval(()=>{
+        this.interval = setInterval(()=>{
             const currTime = decrementor();
             this.time.textContent = currTime;
             if(currTime === 0){
-                clearInterval;
+                clearInterval(this.interval);
+                this.time.textContent = "Time Up!";
             }
         }, 1000)
     }
