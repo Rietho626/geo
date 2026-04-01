@@ -278,8 +278,8 @@ select{
 
 #block-container{
     position: absolute;
-    width: 813px;
-    background-color: grey;
+    width: 813px !important;
+    background-color: var(--mainColor);
     height: 173px;
     transition: 0s;
     text-align: center;
