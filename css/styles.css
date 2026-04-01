@@ -223,13 +223,12 @@ button:hover, input[type=submit]:hover{
     flex-direction: row;
     flex-wrap: wrap;
     width: 850px;
-    height: 300px;
-    column-gap: px;
+    height: 270px;
     margin: 0 auto;
 }
 
 #answer-box > div{
-
+    width: 387.6px;
     border: 2px solid black;
     display: flex;
     font-size: 30px;
