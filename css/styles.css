@@ -278,10 +278,10 @@ select{
 
 #block-container{
     position: absolute;
-    width: 817px !important;
+    width: 870px !important;
     background-color: var(--mainColor);
-    border: 0px;
-    height: 178px;
-    transition: 0s;
+    border: 0px !important;
+    height: 300px;
     text-align: center;
+    font-size: 50px !important;
 }

@@ -135,7 +135,7 @@ class QuizDomActions{
     }
 
     handleTimeUp(){
-        this.blockContainer.style.display = "block";
+        this.blockContainer.style.display = "flex";
     }
 
     toggleEnabled = (b) => this.enabled = b;
