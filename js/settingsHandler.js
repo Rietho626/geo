@@ -118,7 +118,7 @@ class SettingsHandler{
             return getGeneralSettings(replaceGeneral, SettingsHandler)
             case "capital":
             return getCapitalSettings(SettingsHandler);
-            case "flags":
+            case "flag":
             return getFlagSettings(SettingsHandler);
         }
     }
