@@ -153,10 +153,11 @@ class QuizDomActions{
             const randomizedAnswers = logic.randomizeAnswers(answers);
             if(logic.getAnswer().startsWith("http")){
                 console.log(randomizedAnswers);
-                this.leftUpperAnswer.style.backgroundImage = randomizedAnswers[0], this.lu = randomizedAnswers[0];
-                this.rightUpperAnswer.style.backgroundImage = randomizedAnswers[1], this.ru = randomizedAnswers[1];
-                this.leftLowerAnswer.style.backgroundImage = randomizedAnswers[2], this.ll = randomizedAnswers[2];
-                this.rightLowerAnswer.style.backgroundImage = randomizedAnswers[3], this.rl = randomizedAnswers[3];
+                this.leftUpperAnswer.style.backgroundImage = "url("+randomizedAnswers[0]+")", this.lu = randomizedAnswers[0];
+                this.rightUpperAnswer.style.backgroundImage = "url("+randomizedAnswers[1]+")", this.ru = randomizedAnswers[1];
+                this.leftLowerAnswer.style.backgroundImage = "url("+randomizedAnswers[2]+")", this.ll = randomizedAnswers[2];
+                this.rightLowerAnswer.style.backgroundImage = "url("+randomizedAnswers[3]+")", this.rl = randomizedAnswers[3];
+                Array.from(document.querySelectorAll("#answer-box > div")).forEach(node=>node.style.width = "198px");
             }else{
                 this.leftUpperAnswer.textContent = randomizedAnswers[0], this.lu = randomizedAnswers[0];
                 this.rightUpperAnswer.textContent = randomizedAnswers[1], this.ru = randomizedAnswers[1];
