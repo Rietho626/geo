@@ -1,5 +1,6 @@
 import getGeneralSettings  from "./settings/generalSettings.js";
 import getCapitalSettings from "./settings/capitalSettings.js";
+import getFlagSettings from "./settings/flagSettings.js";
 
 export default function getSettingsHandler(){
     return new SettingsHandler();
@@ -117,14 +118,13 @@ class SettingsHandler{
             case "capital":
             return getCapitalSettings(SettingsHandler);
             case "flags":
-            return flagSettings;
+            return getFlagSettings(SettingsHandler);
         }
     }
 
     static enableMultipleChoiceCb(){
         //maybe
     }
-
 }
 
 
