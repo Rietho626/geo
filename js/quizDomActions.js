@@ -90,6 +90,10 @@ class QuizDomActions{
         this.rightUpperAnswer = this.createNode("div", [["id", "right-upper-answer"]]);
         this.rightLowerAnswer = this.createNode("div", [["id", "right-lower-answer"]]);
         this.blockContainer = this.createNode("div", [["id", "block-container"]]);
+        this.leftUpperImg = this.createNode("img", [["display", "none"], ["id","left-upper-img"]]);
+        this.rightUpperImg = this.createNode("img", [["display", "none"], ["id","right-upper-img"]]);
+        this.leftLowerImg = this.createNode("img", [["display", "none"], ["id","left-lower-img"]]);
+        this.rightLowerImg = this.createNode("img", [["display", "none"], ["id","right-lower-img"]]);
         //Here search/type-in Mode expansion
 
         this.appendNodes(this.quizContainer, [this.quizWrapper]);
@@ -101,7 +105,10 @@ class QuizDomActions{
         this.appendNodes(this.questionBox, [this.question, this.time]);
         //ofc only if mode is multiple choice, otherwise append search bar
         this.appendNodes(this.answerBox, [this.leftUpperAnswer, this.rightUpperAnswer, this.leftLowerAnswer, this.rightLowerAnswer, this.blockContainer]);
-
+        this.appendNodes(this.leftUpperAnswer, [this.leftUpperImg]);
+        this.appendNodes(this.rightUpperAnswer, [this.rightUpperImg]);
+        this.appendNodes(this.leftLowerAnswer, [this.leftLowerImg]);
+        this.appendNodes(this.rightLowerAnswer, [this.rightLowerImg]);
         this.correctQuestionsLabel.textContent = this.lang.quiz.correctQuestions;
         this.wrongQuestionsLabel.textContent = this.lang.quiz.wrongQuestions;
         this.blockContainer.textContent = "Click here to continue!";
@@ -153,12 +160,21 @@ class QuizDomActions{
             const randomizedAnswers = logic.randomizeAnswers(answers);
             if(logic.getAnswer().startsWith("http")){
                 console.log(randomizedAnswers);
-                this.leftUpperAnswer.style.backgroundImage = "url("+randomizedAnswers[0]+")", this.lu = randomizedAnswers[0];
-                this.rightUpperAnswer.style.backgroundImage = "url("+randomizedAnswers[1]+")", this.ru = randomizedAnswers[1];
-                this.leftLowerAnswer.style.backgroundImage = "url("+randomizedAnswers[2]+")", this.ll = randomizedAnswers[2];
-                this.rightLowerAnswer.style.backgroundImage = "url("+randomizedAnswers[3]+")", this.rl = randomizedAnswers[3];
-                Array.from(document.querySelectorAll("#answer-box > div")).forEach(node=>node.style.height = "198px");
+                this.leftUpperImg.src = randomizedAnswers[0], this.lu = randomizedAnswers[0];
+                this.rightUpperImg.src= randomizedAnswers[1], this.ru = randomizedAnswers[1];
+                this.leftLowerImg.src= randomizedAnswers[2], this.ll = randomizedAnswers[2];
+                this.rightLowerImg.src = randomizedAnswers[3], this.rl = randomizedAnswers[3];
+                Array.from(document.querySelectorAll("#answer-box img")).forEach(node=>{
+                    const img = new Image();
+                    img.src = node.src;
+                    img.onload(()=>{
+                        node.style.height = img.height;
+                        node.style.width = img.width;
+                        node.display = "flex";
+                    })
+                })
             }else{
+                Array.from(document.querySelectorAll("#answer-box img")).forEach(node=>{node.display = "none";})
                 this.leftUpperAnswer.textContent = randomizedAnswers[0], this.lu = randomizedAnswers[0];
                 this.rightUpperAnswer.textContent = randomizedAnswers[1], this.ru = randomizedAnswers[1];
                 this.leftLowerAnswer.textContent = randomizedAnswers[2], this.ll = randomizedAnswers[2];
