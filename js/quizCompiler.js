@@ -38,6 +38,7 @@ class QuizCompiler{
             continents: this.continents,
             questions: []
         }
+        console.log(this.quiz);
     }
 
     filterContinents(){
@@ -113,7 +114,8 @@ class QuizCompiler{
 
 const quizTypes = new Map(
     [
-        ["capital", ["country-capital", "capital-country"]]
+        ["capital", ["country-capital", "capital-country"]],
+        ["flag", ["country-flag", "flag-country"]]
     ]
 )
 
