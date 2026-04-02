@@ -242,6 +242,8 @@ button:hover, input[type=submit]:hover{
     transition: 0.1s;
     text-align: center;
     margin: 16.7px;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 #answer-box > div:hover{

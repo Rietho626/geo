@@ -152,6 +152,7 @@ class QuizDomActions{
             const answers = [...logic.getWrongAnswers(), logic.getAnswer()];
             const randomizedAnswers = logic.randomizeAnswers(answers);
             if(logic.getAnswer().startsWith("http")){
+                console.log(randomizedAnswers);
                 this.leftUpperAnswer.style.backgroundImage = randomizedAnswers[0], this.lu = randomizedAnswers[0];
                 this.rightUpperAnswer.style.backgroundImage = randomizedAnswers[1], this.ru = randomizedAnswers[1];
                 this.leftLowerAnswer.style.backgroundImage = randomizedAnswers[2], this.ll = randomizedAnswers[2];
