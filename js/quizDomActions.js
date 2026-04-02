@@ -157,7 +157,7 @@ class QuizDomActions{
                 this.rightUpperAnswer.style.backgroundImage = "url("+randomizedAnswers[1]+")", this.ru = randomizedAnswers[1];
                 this.leftLowerAnswer.style.backgroundImage = "url("+randomizedAnswers[2]+")", this.ll = randomizedAnswers[2];
                 this.rightLowerAnswer.style.backgroundImage = "url("+randomizedAnswers[3]+")", this.rl = randomizedAnswers[3];
-                Array.from(document.querySelectorAll("#answer-box > div")).forEach(node=>node.style.width = "198px");
+                Array.from(document.querySelectorAll("#answer-box > div")).forEach(node=>node.style.height = "198px");
             }else{
                 this.leftUpperAnswer.textContent = randomizedAnswers[0], this.lu = randomizedAnswers[0];
                 this.rightUpperAnswer.textContent = randomizedAnswers[1], this.ru = randomizedAnswers[1];
