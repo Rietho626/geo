@@ -88,6 +88,7 @@ class SettingsHandler{
         const nodes = Array.from(document.querySelectorAll("select."+topic+"-input")).concat(Array.from(document.querySelectorAll("input."+topic+"-input")));
         nodes.forEach(node=>settings[node.name] = node.value);
         settings["topic"] = topic;
+        console.log(settings);
         return settings;
     }
 
