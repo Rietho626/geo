@@ -166,12 +166,9 @@ class QuizDomActions{
                 this.rightLowerImg.src = randomizedAnswers[3], this.rl = randomizedAnswers[3];
                 Array.from(document.querySelectorAll("#answer-box img")).forEach(node=>{
                     const img = new Image();
-                    img.src = node.src;
-                    img.onload(()=>{
-                        node.style.height = img.height;
-                        node.style.width = img.width;
-                        node.display = "flex";
-                    })
+                    node.style.height = img.height;
+                    node.style.width = img.width;
+                    node.style.display = "block";
                 })
             }else{
                 Array.from(document.querySelectorAll("#answer-box img")).forEach(node=>{node.display = "none";})
