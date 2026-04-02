@@ -9,7 +9,6 @@ settingsHandler.enableListener(initiateQuiz);
 
 function initiateQuiz(settings){
     const compiler = createQuizCompiler(settings);
-    console.log(compiler);
     compiler.compileQuiz();
     const quiz = compiler.quiz;
     startingScreen(quiz);

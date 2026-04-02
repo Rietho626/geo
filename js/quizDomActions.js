@@ -151,10 +151,17 @@ class QuizDomActions{
         if(logic.getMode() === "multiple-choice"){
             const answers = [...logic.getWrongAnswers(), logic.getAnswer()];
             const randomizedAnswers = logic.randomizeAnswers(answers);
-            this.leftUpperAnswer.textContent = randomizedAnswers[0], this.lu = randomizedAnswers[0];
-            this.rightUpperAnswer.textContent = randomizedAnswers[1], this.ru = randomizedAnswers[1];
-            this.leftLowerAnswer.textContent = randomizedAnswers[2], this.ll = randomizedAnswers[2];
-            this.rightLowerAnswer.textContent = randomizedAnswers[3], this.rl = randomizedAnswers[3];
+            if(logic.getAnswer().startsWith("http")){
+                this.leftUpperAnswer.style.backgroundImage = randomizedAnswers[0], this.lu = randomizedAnswers[0];
+                this.rightUpperAnswer.style.backgroundImage = randomizedAnswers[1], this.ru = randomizedAnswers[1];
+                this.leftLowerAnswer.style.backgroundImage = randomizedAnswers[2], this.ll = randomizedAnswers[2];
+                this.rightLowerAnswer.style.backgroundImage = randomizedAnswers[3], this.rl = randomizedAnswers[3];
+            }else{
+                this.leftUpperAnswer.textContent = randomizedAnswers[0], this.lu = randomizedAnswers[0];
+                this.rightUpperAnswer.textContent = randomizedAnswers[1], this.ru = randomizedAnswers[1];
+                this.leftLowerAnswer.textContent = randomizedAnswers[2], this.ll = randomizedAnswers[2];
+                this.rightLowerAnswer.textContent = randomizedAnswers[3], this.rl = randomizedAnswers[3];
+            }
         }else{
             console.log("Not Multiple Choice")
         }
