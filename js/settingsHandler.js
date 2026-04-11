@@ -123,8 +123,7 @@ class SettingsHandler{
             case "flag":
             return getFlagSettings(SettingsHandler);
             case "area":
-            console.log(getAreaSettings(SettingsHandler));
-            break;
+            return getAreaSettings(SettingsHandler);
             case "population":
             return getPopulationSettings(SettingsHandler);
         }
