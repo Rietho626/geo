@@ -83,7 +83,11 @@ class QuizCompiler{
             case "country":
             return `Find the country, whose ${qType} is ${qObject}!`;
             case "flag":
-            return `Which Flag is the Flag of ${qObject}?`;
+            return `Which flag is the flag of ${qObject}?`;
+            case "population":
+            return `What is the population of ${qObject}? (2026)`;
+            case "area":
+            return `What is the area of ${qObject} in square Kilometer?`;
         }
     }
 
@@ -115,7 +119,9 @@ class QuizCompiler{
 const quizTypes = new Map(
     [
         ["capital", ["country-capital", "capital-country"]],
-        ["flag", ["country-flag", "flag-country"]]
+        ["flag", ["country-flag"]],
+        ["population", ["country-population", "population-country"]],
+        ["area", ["country-area", "area-country"]]
     ]
 )
 

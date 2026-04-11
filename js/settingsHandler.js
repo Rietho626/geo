@@ -120,6 +120,10 @@ class SettingsHandler{
             return getCapitalSettings(SettingsHandler);
             case "flag":
             return getFlagSettings(SettingsHandler);
+            case "area":
+            return getAreaSettings(SettingsHandler);
+            case "population":
+            return getPopulationSettings(SettingsHandler);
         }
     }
 
