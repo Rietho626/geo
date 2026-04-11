@@ -187,13 +187,13 @@ class QuizDomActions{
 
     multipleChoiceListener(checkAnswer){
         this.answerBox.addEventListener("click", (e)=>{
-            if(e.target.id === "left-upper-answer" && this.enabled){
+            if((e.target.id === "left-upper-answer" || e.target.id === "left-upper-image") && this.enabled){
                 checkAnswer(this.lu, this.logic, "left-upper-answer");
-            }else if(e.target.id === "right-upper-answer" && this.enabled){
+            }else if((e.target.id === "right-upper-answer" || e.target.id === "right-upper-img") && this.enabled){
                 checkAnswer(this.ru, this.logic, "right-upper-answer");
-            }else if(e.target.id === "left-lower-answer" && this.enabled){
+            }else if((e.target.id === "left-lower-answer" || e.target.id === "left-lower-img") && this.enabled){
                 checkAnswer(this.ll, this.logic, "left-lower-answer");
-            }else if(e.target.id === "right-lower-answer" && this.enabled){
+            }else if((e.target.id === "right-lower-answer" || e.target.id === "right-lower-img") && this.enabled){
                 checkAnswer(this.rl, this.logic, "right-lower-answer");
             }
         })
