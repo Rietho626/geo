@@ -1,6 +1,8 @@
 import getGeneralSettings  from "./settings/generalSettings.js";
 import getCapitalSettings from "./settings/capitalSettings.js";
 import getFlagSettings from "./settings/flagSettings.js";
+import getAreaSettings from "./settings/areaSettings.js";
+import getPopulationSettings from "./settings/populationSettings.js";
 
 export default function getSettingsHandler(){
     return new SettingsHandler();
