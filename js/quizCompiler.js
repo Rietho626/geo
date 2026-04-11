@@ -63,7 +63,7 @@ class QuizCompiler{
             const rndCountry = this.quizCountryNamesAll[Math.floor(Math.random()*this.quizCountryNamesAll.length)];
             const wrongAnswer = answerType === "country" ? rndCountry : this.quizCountries[rndCountry][answerType];
             if(!wrongAnswers.includes(wrongAnswer) && wrongAnswer!==answer){
-                wrongAnswers.push(wrongAnswer);
+                wrongAnswers.push(this.format(wrongAnswer));
             }
         }
         return wrongAnswers;
@@ -91,6 +91,8 @@ class QuizCompiler{
         }
     }
 
+    format = (str) => Boolean(Number(str)) ? new Intl.NumberFormat("at-AT").format(Number(str)) : str;
+
     compileQuiz(){
         this.filterContinents();
         while(this.quiz.questions.length < this.quiz.numQuestions){
@@ -98,8 +100,8 @@ class QuizCompiler{
             const qType = this.getQuestionType();
             const aType = qType.split("-")[1];
             const qObjectType = qType.split("-")[0];
-            const answer = aType === "country" ? rndCountry : this.quizCountries[rndCountry][aType];
-            const qObject = qObjectType === "country" ? rndCountry : this.quizCountries[rndCountry][qObjectType];
+            const answer = aType === "country" ? rndCountry : this.format(this.quizCountries[rndCountry][aType]);
+            const qObject = qObjectType === "country" ? rndCountry : this.format(this.quizCountries[rndCountry][qObjectType]);
 
             const activeQuestion = {
                 questionMode: this.settings["quiz-mode"], //maybe mixed question modes will be enabled in the future
