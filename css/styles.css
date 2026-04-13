@@ -246,7 +246,7 @@ button:hover, input[type=submit]:hover{
     background-size: contain;
 }
 
-#answer-box > div:hover{
+#answer-box > div:not(.type-in-div):hover{
     cursor: pointer;
     transform: scale(105%);
     box-shadow: 1px 1px 5px black;
@@ -287,4 +287,8 @@ select{
     text-align: center;
     margin: 5px auto !important;
     font-size: 50px !important;
+}
+
+#answer-box > .type-in-div{
+    border: 0px;
 }
