@@ -7,6 +7,7 @@ export default function createQuizCompiler(quizSettings){
 class QuizCompiler{
     constructor(quizSettings){
         this.settings = quizSettings;
+        this.countries = countries;
         this.quizCountries = {};
         this.quizCountryNamesAll = [];
         this.quizCountryNames = [];
@@ -36,6 +37,7 @@ class QuizCompiler{
             mode: this.settings["quiz-mode"],
             type: this.settings["quiz-q-type"],
             continents: this.continents,
+            allCountries: this.countries,
             questions: []
         }
         console.log(this.quiz);

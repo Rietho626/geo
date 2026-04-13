@@ -37,6 +37,21 @@ class QuizLogic{
         }
     }
 
+    validateInput(input){
+        let isValid = false;
+        const aType = this.activeQuestion["questionType"].split("-")[1];
+        if(aType === "country"){
+            for(idx in this.quiz.allCountries){
+                if(idx.toLowerCase() === input.toLowerCase()) isValid = true;
+            }
+        }else if(aType === "capital"){
+            for(idx in this.quiz.allCountries){
+                if(this.quiz.allCountries["idx"]["capital"].toLowerCase() === input.toLowerCase) isValid = true;
+            }
+        }
+        return isValid;
+    }
+
     handleInput(answer){
         const isCorrect = this.checkAnswer(answer);
         isCorrect ? this.correctQuestions.push(this.activeQuestion) :  this.wrongQuestions.push(this.activeQuestion);

@@ -85,15 +85,7 @@ class QuizDomActions{
         this.question = this.createNode("div", [["id", "quiz-question"]]);
         this.time = this.createNode("div", [["id", "quiz-time"]]);
         this.answerBox = this.createNode("div", [["id", "answer-box"]]);
-        this.leftUpperAnswer = this.createNode("div", [["id", "left-upper-answer"]]);
-        this.leftLowerAnswer = this.createNode("div", [["id", "left-lower-answer"]]);
-        this.rightUpperAnswer = this.createNode("div", [["id", "right-upper-answer"]]);
-        this.rightLowerAnswer = this.createNode("div", [["id", "right-lower-answer"]]);
-        this.blockContainer = this.createNode("div", [["id", "block-container"]]);
-        this.leftUpperImg = this.createNode("img", [["display", "none"], ["id","left-upper-img"]]);
-        this.rightUpperImg = this.createNode("img", [["display", "none"], ["id","right-upper-img"]]);
-        this.leftLowerImg = this.createNode("img", [["display", "none"], ["id","left-lower-img"]]);
-        this.rightLowerImg = this.createNode("img", [["display", "none"], ["id","right-lower-img"]]);
+
         //Here search/type-in Mode expansion
 
         this.appendNodes(this.quizContainer, [this.quizWrapper]);
@@ -103,24 +95,49 @@ class QuizDomActions{
         this.appendNodes(this.correctQuestionsContainer, [this.correctQuestionsLabel, this.correctQuestions]);
         this.appendNodes(this.wrongQuestionsContainer, [this.wrongQuestionsLabel, this.wrongQuestions]);
         this.appendNodes(this.questionBox, [this.question, this.time]);
-        //ofc only if mode is multiple choice, otherwise append search bar
-        this.appendNodes(this.answerBox, [this.leftUpperAnswer, this.rightUpperAnswer, this.leftLowerAnswer, this.rightLowerAnswer, this.blockContainer]);
-        this.appendNodes(this.leftUpperAnswer, [this.leftUpperImg]);
-        this.appendNodes(this.rightUpperAnswer, [this.rightUpperImg]);
-        this.appendNodes(this.leftLowerAnswer, [this.leftLowerImg]);
-        this.appendNodes(this.rightLowerAnswer, [this.rightLowerImg]);
+
+        if(this.mode === "multiple-choice"){
+            this.leftUpperAnswer = this.createNode("div", [["id", "left-upper-answer"]]);
+            this.leftLowerAnswer = this.createNode("div", [["id", "left-lower-answer"]]);
+            this.rightUpperAnswer = this.createNode("div", [["id", "right-upper-answer"]]);
+            this.rightLowerAnswer = this.createNode("div", [["id", "right-lower-answer"]]);
+            this.blockContainer = this.createNode("div", [["id", "block-container"]]);
+            this.leftUpperImg = this.createNode("img", [["display", "none"], ["id","left-upper-img"]]);
+            this.rightUpperImg = this.createNode("img", [["display", "none"], ["id","right-upper-img"]]);
+            this.leftLowerImg = this.createNode("img", [["display", "none"], ["id","left-lower-img"]]);
+            this.rightLowerImg = this.createNode("img", [["display", "none"], ["id","right-lower-img"]]);
+
+            this.appendNodes(this.answerBox, [this.leftUpperAnswer, this.rightUpperAnswer, this.leftLowerAnswer, this.rightLowerAnswer, this.blockContainer]);
+            this.appendNodes(this.leftUpperAnswer, [this.leftUpperImg]);
+            this.appendNodes(this.rightUpperAnswer, [this.rightUpperImg]);
+            this.appendNodes(this.leftLowerAnswer, [this.leftLowerImg]);
+            this.appendNodes(this.rightLowerAnswer, [this.rightLowerImg]);
+
+            this.multipleChoiceListener(checkAnswer);
+
+        }else if(this.mode === "type-in-mode"){
+            this.inputBar = this.createNode("input", [["type", "text"], ["id", "type-in-ipnut"]]);
+            this.responseField = this.createNode("div", [["id", "type-in-response"]]);
+            this.submitAnswer = this.createNode("button", [["id", "type-in-submit"]]);
+            this.inputBarContainer = this.createNode("div", [["id", "input-bar-container"]]);
+            this.appendNodes(this.answerBox, [this.inputBarContainer, this.responseField, this.blockContainer]);
+            this.appendNodes(this.inputBarContainer, [this.inputBar, this.submitAnswer]);
+
+            this.typeInListener(checkAnswer);
+            this.typeInCheck();
+        }
+
+        this.blockContainer.addEventListener("click", ()=>{
+            if(this.enabled){
+                    this.blockContainer.style.display = "none";
+                    checkAnswer("timeout", this.logic, "timeout");
+            } 
+        })
+      
         this.correctQuestionsLabel.textContent = this.lang.quiz.correctQuestions;
         this.wrongQuestionsLabel.textContent = this.lang.quiz.wrongQuestions;
         this.blockContainer.textContent = "Click here to continue!";
-        this.blockContainer.style.display = "none";
-
-        this.multipleChoiceListener(checkAnswer);
-        this.blockContainer.addEventListener("click", ()=>{
-           if(this.enabled){
-                this.blockContainer.style.display = "none";
-                checkAnswer("timeout", this.logic, "timeout");
-           } 
-        })
+        this.blockContainer.style.display = "none";       
     } 
 
     startTimer(logic){
@@ -143,6 +160,8 @@ class QuizDomActions{
 
     handleTimeUp(){
         this.blockContainer.style.display = "flex";
+        this.blockContainer.style.width = getComputedStyle(this.answerBox).width;
+        this.blockContainer.style.height = getComputedStyle(this.answerBox).height;
     }
 
     toggleEnabled = (b) => this.enabled = b;
@@ -196,6 +215,13 @@ class QuizDomActions{
             }else if((e.target.id === "right-lower-answer" || e.target.id === "right-lower-img") && this.enabled){
                 checkAnswer(this.rl, this.logic, "right-lower-answer");
             }
+        })
+    }
+
+    typeInCheck(){
+        this.inputBar.addEventListener("input", ()=>{
+            const isValid = this.logic.validateInput(this.inputBar.value);
+            this.submitAnswer.style.backgroundColor = (isValid) ? "lightgreen" : "red";
         })
     }
 
