@@ -91,7 +91,7 @@ const countries = {
         continents: ["South America"],
     },
     "Heard Island and McDonald Islands":{
-        capital: "",
+        capital: "No Capital",
         officialName: "Heard Island and McDonald Islands",
         population: "0",
         area: "412",
@@ -874,7 +874,7 @@ const countries = {
         continents: ["Europe"],
         },
     "Antarctica":{
-        capital: "",
+        capital: "No Capital",
         officialName: "Antarctica",
         population: "1300",
         area: "14000000",
@@ -1576,7 +1576,7 @@ const countries = {
         continents: ["Europe"],
     },
     "Bouvet Island":{
-        capital: "",
+        capital: "No Capital",
         officialName: "Bouvet Island",
         population: "0",
         area: "49",
@@ -2053,7 +2053,7 @@ const countries = {
         continents: ["Asia"],
     },
     "Macau":{
-        capital: "",
+        capital: "No Capital",
         officialName: "Macao Special Administrative Region of the People's Republic of China",
         population: "685900",
         area: "30",
