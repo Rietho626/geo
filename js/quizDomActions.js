@@ -120,6 +120,7 @@ class QuizDomActions{
             this.responseField = this.createNode("div", [["id", "type-in-response"]]);
             this.submitAnswer = this.createNode("button", [["id", "type-in-submit"]]);
             this.inputBarContainer = this.createNode("div", [["id", "input-bar-container"]]);
+            this.submitAnswer.textContent = this.lang.quiz.typeInSubmit;
             this.appendNodes(this.answerBox, [this.inputBarContainer, this.responseField, this.blockContainer]);
             this.appendNodes(this.inputBarContainer, [this.inputBar, this.submitAnswer]);
 
@@ -219,7 +220,7 @@ class QuizDomActions{
     }
 
     typeInListener(){
-        
+
     }
 
     typeInCheck(){
@@ -302,7 +303,8 @@ const languagePack =  {
         "quiz":{
             correctQuestions: "Correct",
             wrongQuestions: "Incorrect",
-            heading: "Question "
+            heading: "Question ",
+            typeInSubmit: "Submit Answer"
         }
     }
 }

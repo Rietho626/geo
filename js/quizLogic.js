@@ -41,12 +41,12 @@ class QuizLogic{
         let isValid = false;
         const aType = this.activeQuestion["questionType"].split("-")[1];
         if(aType === "country"){
-            for(idx in this.quiz.allCountries){
+            for(const idx in this.quiz.allCountries){
                 if(idx.toLowerCase() === input.toLowerCase()) isValid = true;
             }
         }else if(aType === "capital"){
-            for(idx in this.quiz.allCountries){
-                if(this.quiz.allCountries["idx"]["capital"].toLowerCase() === input.toLowerCase) isValid = true;
+            for(const idx in this.quiz.allCountries){
+                if(this.quiz.allCountries[idx]["capital"].toLowerCase() === input.toLowerCase) isValid = true;
             }
         }
         return isValid;
