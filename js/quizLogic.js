@@ -1,3 +1,4 @@
+import transliterate from "./transliterate.js";
 export default function getQuizLogic(quiz){
     return new QuizLogic(quiz);
 }
@@ -37,16 +38,24 @@ class QuizLogic{
         }
     }
 
+    transliterate(str){
+        let word = str;
+        transliterate.forEach((val, key)=>{
+           word = word.replaceAll(key, val);
+        })
+        return word;
+    }
+
     validateInput(input){
         let isValid = false;
         const aType = this.activeQuestion["questionType"].split("-")[1];
         if(aType === "country"){
             for(const idx in this.quiz.allCountries){
-                if(idx.toLowerCase() === input.toLowerCase()) isValid = true;
+                if(this.transliterate(idx).toLowerCase() === this.transliterate(input).toLowerCase()) isValid = true;
             }
         }else if(aType === "capital"){
             for(const idx in this.quiz.allCountries){
-                if(this.quiz.allCountries[idx]["capital"].toLowerCase() === input.toLowerCase()) isValid = true;
+                if(this.transliterate(this.quiz.allCountries[idx]["capital"]).toLowerCase() === this.transliterate(input).toLowerCase()) isValid = true;
             }
         }
 
