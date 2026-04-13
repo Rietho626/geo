@@ -85,6 +85,7 @@ class QuizDomActions{
         this.question = this.createNode("div", [["id", "quiz-question"]]);
         this.time = this.createNode("div", [["id", "quiz-time"]]);
         this.answerBox = this.createNode("div", [["id", "answer-box"]]);
+        this.blockContainer = this.createNode("div", [["id", "block-container"]]);
 
         //Here search/type-in Mode expansion
 
@@ -101,7 +102,6 @@ class QuizDomActions{
             this.leftLowerAnswer = this.createNode("div", [["id", "left-lower-answer"]]);
             this.rightUpperAnswer = this.createNode("div", [["id", "right-upper-answer"]]);
             this.rightLowerAnswer = this.createNode("div", [["id", "right-lower-answer"]]);
-            this.blockContainer = this.createNode("div", [["id", "block-container"]]);
             this.leftUpperImg = this.createNode("img", [["display", "none"], ["id","left-upper-img"]]);
             this.rightUpperImg = this.createNode("img", [["display", "none"], ["id","right-upper-img"]]);
             this.leftLowerImg = this.createNode("img", [["display", "none"], ["id","left-lower-img"]]);
