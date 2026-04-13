@@ -97,7 +97,7 @@ class QuizDomActions{
         this.appendNodes(this.wrongQuestionsContainer, [this.wrongQuestionsLabel, this.wrongQuestions]);
         this.appendNodes(this.questionBox, [this.question, this.time]);
 
-        if(this.mode === "multiple-choice"){
+        if(mode === "multiple-choice"){
             this.leftUpperAnswer = this.createNode("div", [["id", "left-upper-answer"]]);
             this.leftLowerAnswer = this.createNode("div", [["id", "left-lower-answer"]]);
             this.rightUpperAnswer = this.createNode("div", [["id", "right-upper-answer"]]);
@@ -115,7 +115,7 @@ class QuizDomActions{
 
             this.multipleChoiceListener(checkAnswer);
 
-        }else if(this.mode === "type-in-mode"){
+        }else if(mode === "type-in-mode"){
             this.inputBar = this.createNode("input", [["type", "text"], ["id", "type-in-ipnut"]]);
             this.responseField = this.createNode("div", [["id", "type-in-response"]]);
             this.submitAnswer = this.createNode("button", [["id", "type-in-submit"]]);
