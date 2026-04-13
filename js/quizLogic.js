@@ -46,6 +46,7 @@ class QuizLogic{
             }
         }else if(aType === "capital"){
             for(const idx in this.quiz.allCountries){
+                console.log(this.quiz.allCountries[idx]);
                 if(this.quiz.allCountries[idx]["capital"].toLowerCase() === input.toLowerCase) isValid = true;
             }
         }
