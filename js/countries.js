@@ -937,7 +937,7 @@ const countries = {
         continents: ["North America"],
     },
     "Nauru":{
-        apital: "Yaren",
+        capital: "Yaren",
         officialName: "Republic of Nauru",
         population: "11680",
         area: "21",
