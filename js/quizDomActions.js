@@ -117,7 +117,7 @@ class QuizDomActions{
 
         }else if(mode === "type-in-mode"){
             this.inputBar = this.createNode("input", [["type", "text"], ["id", "type-in-ipnut"]]);
-            this.responseField = this.createNode("div", [["id", "type-in-response"]]);
+            this.responseField = this.createNode("div", [["id", "type-in-response"], ["class", "type-in-div"]]);
             this.submitAnswer = this.createNode("button", [["id", "type-in-submit"]]);
             this.inputBarContainer = this.createNode("div", [["id", "input-bar-container"], ["class", "type-in-div"]]);
             this.submitAnswer.textContent = this.lang.quiz.typeInSubmit;
@@ -227,6 +227,8 @@ class QuizDomActions{
         this.inputBar.addEventListener("input", ()=>{
             const isValid = this.logic.validateInput(this.inputBar.value);
             this.submitAnswer.style.backgroundColor = (isValid) ? "lightgreen" : "red";
+            this.responseField.style.color = (isValid) ? "lightgreen" : "red";
+            this.responseField.textContent = (isValid) ? this.lang.quiz.typeInValid : this.lang.quiz.typeInInvalid;
         })
     }
 
@@ -304,7 +306,9 @@ const languagePack =  {
             correctQuestions: "Correct",
             wrongQuestions: "Incorrect",
             heading: "Question ",
-            typeInSubmit: "Submit Answer"
+            typeInSubmit: "Submit Answer",
+            typeInInvalid: "This is not a valid answer!",
+            typeInValid: "This is a valid answer!"
         }
     }
 }
