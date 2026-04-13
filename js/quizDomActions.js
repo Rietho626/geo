@@ -218,6 +218,10 @@ class QuizDomActions{
         })
     }
 
+    typeInListener(){
+        
+    }
+
     typeInCheck(){
         this.inputBar.addEventListener("input", ()=>{
             const isValid = this.logic.validateInput(this.inputBar.value);
