@@ -177,7 +177,7 @@ class QuizDomActions{
         this.correctQuestions.textContent = logic.getNumCorrectQuestions();
         this.wrongQuestions.textContent = logic.getNumWrongQuestions();
         this.heading.textContent = this.lang.quiz.heading + logic.getQuestionNr();
-        if(logic.getAnswer().startsWith("http")){
+        if(logic.getQuestionObject().startsWith("http")){
             this.question.textContent = logic.getQuestion().split("http")[0];
             this.qImage.src = this.logic.getQuestionObject();
         }else{
