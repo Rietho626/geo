@@ -252,10 +252,19 @@ class QuizDomActions{
         })
     }
 
-    displayAnswerCheck(isCorrect, answerBoxId, correctAnswer){
+    async displayAnswerCheck(isCorrect, answerBoxId, correctAnswer){
         return new Promise((resolve)=>{
             const answerNode = document.getElementById(answerBoxId);
             let corrAnswerNode = false;
+            if(this.lu === correctAnswer){
+                corrAnswerNode = document.getElementById("left-upper-answer")
+            }else if(this.ll === correctAnswer){
+                corrAnswerNode = document.getElementById("left-lower-answer")
+            }else if(this.ru === correctAnswer){
+                corrAnswerNode = document.getElementById("right-upper-answer")
+            }else if(this.rl === correctAnswer){
+                corrAnswerNode = document.getElementById("right-lower-answer")
+            }
             if(isCorrect){
                 this.displayCorrect(answerNode);
             }else{
@@ -296,16 +305,6 @@ class QuizDomActions{
         if(this.logic.getMode() === "multiple-choice"){
             answerNode.style.backgroundColor =  "red";
             answerNode.style.color = "white";
-            console.log(correctAnswer, this.lu, this.ru, this.rl, this.ll);
-            if(this.lu === correctAnswer){
-                corrAnswerNode = document.getElementById("left-upper-answer")
-            }else if(this.ll === correctAnswer){
-                corrAnswerNode = document.getElementById("left-lower-answer")
-            }else if(this.ru === correctAnswer){
-                corrAnswerNode = document.getElementById("right-upper-answer")
-            }else if(this.rl === correctAnswer){
-                corrAnswerNode = document.getElementById("right-lower-answer")
-            }
             setTimeout(()=>{
                 if(corrAnswerNode) corrAnswerNode.style.backgroundColor = "lightgreen";
             },1000);
