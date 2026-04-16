@@ -84,7 +84,7 @@ class QuizDomActions{
         this.wrongQuestions = this.createNode("div", [["id", "wrong-questions"]]);
         this.questionBox = this.createNode("div", [["id", "question-box"]]);
         this.question = this.createNode("div", [["id", "quiz-question"]]);
-        this.qImage = this.createNode("img", [["id", "question-img"]]),
+        this.qImage = this.createNode("img", [["id", "question-img"], ["src", ""]]),
         this.time = this.createNode("div", [["id", "quiz-time"]]);
         this.answerBox = this.createNode("div", [["id", "answer-box"]]);
         this.blockContainer = this.createNode("div", [["id", "block-container"]]);
