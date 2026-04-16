@@ -31,7 +31,7 @@ class QuizLogic{
 
     getQuestionNr = () => this.correctQuestions.length + this.wrongQuestions.length + 1;
 
-    checkAnswer = (answer) => answer === this.activeQuestion.answer;
+    checkAnswer = (answer) => answer.toLowerCase() === this.activeQuestion.answer.toLowerCase();
 
     checkForQuizEnd = () => (!this.quiz.questions.length) ? true : false;
 
