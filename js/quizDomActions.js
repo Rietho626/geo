@@ -84,6 +84,7 @@ class QuizDomActions{
         this.wrongQuestions = this.createNode("div", [["id", "wrong-questions"]]);
         this.questionBox = this.createNode("div", [["id", "question-box"]]);
         this.question = this.createNode("div", [["id", "quiz-question"]]);
+        this.qImage = this.createNode("img", [["id", "question-img"]]),
         this.time = this.createNode("div", [["id", "quiz-time"]]);
         this.answerBox = this.createNode("div", [["id", "answer-box"]]);
         this.blockContainer = this.createNode("div", [["id", "block-container"]]);
@@ -97,6 +98,7 @@ class QuizDomActions{
         this.appendNodes(this.correctQuestionsContainer, [this.correctQuestionsLabel, this.correctQuestions]);
         this.appendNodes(this.wrongQuestionsContainer, [this.wrongQuestionsLabel, this.wrongQuestions]);
         this.appendNodes(this.questionBox, [this.question, this.time]);
+        this.appendNodes(this.question, [this.qImage]);
 
         if(mode === "multiple-choice"){
             this.leftUpperAnswer = this.createNode("div", [["id", "left-upper-answer"]]);
@@ -175,7 +177,13 @@ class QuizDomActions{
         this.correctQuestions.textContent = logic.getNumCorrectQuestions();
         this.wrongQuestions.textContent = logic.getNumWrongQuestions();
         this.heading.textContent = this.lang.quiz.heading + logic.getQuestionNr();
-        this.question.textContent = logic.getQuestion();
+        if(logic.getAnswer().startsWith("http")){
+            this.question.textContent = logic.getQuestion().split("http")[0];
+            this.qImage.src = this.logic.getQuestionObject();
+        }else{
+            this.question.textContent = logic.getQuestion();
+            this.qImage.src = "";
+        }
         if(logic.getTime() !== "no-limit") this.startTimer(logic);
 
         if(logic.getMode() === "multiple-choice"){
