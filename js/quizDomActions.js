@@ -227,10 +227,12 @@ class QuizDomActions{
         this.submitAnswer.addEventListener("click", ()=>{
             checkAnswer(this.inputBar.value, this.logic, this.inputBar.id);
         })
-        this.submitAnswer.addEventListener("keydown", (e)=>{
-            if(e.key === "enter" && this.timeUp === false){
+        this.submitAnswer.addEventListener("input", (e)=>{
+           /* if(e.key === "enter" && this.timeUp === false){
               checkAnswer(this.inputBar.value, this.logic, this.inputBar.id);
             }
+            */
+            console.log(e.key, this.timeUp);
         })
     }
 
@@ -265,7 +267,7 @@ class QuizDomActions{
                     this.responseField.style.color = "black";
                 }
                 resolve(this);
-            }, 2000);
+            }, 3500);
         })
     }
 
