@@ -225,14 +225,14 @@ class QuizDomActions{
 
     typeInListener(checkAnswer){
         this.submitAnswer.addEventListener("click", ()=>{
-            checkAnswer(this.inputBar.value, this.logic, this.inputBar.id);
+            if(this.enabled) checkAnswer(this.inputBar.value, this.logic, this.inputBar.id);
         })
-        this.inputBar.addEventListener("input", (e)=>{
+        this.inputBar.addEventListener("keydown", (e)=>{
            /* if(e.key === "enter" && this.timeUp === false){
               checkAnswer(this.inputBar.value, this.logic, this.inputBar.id);
             }
             */
-            console.log(e.key, this.timeUp);
+            console.log(e.key, e.code, this.timeUp);
         })
     }
 
