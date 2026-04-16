@@ -228,10 +228,10 @@ class QuizDomActions{
             if(this.enabled) checkAnswer(this.inputBar.value, this.logic, this.inputBar.id);
         })
         this.inputBar.addEventListener("keydown", (e)=>{
-            if(e.key === "enter" && this.timeUp === false && this.enabled){
+            if(e.key === "Enter" && this.timeUp === false && this.enabled && this.inputBar.value !== ""){
               checkAnswer(this.inputBar.value, this.logic, this.inputBar.id);
             }
-            console.log(e.key, this.timeUp, this.enabled)
+            console.log(e.key, this.timeUp, this.enabled, this.inputBar.value)
         })
     }
 
