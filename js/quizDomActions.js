@@ -97,8 +97,7 @@ class QuizDomActions{
         this.appendNodes(this.pastQuestionsContainer, [this.correctQuestionsContainer, this.wrongQuestionsContainer])
         this.appendNodes(this.correctQuestionsContainer, [this.correctQuestionsLabel, this.correctQuestions]);
         this.appendNodes(this.wrongQuestionsContainer, [this.wrongQuestionsLabel, this.wrongQuestions]);
-        this.appendNodes(this.questionBox, [this.question, this.time]);
-        this.appendNodes(this.question, [this.qImage]);
+        this.appendNodes(this.questionBox, [this.question, this.time, this.qImage]);
         console.log(this.qImage, this.qImage.src);
 
         if(mode === "multiple-choice"){
