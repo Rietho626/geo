@@ -231,7 +231,7 @@ class QuizDomActions{
             if(e.key === "enter" && this.timeUp === false && this.enabled){
               checkAnswer(this.inputBar.value, this.logic, this.inputBar.id);
             }
-            
+            console.log(e.key, this.timeUp, this.enabled)
         })
     }
 
