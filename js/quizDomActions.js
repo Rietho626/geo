@@ -293,7 +293,7 @@ class QuizDomActions{
     }
 
     displayIncorrect(answerNode, corrAnswerNode, correctAnswer){
-        if(this.logic.getMode() === "mulitple-choice"){
+        if(this.logic.getMode() === "multiple-choice"){
             answerNode.style.backgroundColor =  "red";
             answerNode.style.color = "white";
             console.log(correctAnswer, this.lu, this.ru, this.rl, this.ll);
