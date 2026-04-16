@@ -227,7 +227,7 @@ class QuizDomActions{
         this.submitAnswer.addEventListener("click", ()=>{
             checkAnswer(this.inputBar.value, this.logic, this.inputBar.id);
         })
-        this.submitAnswer.addEventListener("input", (e)=>{
+        this.inputBar.addEventListener("input", (e)=>{
            /* if(e.key === "enter" && this.timeUp === false){
               checkAnswer(this.inputBar.value, this.logic, this.inputBar.id);
             }
