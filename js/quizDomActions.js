@@ -84,7 +84,7 @@ class QuizDomActions{
         this.wrongQuestions = this.createNode("div", [["id", "wrong-questions"]]);
         this.questionBox = this.createNode("div", [["id", "question-box"]]);
         this.question = this.createNode("div", [["id", "quiz-question"]]);
-        this.qImage = this.createNode("img", [["id", "question-img"], ["src", ""]]),
+        this.qImage = this.createNode("img", [["id", "question-img"], ["src", "nix"]]),
         this.time = this.createNode("div", [["id", "quiz-time"]]);
         this.answerBox = this.createNode("div", [["id", "answer-box"]]);
         this.blockContainer = this.createNode("div", [["id", "block-container"]]);
@@ -99,6 +99,7 @@ class QuizDomActions{
         this.appendNodes(this.wrongQuestionsContainer, [this.wrongQuestionsLabel, this.wrongQuestions]);
         this.appendNodes(this.questionBox, [this.question, this.time]);
         this.appendNodes(this.question, [this.qImage]);
+        console.log(this.qImage, this.qImage.src);
 
         if(mode === "multiple-choice"){
             this.leftUpperAnswer = this.createNode("div", [["id", "left-upper-answer"]]);
@@ -202,7 +203,6 @@ class QuizDomActions{
                         node.style.width = img.width;
                         node.style.display = "block";
                     }
-                 
                 })
             }else{
                 Array.from(document.querySelectorAll("#answer-box img")).forEach(node=>{node.display = "none";})
