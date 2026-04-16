@@ -25,7 +25,7 @@ class QuizLogic{
 
     getQuestion = () => this.activeQuestion.questionText;
 
-    getQuestionObject = () => this.activeQuestion.quetionObject;
+    getQuestionObject = () => this.activeQuestion.questionObject;
 
     getAnswerType = () => this.activeQuestion.questionType.split("-")[1];
 
