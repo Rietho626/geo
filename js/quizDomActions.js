@@ -301,7 +301,7 @@ class QuizDomActions{
             }
             setTimeout(()=>{
                 if(corrAnswerNode) corrAnswerNode.style.backgroundColor = "lightgreen";
-            },500);
+            },1000);
         }else if(this.logic.getMode() === "type-in-mode"){
             this.inputBar.style.backgroundColor = "red";
             this.submitAnswer.style.backgroundColor = "red";
@@ -312,7 +312,7 @@ class QuizDomActions{
             setTimeout(()=>{
                 this.responseField.style.color = "yellow";
                 this.responseField.textContent = this.lang.quiz.typeInCorrAnswer + correctAnswer;
-            },500)
+            },1000)
         }
     }
 
