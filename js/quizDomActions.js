@@ -262,7 +262,7 @@ class QuizDomActions{
                 this.displayIncorrect(answerNode, corrAnswerNode, correctAnswer);
             }
             setTimeout(()=>{
-                if(this.logic.getMode() === "mulitple-choice"){
+                if(this.logic.getMode() === "multiple-choice"){
                     answerNode.style.backgroundColor =  "transparent";
                     answerNode.style.color = "black";
                     if(corrAnswerNode) corrAnswerNode.style.backgroundColor = "transparent";
