@@ -227,7 +227,7 @@ class QuizDomActions{
         this.submitAnswer.addEventListener("click", ()=>{
             checkAnswer(this.inputBar.value, this.logic, this.inputBar.id);
         })
-        this.submitAnswer.addEventListener("input", (e)=>{
+        this.submitAnswer.addEventListener("keydown", (e)=>{
             if(e.key === "enter" && this.timeUp === false){
               checkAnswer(this.inputBar.value, this.logic, this.inputBar.id);
             }
@@ -316,8 +316,8 @@ class QuizDomActions{
 
     fetchResponseField(resType){
         let res = this.lang.quiz[resType]["default"];
-        if(this.lang.quiz[resType][this.logic.getMode()]){
-            res = res.concat(this.lang.quiz[resType][this.logic.getMode()]);
+        if(this.lang.quiz[resType][this.logic.getAnswerType()]){
+            res = res.concat(this.lang.quiz[resType][this.logic.getAnswerType()]);
         }
         return res[Math.floor(Math.random()*res.length)];
     }
