@@ -15,9 +15,9 @@ settingsLink.href = "./css/" + (localStorage.getItem("theme") || "baseTheme.css"
 settings.addEventListener("click", (e)=>{
     if(e.target.id === "settings-button"){
         settingsUl.classList.toggle("invisible");
-    }else if(e.target.id === "themes-ul"){
+    }else if(e.target.id === "themes-button"){
         themesUl.classList.toggle("invisible");
-    }else if(e.target.id === "languages-ul"){
+    }else if(e.target.id === "languages-button"){
         languagesUl.classList.toggle("invisible");
     }
 })
