@@ -287,6 +287,8 @@ select{
 #settings{
     display: flex;
     flex-direction: column;
+    position: absolute;
+    left: 70px;
 }
 
 #themes-ul{
@@ -297,4 +299,21 @@ select{
 #languages{
     display: flex;
     flex-direction: column;
+}
+
+#settings-ul{
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+#settings-ul div{
+    font-size: 25px;
+    padding: 5px;
+}
+
+
+#settings-ul li{
+    padding: 2px;
 }
