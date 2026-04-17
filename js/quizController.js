@@ -3,7 +3,9 @@ import getQuizLogic from "./quizLogic.js";
 import createQuizCompiler from "./quizCompiler.js";
 import getSettingsHandler from "./settingsHandler.js";
 
-
+const settingsLink = document.getElementById("theme-settings");
+settingsLink.href = "./css/" + (localStorage.getItem("theme") || "baseTheme.css")
+console.log(settingsLink, settingsLink.href);
 
 let settingsHandler = getSettingsHandler();
 let quizDomActions = getQuizDomActions();
