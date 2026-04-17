@@ -296,7 +296,7 @@ select{
     flex-direction: column;
 }
 
-#languages{
+#languages-ul{
     display: flex;
     flex-direction: column;
 }
@@ -317,3 +317,52 @@ select{
 #settings-ul li{
     padding: 2px;
 }
+
+
+#settings div{
+    background-color: var(--mainColor);
+    margin: 0px;
+    border: 0px;
+    padding: 8px;
+}
+
+
+#settings li{
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+}
+
+#settings-ul div{
+    background-color: var(--navLinkShadowColor);
+
+    border: 1.5px solid;
+}
+
+#settings-ul div:hover{
+    box-shadow: 0px 0px 6px 0.1px black inset;
+    cursor: pointer;
+}
+
+#settings-ul li li{
+    background-color: rgba(40, 50, 150, 0.6);
+    padding: 2px;
+    border-bottom: 1px solid;
+    border-left: 1px solid;
+    border-right: 1px solid;
+}
+
+#settings-ul li li:hover{
+    box-shadow: 0px 0px 10px 0.4px black inset;
+    cursor: pointer;
+}
+
+#settings-button{
+    border-radius: 5px 5px 0px 0px;
+}
+
+#settings-button:hover{
+    box-shadow: 0px 0px 10px 0.4px black inset;
+    cursor: pointer;
+}
+
