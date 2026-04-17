@@ -283,3 +283,18 @@ select{
 #answer-box > .type-in-div{
     border: 0px;
 }
+
+#settings{
+    display: flex;
+    flex-direction: column;
+}
+
+#themes-ul{
+    display: flex;
+    flex-direction: column;
+}
+
+#languages{
+    display: flex;
+    flex-direction: column;
+}
