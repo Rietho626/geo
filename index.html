@@ -5,9 +5,6 @@
             Geography Quiz
         </title>
         <script type="module" src="./js/quizController.js">
-              const settingsLink = document.getElementById("theme-settings");
-              settingsLink.href = "./css/" + (localStorage.getItem("theme") || "baseTheme.css")
-              console.log(settingsLink, settingsLink.href);
         </script>
         <link rel="stylesheet" id="theme-settings">
         <link rel="stylesheet" href="./css/styles.css">
@@ -27,7 +24,8 @@
                                 <li>Sunset Theme</li>
                             </ul>
                         </li>
-                        <div>Languages</div>
+                        <li>
+                            <div>Languages</div>
                             <ul id="languages">
                                 <li>Base Theme</li>
                                 <li>Sunset Theme</li>
