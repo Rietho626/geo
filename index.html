@@ -5,11 +5,36 @@
             Geography Quiz
         </title>
         <script type="module" src="./js/quizController.js">
+              const settingsLink = document.getElementById("theme-settings");
+              settingsLink.href = "./css/" + (localStorage.getItem("theme") || "baseTheme.css");
         </script>
+        <link rel="stylesheet" id="theme-settings">
         <link rel="stylesheet" href="./css/styles.css">
     </head>
     <body>
         <header>
+            <div>
+                <div id="settings">
+                    <div id="settings-button">
+                        Settings
+                    </div>
+                    <ul id="settings-ul">
+                        <li>
+                            <div>Themes</div>
+                            <ul id="themes-ul">
+                                <li>Base Theme</li>
+                                <li>Sunset Theme</li>
+                            </ul>
+                        </li>
+                        <div>Languages</div>
+                            <ul id="languages">
+                                <li>Base Theme</li>
+                                <li>Sunset Theme</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
             <div>
                 Quiz yourself in 
             </div>

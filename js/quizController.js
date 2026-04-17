@@ -3,6 +3,8 @@ import getQuizLogic from "./quizLogic.js";
 import createQuizCompiler from "./quizCompiler.js";
 import getSettingsHandler from "./settingsHandler.js";
 
+
+
 let settingsHandler = getSettingsHandler();
 let quizDomActions = getQuizDomActions();
 settingsHandler.enableListener(initiateQuiz);

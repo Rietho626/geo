@@ -1,0 +1,12 @@
+:root{
+    --font: Verdana;
+    --linkBorderColor: black;
+    --navLinkBorderSize: 2px;
+    --navLinkPadding: 7px;
+    --navLinkMargin: 2px;
+    --mainColor: rgb(59, 59, 214);
+    --secondaryColor: rgba(57, 180, 202, 0.932);
+    --navLinkShadowColor: rgb(95, 95, 148);
+    --navLinkBg:radial-gradient(var(--navLinkShadowColor),var(--mainColor) 80%);
+    --navLinkRevBg: radial-gradient(var(--mainColor),var(--navLinkShadowColor) 80%);
+}
