@@ -289,6 +289,7 @@ select{
     flex-direction: column;
     position: absolute;
     left: 70px;
+    width: 200px;
 }
 
 #themes-ul{

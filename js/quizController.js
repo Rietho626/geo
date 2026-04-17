@@ -4,8 +4,12 @@ import createQuizCompiler from "./quizCompiler.js";
 import getSettingsHandler from "./settingsHandler.js";
 
 const settingsLink = document.getElementById("theme-settings");
+const settingsUl = document.getElementById("settings-ul");
+const themesUl = document.getElementsByTagName("themes-ul");
+const languagesUl = document.getElementById("languages-ul");
 settingsLink.href = "./css/" + (localStorage.getItem("theme") || "baseTheme.css")
-console.log(settingsLink, settingsLink.href);
+
+
 
 let settingsHandler = getSettingsHandler();
 let quizDomActions = getQuizDomActions();
