@@ -314,11 +314,9 @@ select{
     padding: 5px;
 }
 
-
 #settings-ul li{
     padding: 2px;
 }
-
 
 #settings div{
     background-color: var(--mainColor);
@@ -326,7 +324,6 @@ select{
     border: 0px;
     padding: 8px;
 }
-
 
 #settings li{
     margin: 0px;
@@ -367,3 +364,6 @@ select{
     cursor: pointer;
 }
 
+.invisible{
+    display: none;
+}

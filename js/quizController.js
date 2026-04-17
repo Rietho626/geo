@@ -7,9 +7,20 @@ const settingsLink = document.getElementById("theme-settings");
 const settingsUl = document.getElementById("settings-ul");
 const themesUl = document.getElementsByTagName("themes-ul");
 const languagesUl = document.getElementById("languages-ul");
+
+const settings = document.getElementById("settings");
+
 settingsLink.href = "./css/" + (localStorage.getItem("theme") || "baseTheme.css")
 
-
+settings.addEventListener("click", (e)=>{
+    if(e.target.id === "settings-button"){
+        settingsUl.classList.toggle("invisible");
+    }else if(e.target.id === "themes-ul"){
+        themesUl.classList.toggle("invisible");
+    }else if(e.target.id === "languages-ul"){
+        languagesUl.classList.toggle("invisible");
+    }
+})
 
 let settingsHandler = getSettingsHandler();
 let quizDomActions = getQuizDomActions();
