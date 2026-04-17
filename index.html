@@ -6,7 +6,8 @@
         </title>
         <script type="module" src="./js/quizController.js">
               const settingsLink = document.getElementById("theme-settings");
-              settingsLink.href = "./css/" + (localStorage.getItem("theme") || "baseTheme.css");
+              settingsLink.href = "./css/" + (localStorage.getItem("theme") || "baseTheme.css")
+              console.log(settingsLink, settingsLink.href);
         </script>
         <link rel="stylesheet" id="theme-settings">
         <link rel="stylesheet" href="./css/styles.css">
