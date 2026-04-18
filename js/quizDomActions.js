@@ -1,9 +1,9 @@
-export default function getQuizDomActions(){
-    return new QuizDomActions();
+export default function getQuizDomActions(languagePack){
+    return new QuizDomActions(languagePack);
 }
 
 class QuizDomActions{
-    constructor(){
+    constructor(languagePack){
         this.quizContainer = document.getElementById("quiz-container");
         this.lang = languagePack[localStorage.getItem("langPref") || "english"];
         this.enabled = true;
@@ -345,59 +345,3 @@ class QuizDomActions{
 
 
 
-const languagePack =  {
-    "english": {
-        "startingScreen":{
-            heading: "Quiz",
-            questionModeContainer: "Question Mode: ",
-            questionTypeContainer: "Question Type: ",
-            timeLimitContainer: "Time per Question: ",
-            numQuestionsContainer: "Number of Questions: ",
-            continentContainer: "Continents: ",
-            startQuizButton: "Start Quiz",
-            createNewQuizButton: "Create New Quiz"
-            
-        },
-        "continents":{
-            europe: "Europe",
-            asia: "Asia",
-            "north-america": "North America",
-            "south-america": "South America",
-            africa: "Africa",
-            oceania: "Oceania"
-        },
-        "quiz":{
-            correctQuestions: "Correct",
-            wrongQuestions: "Incorrect",
-            heading: "Question ",
-            typeInSubmit: "Submit Answer",
-            typeInInvalid: "This is not a valid answer!",
-            typeInValid: "This is a valid answer!",
-            typeInCorrect: {
-                "default": ["Correct! Nicely done!", "Correct! Good Job!"],
-                "capital": ["Correct! True Capitalist!", "Now that's Capitalism!", "CORRECT CAPITAL"],
-                "flag": ["Flagster!"],
-                "population": ["Mousehold, Population Bomb! Wow, 10 Hits!"],
-                "area": ["Nice! Area 51!"]
-            },
-            typeInIncorrect: {
-                "default": ["Incorrect! Ooops!", "Had some bad luck at thinking, huh?"],
-                "capital": ["Incorrect! You must be a Communist!", "Capitalism looks a little different to me!", "incorrect capital"],
-                "flag": ["You got flagged!"],
-                "population": ["Mousehold, Population Bomb! No, it missed!"],
-                "area": ["You are no Aereal Ace!"]
-            },
-            typeInCorrAnswer: "The correct answer was: ",
-            responseFieldStart: {
-                "default": ["Type like the Wind!", "Are you ready for this one?", "Pro Tip: The earth is flat!", 
-                            "Got get 'em, Tiger!", "Time for a new Highscore!", "Try our different Themes!", "Go, go, go, go for gold!", 
-                            "Quoth the Raven: Quiz me more!", "Adapt, evolve, overcome!", "There is no such thing as the gulf of america!",
-                            "PUerTO rIco! We love PuErTO RiCO!"],
-                "capital" : ["Capitalism!", "Another day, another capital!"],
-                "flag": ["Capture the flag!", "Why is the nepalese flag like this???"],
-                "population": ["Pro Tip: You have a +/-5% tolerance!"],
-                "area": ["Pro Tip: You have a +/-5% tolerance!", "Pro Tip: The Vatican is smaller than the US!"]
-            }
-        }
-    }
-}

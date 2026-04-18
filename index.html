@@ -4,7 +4,13 @@
         <title>
             Geography Quiz
         </title>
-        <script type="module" src="./js/quizController.js">
+        <script type="test/javascript" src="./js/quizController.js" defer>
+        </script>
+        <script type="module">
+            import languagePack from "./settings/languagePack.js";
+            import updateLang from "./updateLang.js";
+
+            updateLang(languagePack, (localStorage.getItem("langPref") || "english"));
         </script>
         <link rel="stylesheet" id="theme-settings">
         <link rel="stylesheet" href="./css/styles.css">
@@ -34,7 +40,7 @@
                     </ul>
                 </div>
             </div>
-            <div>
+            <div id="topic-desc">
                 Quiz yourself in 
             </div>
             <nav>
@@ -53,11 +59,11 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Create Quiz</th>
+                                    <th id="create">Create Quiz</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr><td><p>Select a Quiz-Topic above to get started!</p></td></tr>
+                                <tr><td><p id="select-above">Select a Quiz-Topic above to get started!</p></td></tr>
                             </tbody>
                         </table>
                     </form>

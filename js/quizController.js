@@ -2,6 +2,8 @@ import getQuizDomActions from "./quizDomActions.js";
 import getQuizLogic from "./quizLogic.js";
 import createQuizCompiler from "./quizCompiler.js";
 import getSettingsHandler from "./settingsHandler.js";
+import languagePack from "./settings/languagePack.js";
+import updateLang from "./updateLang.js";
 
 const settingsLink = document.getElementById("theme-settings");
 const settingsUl = document.getElementById("settings-ul");
@@ -21,6 +23,8 @@ settings.addEventListener("click", (e)=>{
         languagesUl.classList.toggle("invisible");
     }else if(e.target.id.endsWith("-theme")){
         activateTheme(e.target.id.split("-")[0]);
+    }else if(e.target.id.startsWith("lang-")){
+        updateLang(languagePack, (languages.get(e.target.id) ?? "english"));
     }
 })
 
@@ -29,13 +33,19 @@ const themes = new Map([
     ["sunset", "sunsetTheme.css"]
 ])
 
+const languages = new Map([
+    ["lang-en", "english"],
+    ["lang-de", "german"]
+])
+
 function activateTheme(theme){
     settingsLink.href = "./css/" + themes.get(theme);
     localStorage.setItem("theme", themes.get(theme))
 }
 
+
 let settingsHandler = getSettingsHandler();
-let quizDomActions = getQuizDomActions();
+let quizDomActions = getQuizDomActions(languagePack);
 settingsHandler.enableListener(initiateQuiz);
 
 function initiateQuiz(settings){
