@@ -19,8 +19,20 @@ settings.addEventListener("click", (e)=>{
         themesUl.classList.toggle("invisible");
     }else if(e.target.id === "languages-button"){
         languagesUl.classList.toggle("invisible");
+    }else if(e.target.id.endsWith("-theme")){
+        activateTheme(e.target.id.split("-")[0]);
     }
 })
+
+const themes = new Map([
+    ["base", "baseTheme.css"],
+    ["sunset", "sunsetTheme.css"]
+])
+
+function activateTheme(theme){
+    settingsLink.href = themes.get(theme);
+    localStorage.setItem("theme", themes.get(theme))
+}
 
 let settingsHandler = getSettingsHandler();
 let quizDomActions = getQuizDomActions();
