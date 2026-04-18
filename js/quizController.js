@@ -5,7 +5,7 @@ import getSettingsHandler from "./settingsHandler.js";
 
 const settingsLink = document.getElementById("theme-settings");
 const settingsUl = document.getElementById("settings-ul");
-const themesUl = document.getElementsByTagName("themes-ul");
+const themesUl = document.getElementById("themes-ul");
 const languagesUl = document.getElementById("languages-ul");
 
 const settings = document.getElementById("settings");
