@@ -30,7 +30,7 @@ const themes = new Map([
 ])
 
 function activateTheme(theme){
-    settingsLink.href = themes.get(theme);
+    settingsLink.href = "./css/" + themes.get(theme);
     localStorage.setItem("theme", themes.get(theme))
 }
 
