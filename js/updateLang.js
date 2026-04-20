@@ -50,14 +50,6 @@ export default function updateLang(languagePackFull, language){
          {
             id: "topic-desc",
             tc: pack.nav.chooseQuizTopic
-        },
-         {
-            id: "create",
-            tc: pack.main.createQuiz
-        },
-         {
-            id: "select-above",
-            tc: pack.main.chooseAboveMsg
         }
 
     ];
@@ -67,6 +59,14 @@ export default function updateLang(languagePackFull, language){
     })
    
     const dynamicIdTc = [
+        {
+            id: "create",
+            tc: pack.main.createQuiz
+        },
+         {
+            id: "select-above",
+            tc: pack.main.chooseAboveMsg
+        },
         {
             id: "num-questions-label",
             tc: pack.startingScreen.numQuestionsContainer
