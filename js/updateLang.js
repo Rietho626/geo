@@ -66,7 +66,7 @@ export default function updateLang(languagePackFull, language){
             document.getElementById(el.id).textContent = el.tc;
     })
    
-    dynamicIdTc = [
+    const dynamicIdTc = [
         {
             id: "num-questions-label",
             tc: pack.startingScreen.numQuestionsContainer
