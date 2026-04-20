@@ -3,10 +3,11 @@
     --linkBorderColor: black;
     --navLinkBorderSize: 2px;
     --navLinkPadding: 7px;
-    --navLinkMargin: 2px;
+    --navLinkMargin: 4px;
     --mainColor: orangered;
     --secondaryColor: orange;
-    --navLinkShadowColor: yellow;
+    --navLinkShadowColor: rgb(209, 175, 24);
     --navLinkBg:radial-gradient(var(--navLinkShadowColor),var(--mainColor) 80%);
     --navLinkRevBg: radial-gradient(var(--mainColor),var(--navLinkShadowColor) 80%);
-}
+    --tertiaryColor: rgb(136, 17, 17);
+}   
