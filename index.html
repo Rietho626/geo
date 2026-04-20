@@ -7,8 +7,8 @@
         <script type="test/javascript" src="./js/quizController.js" defer>
         </script>
         <script type="module">
-            import languagePack from "./settings/languagePack.js";
-            import updateLang from "./updateLang.js";
+            import languagePack from ".js/settings/languagePack.js";
+            import updateLang from ".js/updateLang.js";
 
             updateLang(languagePack, (localStorage.getItem("langPref") || "english"));
         </script>
