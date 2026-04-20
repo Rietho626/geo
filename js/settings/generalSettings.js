@@ -139,7 +139,9 @@ export default function getGeneralSettings(topic, SettingsHandler, lang){
             siblings: [
                 {
                     type: "span",
-                    attributes: ["id", "continent-container"],
+                    attributes: [
+                        ["id", "continent-container"]
+                    ],
                     text_content: lang.startingScreen.continentContainer
                 }
             ],
