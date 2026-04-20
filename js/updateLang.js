@@ -194,7 +194,8 @@ export default function updateLang(languagePackFull, language){
     ]
 
     dynamicIdTc.forEach(el=>{
-            document.getElementById(el.id)?.textContent = el.tc;
+        const node = document.getElementById(el.id);
+        if(node) node.textContent = el.tc;
     })
     
 }
