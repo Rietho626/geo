@@ -141,7 +141,7 @@ class QuizDomActions{
       
         this.correctQuestionsLabel.textContent = this.lang.quiz.correctQuestions;
         this.wrongQuestionsLabel.textContent = this.lang.quiz.wrongQuestions;
-        this.blockContainer.textContent = "Click here to continue!";
+        this.blockContainer.textContent = this.lang.quiz.clickHere;
         this.blockContainer.style.display = "none";       
     } 
 
@@ -153,7 +153,7 @@ class QuizDomActions{
             this.time.textContent = currTime;
             if(currTime === 0){
                 clearInterval(this.interval);
-                this.time.textContent = "Time Up!";
+                this.time.textContent = this.lang.quiz.timeUp;
                 this.timeUp = true;
                 this.handleTimeUp();
             }
@@ -333,8 +333,8 @@ class QuizDomActions{
         this.logic = logic;
         Array.from(this.answerBox.querySelectorAll("div")).forEach(node=>node.remove());
         this.pastQuestionsContainer.remove();
-        this.heading.textContent = "Quiz Over!";
-        this.question.textContent = (this.logic.correctQuestions.length / Number(this.logic.quiz.numQuestions) *100) + "% Correct!";
+        this.heading.textContent = this.lang.quiz.quizOver;
+        this.question.textContent = Math.round(this.logic.correctQuestions.length / Number(this.logic.quiz.numQuestions) *100) + "% "+this.lang.quiz.correct;
         this.answerBox.appendChild(this.createNewQuizButton);
         this.createNewQuizButton.addEventListener("click", ()=>{
             this.createQuiz();

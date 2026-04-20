@@ -59,6 +59,10 @@
         "quiz":{
             correctQuestions: "Correct",
             wrongQuestions: "Incorrect",
+            timeUp: "Time Up!",
+            quizOver: "Quiz Over!",
+            correct: "correct",
+            clickHere: "Click Here to continue!",
             heading: "Question ",
             typeInSubmit: "Submit Answer",
             typeInInvalid: "This is not a valid answer!",
@@ -147,7 +151,11 @@
         "quiz":{
             correctQuestions: "Richtig",
             wrongQuestions: "Falsch",
+            timeUp: "Zeit Abgelaufen!",
+            clickHere: "Hier klicken um fortzufahren",
             heading: "Frage ",
+            quizOver: "Quiz Vorbei!",
+            correct: "Richtig",
             typeInSubmit: "Antwort Abgeben",
             typeInInvalid: "Dies ist keine Valide Antwort!",
             typeInValid: "Dies ist eine valide Antwort!",
