@@ -4,15 +4,16 @@ import getFlagSettings from "./settings/flagSettings.js";
 import getAreaSettings from "./settings/areaSettings.js";
 import getPopulationSettings from "./settings/populationSettings.js";
 
-export default function getSettingsHandler(){
-    return new SettingsHandler();
+export default function getSettingsHandler(languagePack){
+    return new SettingsHandler(languagePack);
 }
 
 class SettingsHandler{
-    constructor(){
+    constructor(languagePack){
         this.nav = document.querySelector("nav");
         this.createContainer = document.getElementById("create-quiz-container");
         this.form = document.getElementById("create-form")
+        this.lang = languagePack[localStorage.getItem("langPref") || "english"];
     }
 
     enableListener(cb){
@@ -35,7 +36,7 @@ class SettingsHandler{
         return node;
     }
     configureSettings(topic){
-        const settings = SettingsHandler.getSettings("general", topic).concat(SettingsHandler.getSettings(topic)).concat(getSubmitButton(topic));
+        const settings = SettingsHandler.getSettings("general", topic).concat(SettingsHandler.getSettings(topic)).concat(this.getSubmitButton(topic));
         this.appendQuizForm(settings);
     }
     appendQuizForm(settings){
@@ -117,25 +118,23 @@ class SettingsHandler{
     static getSettings(topic, replaceGeneral = ""){
         switch(topic){
             case "general":
-            return getGeneralSettings(replaceGeneral, SettingsHandler)
+            return getGeneralSettings(replaceGeneral, SettingsHandler, this.lang)
             case "capital":
-            return getCapitalSettings(SettingsHandler);
+            return getCapitalSettings(SettingsHandler, this.lang);
             case "flag":
-            return getFlagSettings(SettingsHandler);
+            return getFlagSettings(SettingsHandler, this.lang);
             case "area":
-            return getAreaSettings(SettingsHandler);
+            return getAreaSettings(SettingsHandler, this.lang);
             case "population":
-            return getPopulationSettings(SettingsHandler);
+            return getPopulationSettings(SettingsHandler, this.lang);
         }
     }
 
     static enableMultipleChoiceCb(){
         //maybe
     }
-}
 
-
-function getSubmitButton(topic){
+    getSubmitButton(topic){
     return [{
         type: "input",
         attributes: [
@@ -143,7 +142,7 @@ function getSubmitButton(topic){
             ["class", topic+"-input"],
             ["name", topic],
             ["id", "submit-"+topic+"-quiz"],
-            ["value", `Create ${topic[0].toUpperCase()+topic.slice(1)} Quiz`]
+            ["value", this.lang.createNewQuizButton]
         ],
         text_content: false,
         listener: false,
@@ -151,4 +150,8 @@ function getSubmitButton(topic){
         children: false
     }]
 }
+}
+
+
+
 

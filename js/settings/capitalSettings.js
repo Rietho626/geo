@@ -1,4 +1,4 @@
-export default function getCapitalSettings(SettingsHandler){
+export default function getCapitalSettings(SettingsHandler, lang){
     return  [
         {
             type: "select",
@@ -16,7 +16,7 @@ export default function getCapitalSettings(SettingsHandler){
                         ["class", "input-label"],
                         ["for", "capital-quiz-q-type"]
                     ],
-                    text_content: "Choose Quiz Questions Type",
+                    text_content: lang.startingScreen.questionTypeContainer,
                     listener: false,
                     siblings: false,
                     children: false
@@ -31,7 +31,7 @@ export default function getCapitalSettings(SettingsHandler){
                         ["value", "country-capital"],
                         ["selected", "true"]
                     ],
-                    text_content: "Country -> Capital",
+                    text_content: lang.general.countryCapital + "->" + lang.general.capitalCapital,
                     listener: false,
                     siblings: false,
                     children: false
@@ -43,7 +43,7 @@ export default function getCapitalSettings(SettingsHandler){
                         ["id", "capital-country-q-type"],
                         ["value", "capital-country"]
                     ],
-                    text_content: "Capital -> Country",
+                    text_content: lang.general.capitalCapital + "->" + lang.general.countryCapital,
                     listener: false,
                     siblings: false,
                     children: false
@@ -55,7 +55,7 @@ export default function getCapitalSettings(SettingsHandler){
                         ["id", "capital-mixed-q-type"],
                         ["value", "mixed"]
                     ],
-                    text_content: "Mixed Questions",
+                    text_content: lang.startingScreen.mixedQuestions,
                     listener: false,
                     siblings: false,
                     children: false
@@ -78,7 +78,7 @@ export default function getCapitalSettings(SettingsHandler){
                         ["class", "input-label"],
                         ["for", "capital-quiz-mode"]
                     ],
-                    text_content: "Choose Quiz Mode",
+                    text_content: lang.startingScreen.questionModeContainer,
                     listener: false,
                     siblings: false,
                     children: false
@@ -93,19 +93,7 @@ export default function getCapitalSettings(SettingsHandler){
                         ["value", "multiple-choice"],
                         ["selected", "true"]
                     ],
-                    text_content: "Multiple Choice",
-                    listener: false,
-                    siblings: false,
-                    children: false
-                },
-                {
-                    type: "option",
-                    attributes: [
-                        ["class", "capital-input"],
-                        ["id", "search-mode"],
-                        ["value", "search-mode"]
-                    ],
-                    text_content: "Search Mode",
+                    text_content: lang.startingScreen.multipleChoice,
                     listener: false,
                     siblings: false,
                     children: false
@@ -117,7 +105,7 @@ export default function getCapitalSettings(SettingsHandler){
                         ["id", "type-in-mode"],
                         ["value", "type-in-mode"]
                     ],
-                    text_content: "Type-in Mode",
+                    text_content: lang.startingScreen.typeInMode,
                     listener: false,
                     siblings: false,
                     children: false

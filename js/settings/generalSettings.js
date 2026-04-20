@@ -1,4 +1,4 @@
-export default function getGeneralSettings(topic, SettingsHandler){
+export default function getGeneralSettings(topic, SettingsHandler, lang){
    return [
         {
             type: "input",
@@ -30,7 +30,7 @@ export default function getGeneralSettings(topic, SettingsHandler){
                         ["id", "num-questions-label"],
                         ["for", "num-questions"]
                     ],
-                    text_content: "Choose Number Of Questions",
+                    text_content: lang.startingScreen.numQuestionsContainer,
                     listener: false,
                     children: false
                 }
@@ -54,7 +54,7 @@ export default function getGeneralSettings(topic, SettingsHandler){
                         ["id", "time-questions-label"],
                         ["for", "time-questions"]
                     ],
-                    text_content: "Choose Time-Limit per Question",
+                    text_content: lang.startingScreen.timeLimitContainer,
                     listener: false,
                     children: false
                 }
@@ -67,7 +67,7 @@ export default function getGeneralSettings(topic, SettingsHandler){
                         ["value", "no-limit"],
                         ["selected", "true"]
                     ],
-                    text_content: "No Time Limit"
+                    text_content: lang.startingScreen.noTimeLimit
                 },
                 {
                     type: "option",
@@ -75,7 +75,7 @@ export default function getGeneralSettings(topic, SettingsHandler){
                         ["id", "time-limit-5"],
                         ["value", "5"],
                     ],
-                    text_content: "5s/Question"
+                    text_content: "5s/"+lang.general.question
                 },
                 {
                     type: "option",
@@ -83,7 +83,7 @@ export default function getGeneralSettings(topic, SettingsHandler){
                         ["id", "time-limit-10"],
                         ["value", "10"],
                     ],
-                    text_content: "10s/Qestion"
+                    text_content: "10s/"+lang.general.question
                 },
                 {
                     type: "option",
@@ -91,7 +91,7 @@ export default function getGeneralSettings(topic, SettingsHandler){
                         ["id", "time-limit-20"],
                         ["value", "20"],
                     ],
-                    text_content: "20s/Question"
+                    text_content: "20s/"+lang.general.question
                 },
                 {
                     type: "option",
@@ -99,7 +99,7 @@ export default function getGeneralSettings(topic, SettingsHandler){
                         ["id", "time-limit-30"],
                         ["value", "30"],
                     ],
-                    text_content: "30s/Question"
+                    text_content: "30s/"+lang.general.question
                 },
                 {
                     type: "option",
@@ -107,7 +107,7 @@ export default function getGeneralSettings(topic, SettingsHandler){
                         ["id", "time-limit-60"],
                         ["value", "60"],
                     ],
-                    text_content: "60s/Question"
+                    text_content: "60s/"+lang.general.question
                 }
             ]
         }, 
@@ -140,7 +140,7 @@ export default function getGeneralSettings(topic, SettingsHandler){
                 {
                     type: "span",
                     attributes: [],
-                    text_content: "Add Continent to Quiz (no continent = all continents)"
+                    text_content: lang.startingScreen.continentContainer
                 }
             ],
             children: [
@@ -150,7 +150,7 @@ export default function getGeneralSettings(topic, SettingsHandler){
                         ["class", topic+"-input continent off"],
                         ["id", "europe"],
                     ],
-                    text_content: "Europe",
+                    text_content: lang.continents.europe,
                     listener: false,
                 },
                 {
@@ -159,7 +159,7 @@ export default function getGeneralSettings(topic, SettingsHandler){
                         ["class", topic+"-input continent off"],
                         ["id", "asia"],
                     ],
-                    text_content: "Asia",
+                    text_content: lang.continents.asia,
                     listener: false,
                 },
                 {
@@ -168,7 +168,7 @@ export default function getGeneralSettings(topic, SettingsHandler){
                         ["class", topic+"-input continent off"],
                         ["id", "north-america"],
                     ],
-                    text_content: "North America",
+                    text_content: lang.continents["north-america"],
                     listener: false,
                 },
                 {
@@ -177,7 +177,7 @@ export default function getGeneralSettings(topic, SettingsHandler){
                         ["class", topic+"-input continent off"],
                         ["id", "south-america"],
                     ],
-                    text_content: "South America",
+                    text_content: lang.continents["south-america"],
                     listener: false,
                 },
                 {
@@ -186,7 +186,7 @@ export default function getGeneralSettings(topic, SettingsHandler){
                         ["class", topic+"-input continent off"],
                         ["id", "africa"],
                     ],
-                    text_content: "Africa",
+                    text_content: lang.continents.africe,
                     listener: false,
                 },
                 {
@@ -195,7 +195,7 @@ export default function getGeneralSettings(topic, SettingsHandler){
                         ["class", topic+"-input continent off"],
                         ["id", "oceania"],
                     ],
-                    text_content: "Ozeanien",
+                    text_content: lang.continents.oceania,
                     listener: false,
                 }
             ]

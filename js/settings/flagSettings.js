@@ -1,4 +1,4 @@
-export default function getFlagSettings(SettingsHandler){
+export default function getFlagSettings(SettingsHandler, lang){
     return  [
         {
             type: "select",
@@ -16,7 +16,7 @@ export default function getFlagSettings(SettingsHandler){
                         ["class", "input-label"],
                         ["for", "flag-quiz-q-type"]
                     ],
-                    text_content: "Choose Quiz Questions Type",
+                    text_content: lang.startingScreen.questionTypeContainer,
                     listener: false,
                     siblings: false,
                     children: false
@@ -31,7 +31,7 @@ export default function getFlagSettings(SettingsHandler){
                         ["value", "country-flag"],
                         ["selected", "true"]
                     ],
-                    text_content: "Country -> flag",
+                    text_content: lang.general.countryCapital + "->" + lang.general.flagCapital,
                     listener: false,
                     siblings: false,
                     children: false
@@ -43,7 +43,7 @@ export default function getFlagSettings(SettingsHandler){
                         ["id", "flag-country-q-type"],
                         ["value", "flag-country"]
                     ],
-                    text_content: "flag -> Country",
+                    text_content: lang.general.flagCapital + "->" + lang.general.countryCapital,
                     listener: false,
                     siblings: false,
                     children: false
@@ -55,7 +55,7 @@ export default function getFlagSettings(SettingsHandler){
                         ["id", "flag-mixed-q-type"],
                         ["value", "mixed"]
                     ],
-                    text_content: "Mixed Questions",
+                    text_content: lang.startingScreen.mixedQuestions,
                     listener: false,
                     siblings: false,
                     children: false
@@ -78,7 +78,7 @@ export default function getFlagSettings(SettingsHandler){
                         ["class", "input-label"],
                         ["for", "flag-quiz-mode"]
                     ],
-                    text_content: "Choose Quiz Mode",
+                    text_content: lang.startingScreen.questionModeContainer,
                     listener: false,
                     siblings: false,
                     children: false
@@ -93,7 +93,7 @@ export default function getFlagSettings(SettingsHandler){
                         ["value", "multiple-choice"],
                         ["selected", "true"]
                     ],
-                    text_content: "Multiple Choice",
+                    text_content: lang.startingScreen.multipleChoice,
                     listener: false,
                     siblings: false,
                     children: false
@@ -105,7 +105,7 @@ export default function getFlagSettings(SettingsHandler){
                         ["id", "type-in-mode"],
                         ["value", "type-in-mode"]
                     ],
-                    text_content: "Type-in Mode",
+                    text_content: lang.startingScreen.typeInMode,
                     listener: false,
                     siblings: false,
                     children: false

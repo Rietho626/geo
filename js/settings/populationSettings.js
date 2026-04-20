@@ -1,4 +1,4 @@
-export default function getPopulationSettings(SettingsHandler){
+export default function getPopulationSettings(SettingsHandler, lang){
     return  [
         {
             type: "select",
@@ -16,7 +16,7 @@ export default function getPopulationSettings(SettingsHandler){
                         ["class", "input-label"],
                         ["for", "population-quiz-q-type"]
                     ],
-                    text_content: "Choose Quiz Questions Type",
+                    text_content: lang.startingScreen.questionTypeContainer,
                     listener: false,
                     siblings: false,
                     children: false
@@ -31,7 +31,7 @@ export default function getPopulationSettings(SettingsHandler){
                         ["value", "country-population"],
                         ["selected", "true"]
                     ],
-                    text_content: "Country -> Population",
+                    text_content: lang.general.countryCapital + "->" + lang.general.populationCapital,
                     listener: false,
                     siblings: false,
                     children: false
@@ -43,7 +43,7 @@ export default function getPopulationSettings(SettingsHandler){
                         ["id", "population-country-q-type"],
                         ["value", "population-country"]
                     ],
-                    text_content: "Population -> Country",
+                    text_content: lang.general.populationCapital + "->" + lang.general.countryCapital,
                     listener: false,
                     siblings: false,
                     children: false
@@ -55,7 +55,7 @@ export default function getPopulationSettings(SettingsHandler){
                         ["id", "population-mixed-q-type"],
                         ["value", "mixed"]
                     ],
-                    text_content: "Mixed Questions",
+                    text_content: lang.startingScreen.mixedQuestions,
                     listener: false,
                     siblings: false,
                     children: false
@@ -78,7 +78,7 @@ export default function getPopulationSettings(SettingsHandler){
                         ["class", "input-label"],
                         ["for", "population-quiz-mode"]
                     ],
-                    text_content: "Choose Quiz Mode",
+                    text_content: lang.startingScreen.questionModeContainer,
                     listener: false,
                     siblings: false,
                     children: false
@@ -93,19 +93,7 @@ export default function getPopulationSettings(SettingsHandler){
                         ["value", "multiple-choice"],
                         ["selected", "true"]
                     ],
-                    text_content: "Multiple Choice",
-                    listener: false,
-                    siblings: false,
-                    children: false
-                },
-                {
-                    type: "option",
-                    attributes: [
-                        ["class", "population-input"],
-                        ["id", "search-mode"],
-                        ["value", "search-mode"]
-                    ],
-                    text_content: "Search Mode",
+                    text_content: lang.startingScreen.multipleChoice,
                     listener: false,
                     siblings: false,
                     children: false
@@ -117,7 +105,7 @@ export default function getPopulationSettings(SettingsHandler){
                         ["id", "type-in-mode"],
                         ["value", "type-in-mode"]
                     ],
-                    text_content: "Type-in Mode",
+                    text_content: lang.startingScreen.typeInMode,
                     listener: false,
                     siblings: false,
                     children: false

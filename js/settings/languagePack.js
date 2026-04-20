@@ -1,5 +1,18 @@
 ﻿const languagePack =  {
     "english": {
+        "general":{
+            area: "area",
+            areaCapital: "Area",
+            population: "population",
+            populationCapital: "Population",
+            capital: "capital",
+            capitalCapital: "Capital",
+            flag: "flag",
+            flagCapital: "Flag",
+            country: "country",
+            countryCapital: "Country",
+            question: "Question"
+        },
         "settings":{
             settings: "Settings",
             themes: "Themes",
@@ -26,9 +39,14 @@
             questionTypeContainer: "Question Type: ",
             timeLimitContainer: "Time per Question: ",
             numQuestionsContainer: "Number of Questions: ",
-            continentContainer: "Continents: ",
+            continentContainer: "Add Continent to Quiz (no continent = all continents)",
             startQuizButton: "Start Quiz",
-            createNewQuizButton: "Create New Quiz"
+            createNewQuizButton: "Create New Quiz",
+            editQuiz: "Edit Quiz",
+            mixedQuestions: "Mixed Questions",
+            multipleChoice: "Multiple-Choice-Mode",
+            typeInMode: "Type-In-Mode",
+            noTimeLimit: "Unlimited",
         },
         "continents":{
             europe: "Europe",
@@ -70,6 +88,19 @@
         }
     },
     "german": {
+        "general":{
+            area: "fläche",
+            areaCapital: "Fläche",
+            population: "einwohner",
+            populationCapital: "Einwohner",
+            capital: "hauptstadt",
+            capitalCapital: "Hauptstadt",
+            flag: "flagge",
+            flagCapital: "Flagge",
+            country: "land",
+            countryCapital: "Land",
+            question: "Frage"
+        },
         "settings":{
             settings: "Einstellungen",
             themes: "Themen",
@@ -96,9 +127,14 @@
             questionTypeContainer: "Fragentyp: ",
             timeLimitContainer: "Zeit pro Frage: ",
             numQuestionsContainer: "Anzahl der Fragen: ",
-            continentContainer: "Kontinente: ",
+            continentContainer: "Kontinente zum Quiz hinzufügen (kein Kontinent = alle Kontinente)",
             startQuizButton: "Quiz Starten",
-            createNewQuizButton: "Quiz erstellen"
+            createNewQuizButton: "Quiz erstellen",
+            editQuiz: "Quiz Bearbeiten",
+            mixedQuestions: "Gemischte Fragen",
+            multipleChoice: "Auswahlmodus",
+            typeInMode: "Eingabemodus",
+            noTimeLimit: "Unlimitert"
         },
         "continents":{
             europe: "Europa",
