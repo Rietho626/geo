@@ -5,6 +5,7 @@ export default function getQuizDomActions(languagePack){
 class QuizDomActions{
     constructor(languagePack){
         this.quizContainer = document.getElementById("quiz-container");
+        this.languagePack = languagePack;
         this.lang = languagePack[localStorage.getItem("langPref") || "english"];
         this.enabled = true;
         this.timeUp = false;
@@ -20,7 +21,7 @@ class QuizDomActions{
     }
 
     startingScreen(quiz, startQuiz){
-        this.lang = languagePack[localStorage.getItem("langPref") || "english"];
+        this.lang = this.languagePack[localStorage.getItem("langPref") || "english"];
         const startClass = ["class", "starting-screen"];
         const heading = this.createNode("h1", [["id","heading"],startClass]);
         const detailsContainer = this.createNode("div", [["id", "details-container"],startClass]);
@@ -175,7 +176,7 @@ class QuizDomActions{
 
     updateQuestion(logic){
         this.logic = logic;
-        this.lang = languagePack[localStorage.getItem("langPref") || "english"];
+        this.lang = this.languagePack[localStorage.getItem("langPref") || "english"];
         this.correctQuestions.textContent = logic.getNumCorrectQuestions();
         this.wrongQuestions.textContent = logic.getNumWrongQuestions();
         this.heading.textContent = this.lang.quiz.heading + logic.getQuestionNr();
