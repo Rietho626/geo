@@ -214,6 +214,10 @@ export default function updateLang(languagePackFull, language){
         {
             id: "correct-questions-label",
             tc: pack.quiz.correctQuestionsLabel
+        },
+        {
+            id: "quiz-heading",
+            tc: pack.quiz.heading + document.getElementById("quiz-heading").textContent.split(" ")[1]
         }
     ]
 
