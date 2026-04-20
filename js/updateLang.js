@@ -207,6 +207,14 @@ export default function updateLang(languagePackFull, language){
             id: "submit-population-quiz",
             tc: pack.startingScreen.createNewQuizButton
         },
+        {
+            id: "wrong-questions-label",
+            tc: pack.quiz.wrongQuestionsLabel
+        },
+        {
+            id: "correct-questions-label",
+            tc: pack.quiz.correctQuestionsLabel
+        }
     ]
 
     dynamicIdTc.forEach(el=>{
