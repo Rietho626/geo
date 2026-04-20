@@ -342,7 +342,7 @@ select{
 }
 
 #settings-ul li li{
-    background-color: rgba(40, 50, 150, 0.6);
+    background-color: var(--tertiaryColor);
     padding: 2px;
     border-bottom: 1px solid;
     border-left: 1px solid;
