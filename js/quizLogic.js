@@ -11,6 +11,8 @@ class QuizLogic{
         this.activeQuestion = quiz.questions.shift();
     }
 
+    updateActive = () => this.activeQuestion = this.quiz.questions.shift();
+
     getAnswer = () => this.activeQuestion.answer;
 
     getNumCorrectQuestions = () => this.correctQuestions.length;
@@ -69,8 +71,6 @@ class QuizLogic{
     handleInput(answer){
         const isCorrect = this.checkAnswer(answer);
         isCorrect ? this.correctQuestions.push(this.activeQuestion) :  this.wrongQuestions.push(this.activeQuestion);
-
-        this.activeQuestion = this.quiz.questions.shift();
         return isCorrect;
     }
 

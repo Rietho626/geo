@@ -63,14 +63,14 @@ async function checkAnswer(answered, logic, answerBoxId){
     quizDomActions.stopTimer();
     quizDomActions.toggleEnabled(false);
     const hasQuizEnded = logic.checkForQuizEnd();
-    const prevAnswer = logic.getAnswer();
     const isCorrect = logic.handleInput(answered);
     if(answered !== "timeout"){
-        await quizDomActions.displayAnswerCheck(isCorrect, answerBoxId, prevAnswer);
+        await quizDomActions.displayAnswerCheck(isCorrect, answerBoxId, logic.getAnswer());
     }
     if(hasQuizEnded){
         quizDomActions.quizEnd(logic);
     }else{
+        logic.updateActive();
         quizDomActions.updateQuestion(logic, checkAnswer);
         quizDomActions.toggleEnabled(true);
     }
