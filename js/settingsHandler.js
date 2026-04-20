@@ -36,7 +36,7 @@ class SettingsHandler{
         return node;
     }
     configureSettings(topic){
-        const settings = SettingsHandler.getSettings("general", topic).concat(SettingsHandler.getSettings(topic)).concat(this.getSubmitButton(topic));
+        const settings = this.getSettings("general", topic).concat(this.getSettings(topic)).concat(this.getSubmitButton(topic));
         this.appendQuizForm(settings);
     }
     appendQuizForm(settings){
@@ -94,6 +94,21 @@ class SettingsHandler{
         console.log(settings);
         return settings;
     }
+    
+    getSettings(topic, replaceGeneral = ""){
+        switch(topic){
+            case "general":
+            return getGeneralSettings(replaceGeneral, SettingsHandler, this.lang)
+            case "capital":
+            return getCapitalSettings(SettingsHandler, this.lang);
+            case "flag":
+            return getFlagSettings(SettingsHandler, this.lang);
+            case "area":
+            return getAreaSettings(SettingsHandler, this.lang);
+            case "population":
+            return getPopulationSettings(SettingsHandler, this.lang);
+        }
+    }
 
     static continentSettingsCb(e){
         if(e.target.classList.contains("continent")){
@@ -113,21 +128,6 @@ class SettingsHandler{
 
     static showValueCbRange(){
         document.getElementById("num-questions-show").textContent = document.getElementById("num-questions").value;
-    }
-    
-    static getSettings(topic, replaceGeneral = ""){
-        switch(topic){
-            case "general":
-            return getGeneralSettings(replaceGeneral, SettingsHandler, this.lang)
-            case "capital":
-            return getCapitalSettings(SettingsHandler, this.lang);
-            case "flag":
-            return getFlagSettings(SettingsHandler, this.lang);
-            case "area":
-            return getAreaSettings(SettingsHandler, this.lang);
-            case "population":
-            return getPopulationSettings(SettingsHandler, this.lang);
-        }
     }
 
     static enableMultipleChoiceCb(){
