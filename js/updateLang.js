@@ -105,7 +105,7 @@ export default function updateLang(languagePackFull, language){
         },
           {
             id: "asia",
-            tc: pack.continents.aisa
+            tc: pack.continents.asia
         },
           {
             id: "north-america",
@@ -121,7 +121,7 @@ export default function updateLang(languagePackFull, language){
         },
           {
             id: "oceania",
-            tc: pack.continents.ocania
+            tc: pack.continents.oceania
         },
         {
             id: "continent-container",
@@ -137,11 +137,11 @@ export default function updateLang(languagePackFull, language){
         },
         {
             id: "multiple-choice-mode",
-            tc: pack.startingScreen.questionTypeContainer
+            tc: pack.startingScreen.multipleChoice
         },
         {
             id: "type-in-mode",
-            tc: pack.startingScreen.questionTypeContainer
+            tc: pack.startingScreen.typeInMode
         },
         {
             id: "country-area-q-type",
@@ -190,6 +190,22 @@ export default function updateLang(languagePackFull, language){
         {
             id: "population-mixed-q-type",
             tc: pack.startingScreen.mixedQuestions
+        },
+        {
+            id: "submit-flag-quiz",
+            tc: pack.startingScreen.createNewQuizButton
+        },
+        {
+            id: "submit-capital-quiz",
+            tc: pack.startingScreen.createNewQuizButton
+        },
+        {
+            id: "submit-area-quiz",
+            tc: pack.startingScreen.createNewQuizButton
+        },
+        {
+            id: "submit-population-quiz",
+            tc: pack.startingScreen.createNewQuizButton
         },
     ]
 
