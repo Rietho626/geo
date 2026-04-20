@@ -44,7 +44,7 @@ function activateTheme(theme){
 }
 
 
-let settingsHandler = getSettingsHandler();
+let settingsHandler = getSettingsHandler(languagePack);
 let quizDomActions = getQuizDomActions(languagePack);
 settingsHandler.enableListener(initiateQuiz);
 
