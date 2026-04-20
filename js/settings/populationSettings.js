@@ -14,7 +14,8 @@ export default function getPopulationSettings(SettingsHandler, lang){
                     type: "label",
                     attributes: [
                         ["class", "input-label"],
-                        ["for", "population-quiz-q-type"]
+                        ["for", "population-quiz-q-type"],
+                        ["id", "q-Type-container"]
                     ],
                     text_content: lang.startingScreen.questionTypeContainer,
                     listener: false,
@@ -76,7 +77,8 @@ export default function getPopulationSettings(SettingsHandler, lang){
                     type: "label",
                     attributes: [
                         ["class", "input-label"],
-                        ["for", "population-quiz-mode"]
+                        ["for", "population-quiz-mode"],
+                        ["id", "q-mode-container"]
                     ],
                     text_content: lang.startingScreen.questionModeContainer,
                     listener: false,

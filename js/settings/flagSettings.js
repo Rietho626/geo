@@ -14,7 +14,8 @@ export default function getFlagSettings(SettingsHandler, lang){
                     type: "label",
                     attributes: [
                         ["class", "input-label"],
-                        ["for", "flag-quiz-q-type"]
+                        ["for", "flag-quiz-q-type"],
+                        ["id", "q-Type-container"]
                     ],
                     text_content: lang.startingScreen.questionTypeContainer,
                     listener: false,
@@ -76,7 +77,8 @@ export default function getFlagSettings(SettingsHandler, lang){
                     type: "label",
                     attributes: [
                         ["class", "input-label"],
-                        ["for", "flag-quiz-mode"]
+                        ["for", "flag-quiz-mode"],
+                        ["id", "q-mode-container"]
                     ],
                     text_content: lang.startingScreen.questionModeContainer,
                     listener: false,

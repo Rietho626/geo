@@ -15,6 +15,7 @@ export default function getAreaSettings(SettingsHandler, lang){
                     attributes: [
                         ["class", "input-label"],
                         ["for", "area-quiz-q-type"]
+                        ["id", "q-Type-container"]
                     ],
                     text_content: lang.startingScreen.questionTypeContainer,
                     listener: false,
@@ -76,7 +77,8 @@ export default function getAreaSettings(SettingsHandler, lang){
                     type: "label",
                     attributes: [
                         ["class", "input-label"],
-                        ["for", "area-quiz-mode"]
+                        ["for", "area-quiz-mode"],
+                        ["id", "q-mode-container"]
                     ],
                     text_content: lang.startingScreen.questionModeContainer,
                     listener: false,

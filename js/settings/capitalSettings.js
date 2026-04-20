@@ -14,7 +14,8 @@ export default function getCapitalSettings(SettingsHandler, lang){
                     type: "label",
                     attributes: [
                         ["class", "input-label"],
-                        ["for", "capital-quiz-q-type"]
+                        ["for", "capital-quiz-q-type"],
+                        ["id", "q-Type-container"]
                     ],
                     text_content: lang.startingScreen.questionTypeContainer,
                     listener: false,
@@ -76,7 +77,8 @@ export default function getCapitalSettings(SettingsHandler, lang){
                     type: "label",
                     attributes: [
                         ["class", "input-label"],
-                        ["for", "capital-quiz-mode"]
+                        ["for", "capital-quiz-mode"],
+                        ["q-mode-container"]
                     ],
                     text_content: lang.startingScreen.questionModeContainer,
                     listener: false,
