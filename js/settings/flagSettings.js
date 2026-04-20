@@ -31,7 +31,7 @@ export default function getFlagSettings(SettingsHandler, lang){
                         ["value", "country-flag"],
                         ["selected", "true"]
                     ],
-                    text_content: lang.general.countryCapital + "->" + lang.general.flagCapital,
+                    text_content: lang.general.countryCapital + " -> " + lang.general.flagCapital,
                     listener: false,
                     siblings: false,
                     children: false
@@ -43,7 +43,7 @@ export default function getFlagSettings(SettingsHandler, lang){
                         ["id", "flag-country-q-type"],
                         ["value", "flag-country"]
                     ],
-                    text_content: lang.general.flagCapital + "->" + lang.general.countryCapital,
+                    text_content: lang.general.flagCapital + " -> " + lang.general.countryCapital,
                     listener: false,
                     siblings: false,
                     children: false

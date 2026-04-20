@@ -31,7 +31,7 @@ export default function getPopulationSettings(SettingsHandler, lang){
                         ["value", "country-population"],
                         ["selected", "true"]
                     ],
-                    text_content: lang.general.countryCapital + "->" + lang.general.populationCapital,
+                    text_content: lang.general.countryCapital + " -> " + lang.general.populationCapital,
                     listener: false,
                     siblings: false,
                     children: false
@@ -43,7 +43,7 @@ export default function getPopulationSettings(SettingsHandler, lang){
                         ["id", "population-country-q-type"],
                         ["value", "population-country"]
                     ],
-                    text_content: lang.general.populationCapital + "->" + lang.general.countryCapital,
+                    text_content: lang.general.populationCapital + " -> " + lang.general.countryCapital,
                     listener: false,
                     siblings: false,
                     children: false

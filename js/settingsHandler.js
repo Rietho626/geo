@@ -142,7 +142,7 @@ class SettingsHandler{
             ["class", topic+"-input"],
             ["name", topic],
             ["id", "submit-"+topic+"-quiz"],
-            ["value", this.lang.createNewQuizButton]
+            ["value", this.lang.startingScreen.createNewQuizButton]
         ],
         text_content: false,
         listener: false,

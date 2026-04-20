@@ -31,7 +31,7 @@ export default function getCapitalSettings(SettingsHandler, lang){
                         ["value", "country-capital"],
                         ["selected", "true"]
                     ],
-                    text_content: lang.general.countryCapital + "->" + lang.general.capitalCapital,
+                    text_content: lang.general.countryCapital + " -> " + lang.general.capitalCapital,
                     listener: false,
                     siblings: false,
                     children: false
@@ -43,7 +43,7 @@ export default function getCapitalSettings(SettingsHandler, lang){
                         ["id", "capital-country-q-type"],
                         ["value", "capital-country"]
                     ],
-                    text_content: lang.general.capitalCapital + "->" + lang.general.countryCapital,
+                    text_content: lang.general.capitalCapital + " -> " + lang.general.countryCapital,
                     listener: false,
                     siblings: false,
                     children: false

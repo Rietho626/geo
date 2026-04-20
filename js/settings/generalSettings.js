@@ -186,7 +186,7 @@ export default function getGeneralSettings(topic, SettingsHandler, lang){
                         ["class", topic+"-input continent off"],
                         ["id", "africa"],
                     ],
-                    text_content: lang.continents.africe,
+                    text_content: lang.continents.africa,
                     listener: false,
                 },
                 {

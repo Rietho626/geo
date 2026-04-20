@@ -31,7 +31,7 @@ export default function getAreaSettings(SettingsHandler, lang){
                         ["value", "country-area"],
                         ["selected", "true"]
                     ],
-                    text_content: lang.general.countryCapital + "->" + lang.general.areaCapital,
+                    text_content: lang.general.countryCapital + " -> " + lang.general.areaCapital,
                     listener: false,
                     siblings: false,
                     children: false
@@ -43,7 +43,7 @@ export default function getAreaSettings(SettingsHandler, lang){
                         ["id", "area-country-q-type"],
                         ["value", "area-country"]
                     ],
-                    text_content: lang.general.areaCapital + "->" + lang.general.countryCapital,
+                    text_content: lang.general.areaCapital + " -> " + lang.general.countryCapital,
                     listener: false,
                     siblings: false,
                     children: false
