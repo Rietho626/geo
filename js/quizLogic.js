@@ -43,7 +43,7 @@ class QuizLogic{
             const formattedCorrectAnswer = this.transliterate(correctAnswer);
 
             if(aType === "capital"){
-               return (allCountries[this.quiz.tlCapitals[formattedAnswer].country].capital === formattedCorrectAnswer || formattedAnswer === correctAnswer)
+               return (this.quizallCountries[this.quiz.tlCapitals[formattedAnswer].country].capital === formattedCorrectAnswer || formattedAnswer === correctAnswer)
                ? true 
                : false; 
             }else if(aType === "country"){
