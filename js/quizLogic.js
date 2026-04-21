@@ -43,11 +43,11 @@ class QuizLogic{
             const formattedCorrectAnswer = this.transliterate(correctAnswer);
 
             if(aType === "capital"){
-               return (this.quizallCountries[this.quiz.tlCapitals[formattedAnswer].country].capital === formattedCorrectAnswer || formattedAnswer === correctAnswer)
+               return (this.quizallCountries[this.quiz.tlCapitals[formattedAnswer]["country"]]["capital"] === formattedCorrectAnswer || formattedAnswer === correctAnswer)
                ? true 
                : false; 
             }else if(aType === "country"){
-                return (this.quiz.tlCountries[formattedAnswer].country === formattedCorrectAnswer || formattedAnswer === formattedCorrectAnswer)
+                return (this.quiz.tlCountries[formattedAnswer]["country"]=== formattedCorrectAnswer || formattedAnswer === formattedCorrectAnswer)
                ? true 
                : false; 
             }else{
