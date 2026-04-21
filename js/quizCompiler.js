@@ -1,4 +1,5 @@
 import countries from "./countries.js";
+import transliterate from "./transliterate.js";
 
 export default function createQuizCompiler(quizSettings){
     return new QuizCompiler(quizSettings);
@@ -93,6 +94,13 @@ class QuizCompiler{
             return `What is the area of ${qObject} in square Kilometer?`;
         }
     }
+    transliterate(str){
+        let word = str;
+        transliterate.forEach((val, key)=>{
+           word = word.replaceAll(key, val);
+        })
+        return word;
+    }
 
     format = (str) => Boolean(Number(str)) ? new Intl.NumberFormat("at-AT").format(Number(str)) : str;
 
@@ -123,7 +131,7 @@ class QuizCompiler{
     static transformCountriesObj(obj){
         const arr = Object.entries(obj).map(([key, value])=>{
             value["country"] = key;
-            return [value.capital, value];
+            return [this.transliterate(value.capital.toLowerCase()), value];
         })
         return Object.fromEntries(arr);
     }
