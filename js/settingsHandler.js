@@ -3,13 +3,14 @@ import getCapitalSettings from "./settings/capitalSettings.js";
 import getFlagSettings from "./settings/flagSettings.js";
 import getAreaSettings from "./settings/areaSettings.js";
 import getPopulationSettings from "./settings/populationSettings.js";
+import languagePack from "./settings/languagePack.js";
 
-export default function getSettingsHandler(languagePack){
-    return new SettingsHandler(languagePack);
+export default function getSettingsHandler(){
+    return new SettingsHandler();
 }
 
 class SettingsHandler{
-    constructor(languagePack){
+    constructor(){
         this.nav = document.querySelector("nav");
         this.createContainer = document.getElementById("create-quiz-container");
         this.form = document.getElementById("create-form")
@@ -91,6 +92,7 @@ class SettingsHandler{
         const nodes = Array.from(document.querySelectorAll("select."+topic+"-input")).concat(Array.from(document.querySelectorAll("input."+topic+"-input")));
         nodes.forEach(node=>settings[node.name] = node.value);
         settings["topic"] = topic;
+        settings["lang"] = languagePack[localStorage.getItem("langPref") || "english"];
         console.log(settings);
         return settings;
     }

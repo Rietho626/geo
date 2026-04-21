@@ -52,28 +52,13 @@ class QuizLogic{
         return word;
     }
 
-    validateInputNew(input){
-        let isValid = false;
-        const aType = this.getAnswerType();
-        if(aType === "country"){
-            for(const idx in this.quiz.allCountries){
-                if(this.transliterate(idx).toLowerCase() === this.transliterate(input).toLowerCase()) isValid = true;
-            }
-        }else if(aType === "capital"){
-            for(const idx in this.quiz.allCountries){
-                if(this.transliterate(this.quiz.allCountries[idx]["capital"]).toLowerCase() === this.transliterate(input).toLowerCase()) isValid = true;
-            }
-        }
-        return isValid;
-    }
-
     validateInput(input){
         const aType = this.getAnswerType();
         const formattedInput = this.transliterate(input.toLowerCase());
         if(aType === "country"){
-            return (this.quiz.allCountries[formattedInput]) ? true : false;
+            return (this.quiz.allCountries[formattedInput] || this.quiz.tlCountries[formattedInput]) ? true : false;
         }else if(aType === "capital"){
-            return (this.quiz.countriesByCapital[formattedInput]) ? true : false;
+            return (this.quiz.countriesByCapital[formattedInput] || this.tlCapitals[formattedInput]) ? true : false;
         }
     }
 
