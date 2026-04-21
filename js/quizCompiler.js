@@ -39,7 +39,7 @@ class QuizCompiler{
             type: this.settings["quiz-q-type"],
             continents: this.continents,
             allCountries: this.countries,
-            countriesByCapital: QuizCompiler.transformCountriesObj(this.countries),
+            countriesByCapital: this.transformCountriesObj(this.countries),
             questions: []
         }
         console.log(this.quiz);
@@ -128,7 +128,7 @@ class QuizCompiler{
         }
     }
 
-    static transformCountriesObj(obj){
+    transformCountriesObj(obj){
         const arr = Object.entries(obj).map(([key, value])=>{
             value["country"] = key;
             return [this.transliterate(value.capital.toLowerCase()), value];
