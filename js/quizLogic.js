@@ -12,7 +12,7 @@ class QuizLogic{
     }
 
     updateActive = () => this.activeQuestion = this.quiz.questions.shift();
-
+ 
     getAnswer = () => this.activeQuestion.answer;
 
     getNumCorrectQuestions = () => this.correctQuestions.length;
@@ -43,16 +43,21 @@ class QuizLogic{
             const formattedCorrectAnswer = this.transliterate(correctAnswer);
 
             if(aType === "capital"){
-               return (this.quiz.allCountries[this.quiz.tlCapitals[formattedAnswer]["country"]]["capital"] === formattedCorrectAnswer || formattedAnswer === correctAnswer)
-               ? true 
-               : false; 
+                const tlCapitalObj = this.quiz.allCountries[this.quiz.tlCapitals[formattedAnswer]];
+                if(tlCapitalObj){
+                    return (tlCapitalObj["country"]["capital"] === formattedCorrectAnswer || formattedAnswer === correctAnswer)
+                    ? true 
+                    : false; 
+                }
             }else if(aType === "country"){
-                return (this.quiz.tlCountries[formattedAnswer]["country"]=== formattedCorrectAnswer || formattedAnswer === formattedCorrectAnswer)
-               ? true 
-               : false; 
-            }else{
-                return formattedAnswer === formattedCorrectAnswer;
+                const tlCountryObj = this.quiz.tlCountries[formattedAnswer];
+                if(tlCountryObj){
+                    return tlCountryObj["country"] === formattedCorrectAnswer || formattedAnswer === formattedCorrectAnswer
+                    ? true 
+                    : false; 
+                }
             }
+            return formattedAnswer === formattedCorrectAnswer;
         }
     }
 
