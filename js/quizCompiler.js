@@ -134,7 +134,7 @@ class QuizCompiler{
     transformCountriesObj(obj, type){
         if(!obj) return {};
         const arr = Object.entries(obj).map(([key, value])=>{
-            value["country"] = transliterate(key);
+            value["country"] = this.transliterate(key);
             if(value.translatedName){
                 return (type === "capital")
                 ? [this.transliterate(value.translatedCapital), value]
