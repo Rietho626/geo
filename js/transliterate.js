@@ -17,7 +17,8 @@ const transliterate = new Map([
     ["á","a"],
     ["ô","o"],
     [".", ""],
-    ["'", ""]
+    ["'", ""],
+    ["-", ""]
 ]);
 
 export default transliterate;
