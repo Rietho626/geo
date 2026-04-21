@@ -38,6 +38,7 @@ class QuizCompiler{
             type: this.settings["quiz-q-type"],
             continents: this.continents,
             allCountries: this.countries,
+            countriesByCapital: QuizCompiler.transformCountriesObj(this.countries),
             questions: []
         }
         console.log(this.quiz);
@@ -117,6 +118,13 @@ class QuizCompiler{
             this.quizCountryNames.shift();
             this.quiz.questions.push(activeQuestion);
         }
+    }
+
+    static transformCountriesObj(obj){
+        Object.entries(obj).map(([key, value])=>{
+            value["country"] = key;
+            return [value.capital, value];
+        })
     }
 }
 
