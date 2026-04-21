@@ -121,7 +121,7 @@ class QuizCompiler{
     }
 
     static transformCountriesObj(obj){
-        Object.entries(obj).map(([key, value])=>{
+        return Object.entries(obj).map(([key, value])=>{
             value["country"] = key;
             return [value.capital, value];
         })
