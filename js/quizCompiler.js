@@ -38,8 +38,8 @@ class QuizCompiler{
             mode: this.settings["quiz-mode"],
             type: this.settings["quiz-q-type"],
             continents: this.continents,
-            allCountries: this.countries,
-            countriesByCapital: this.transformCountriesObj(this.countries),
+            allCountries: this.transformCountriesObj(this.countries, "country"),
+            countriesByCapital: this.transformCountriesObj(this.countries, "capital"),
             questions: []
         }
         console.log(this.quiz);
@@ -128,10 +128,12 @@ class QuizCompiler{
         }
     }
 
-    transformCountriesObj(obj){
+    transformCountriesObj(obj, type){
         const arr = Object.entries(obj).map(([key, value])=>{
             value["country"] = key;
-            return [this.transliterate(value.capital.toLowerCase()), value];
+            return (type === "capital")
+             ? [this.transliterate(value.capital.toLowerCase()), value]
+             : [this.transliterate(key.toLowerCase()), value];
         })
         return Object.fromEntries(arr);
     }
