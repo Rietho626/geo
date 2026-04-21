@@ -121,10 +121,11 @@ class QuizCompiler{
     }
 
     static transformCountriesObj(obj){
-        return Object.entries(obj).map(([key, value])=>{
+        const arr = Object.entries(obj).map(([key, value])=>{
             value["country"] = key;
             return [value.capital, value];
         })
+        return Object.fromEntries(arr);
     }
 }
 
