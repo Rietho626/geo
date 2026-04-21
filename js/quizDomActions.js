@@ -21,7 +21,7 @@ class QuizDomActions{
     }
 
     startingScreen(quiz, startQuiz){
-        this.lang = this.languagePack[localStorage.getItem("langPref") || "english"];
+        this.lang = quiz.lang;
         const startClass = ["class", "starting-screen"];
         const heading = this.createNode("h1", [["id","heading"],startClass]);
         const detailsContainer = this.createNode("div", [["id", "details-container"],startClass]);
@@ -176,7 +176,6 @@ class QuizDomActions{
 
     updateQuestion(logic){
         this.logic = logic;
-        this.lang = this.languagePack[localStorage.getItem("langPref") || "english"];
         this.correctQuestions.textContent = logic.getNumCorrectQuestions();
         this.wrongQuestions.textContent = logic.getNumWrongQuestions();
         this.heading.textContent = this.lang.quiz.heading + logic.getQuestionNr();

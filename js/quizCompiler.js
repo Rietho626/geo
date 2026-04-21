@@ -41,7 +41,7 @@ class QuizCompiler{
             allCountries: this.transformCountriesObj(this.countries, "country"),
             countriesByCapital: this.transformCountriesObj(this.countries, "capital"),
             tlCountries: this.transformCountriesObj(this.settings.lang.countries, "country"),
-            ltCapitals: this.transformCountriesObj(this.settings.lang.countries, "capital"),
+            tlCapitals: this.transformCountriesObj(this.settings.lang.countries, "capital"),
             lang: this.settings.lang,
             questions: []
         }
