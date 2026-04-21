@@ -58,7 +58,7 @@ class QuizLogic{
         if(aType === "country"){
             return (this.quiz.allCountries[formattedInput] || this.quiz.tlCountries[formattedInput]) ? true : false;
         }else if(aType === "capital"){
-            return (this.quiz.countriesByCapital[formattedInput] || this.tlCapitals[formattedInput]) ? true : false;
+            return (this.quiz.countriesByCapital[formattedInput] || this.quiz.tlCapitals[formattedInput]) ? true : false;
         }
     }
 
