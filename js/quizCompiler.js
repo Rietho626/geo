@@ -98,7 +98,7 @@ class QuizCompiler{
         }
     }
     transliterate(str){
-        let word = str;
+        let word = str.toLowerCase();
         transliterate.forEach((val, key)=>{
            word = word.replaceAll(key, val);
         })
@@ -134,15 +134,15 @@ class QuizCompiler{
     transformCountriesObj(obj, type){
         if(!obj) return {};
         const arr = Object.entries(obj).map(([key, value])=>{
-            value["country"] = key;
+            value["country"] = transliterate(key);
             if(value.translatedName){
                 return (type === "capital")
-                ? [this.transliterate(value.translatedCapital.toLowerCase()), value]
-                : [this.transliterate(value.translatedName.toLowerCase()), value];
+                ? [this.transliterate(value.translatedCapital), value]
+                : [this.transliterate(value.translatedName), value];
             }else{
                  return (type === "capital")
-                ? [this.transliterate(value.capital.toLowerCase()), value]
-                : [this.transliterate(key.toLowerCase()), value];
+                ? [this.transliterate(value.capital), value]
+                : [this.transliterate(key), value];
             }
         })
         return Object.fromEntries(arr);

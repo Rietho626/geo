@@ -33,7 +33,28 @@ class QuizLogic{
 
     getQuestionNr = () => this.correctQuestions.length + this.wrongQuestions.length + 1;
 
-    checkAnswer = (answer) => this.transliterate(answer.toLowerCase()) === this.transliterate(this.activeQuestion.answer.toLowerCase());
+    checkAnswer(answer){
+        const aType = this.getAnswerType();
+        const correctAnswer = this.getAnswer();
+        if(Boolean(Number(answer))){
+            return answer === correctAnswer;
+        }else{
+            const formattedAnswer = this.transliterate(answer);
+            const formattedCorrectAnswer = this.transliterate(correctAnswer);
+
+            if(aType === "capital"){
+               return (allCountries[this.quiz.tlCapitals[formattedAnswer].country].capital === formattedCorrectAnswer || formattedAnswer === correctAnswer)
+               ? true 
+               : false; 
+            }else if(aType === "country"){
+                return (this.quiz.tlCountries[formattedAnswer].country === formattedCorrectAnswer || formattedAnswer === formattedCorrectAnswer)
+               ? true 
+               : false; 
+            }else{
+                return formattedAnswer === formattedCorrectAnswer;
+            }
+        }
+    }
 
     checkForQuizEnd = () => (!this.quiz.questions.length) ? true : false;
 
@@ -45,7 +66,7 @@ class QuizLogic{
     }
 
     transliterate(str){
-        let word = str;
+        let word = str.toLowerCase();
         transliterate.forEach((val, key)=>{
            word = word.replaceAll(key, val);
         })
@@ -54,7 +75,7 @@ class QuizLogic{
 
     validateInput(input){
         const aType = this.getAnswerType();
-        const formattedInput = this.transliterate(input.toLowerCase());
+        const formattedInput = this.transliterate(input);
         if(aType === "country"){
             return (this.quiz.allCountries[formattedInput] || this.quiz.tlCountries[formattedInput]) ? true : false;
         }else if(aType === "capital"){
