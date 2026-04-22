@@ -33,6 +33,14 @@ class QuizLogic{
 
     getQuestionNr = () => this.correctQuestions.length + this.wrongQuestions.length + 1;
 
+    translate(str){
+        if(this.quiz.tlCapitals[str]) return this.quiz.tlCapitals[str].translatedCapital;
+        if(this.quiz.tlCountries[str]) return this.quiz.tlCountries[str].translatedCountry;
+        return str;
+    }
+
+    format = (str) => Boolean(Number(str)) ? new Intl.NumberFormat("at-AT").format(Number(str)) : this.translate(str);
+
     checkAnswer(answer){
         const aType = this.getAnswerType();
         const correctAnswer = this.getAnswer();

@@ -175,10 +175,6 @@ class QuizDomActions{
 
     toggleEnabled = (b) => this.enabled = b;
 
-    translate = (str) => this.lang.countries[str] ? this.lang.countries[str].translatedName : str;
-
-    format = (str) => Boolean(Number(str)) ? new Intl.NumberFormat("at-AT").format(Number(str)) : this.translate(str);
-
     updateQuestion(logic){
         this.logic = logic;
         this.correctQuestions.textContent = logic.getNumCorrectQuestions();
@@ -189,7 +185,7 @@ class QuizDomActions{
             this.qImage.src = this.logic.getQuestionObject();
         }else{
             this.question.textContent = logic.getQuestion()
-                .replace("{Object}", this.format(logic.getQuestionObject()))
+                .replace("{Object}", logic.format(logic.getQuestionObject()))
                 .replace("{Type}", logic.getAnswerType());
             this.qImage.src = "";
         }
@@ -214,10 +210,10 @@ class QuizDomActions{
                 })
             }else{
                 Array.from(document.querySelectorAll("#answer-box img")).forEach(node=>{node.display = "none";})
-                this.leftUpperAnswer.textContent = this.format(randomizedAnswers[0]), this.lu = randomizedAnswers[0];
-                this.rightUpperAnswer.textContent = this.format(randomizedAnswers[1]), this.ru = randomizedAnswers[1];
-                this.leftLowerAnswer.textContent = this.format(randomizedAnswers[2]), this.ll = randomizedAnswers[2];
-                this.rightLowerAnswer.textContent = this.format(randomizedAnswers[3]), this.rl = randomizedAnswers[3];
+                this.leftUpperAnswer.textContent = logic.format(randomizedAnswers[0]), this.lu = randomizedAnswers[0];
+                this.rightUpperAnswer.textContent = logic.format(randomizedAnswers[1]), this.ru = randomizedAnswers[1];
+                this.leftLowerAnswer.textContent = logic.format(randomizedAnswers[2]), this.ll = randomizedAnswers[2];
+                this.rightLowerAnswer.textContent = logic.format(randomizedAnswers[3]), this.rl = randomizedAnswers[3];
             }
         }else{
             this.inputBar.value = "";

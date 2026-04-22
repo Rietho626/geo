@@ -57,7 +57,7 @@
             oceania: "Oceania"
         },
         "quiz":{
-            capitalMC: "Choose the Capital of {Object}?",
+            capitalMC: "Choose the Capital of {Object}!",
             capitalTI: "Find the Capital of {Object}!",
             countryQ: "Find the country, whose {Type} is {Object}!",
             flagMC: "Choose the Flag of {Object}!",
@@ -99,7 +99,7 @@
             }
         },
         "countries":{
-            
+
         }
     },
     "german": {
@@ -160,7 +160,7 @@
             oceania: "Ozeanien"
         },
         "quiz":{
-            capitalMC: "Wähle die Hauptstadt von {Object}?",
+            capitalMC: "Wähle die Hauptstadt von {Object}!",
             capitalTI: "Finde die Hauptstadt von {Object}!",
             countryQ: "Finde das Land, dessen {Type} {Object} ist!",
             flagMC: "Wähle die Flagge von {Object}!",
