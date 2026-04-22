@@ -83,7 +83,7 @@ export default function getGeneralSettings(topic, SettingsHandler, lang){
                         ["id", "time-limit-10"],
                         ["value", "10"],
                     ],
-                    text_content: "5s/"+lang.general.question
+                    text_content: "10s/"+lang.general.question
                 },
                 {
                     type: "option",

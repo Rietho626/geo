@@ -41,6 +41,7 @@ class SettingsHandler{
     }
     configureSettings(topic){
         const settings = this.getSettings("general", topic).concat(this.getSettings(topic)).concat(this.getSubmitButton(topic));
+        console.log(settings);
         this.appendQuizForm(settings);
     }
     appendQuizForm(settings){
