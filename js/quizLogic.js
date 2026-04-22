@@ -42,6 +42,7 @@ class QuizLogic{
             if(checkCountry){
                 return checkCountry.translatedName;
             }else if(checkCapital){
+                console.log(Object.fromEntries(Object.entries(this.quiz.allCountries).map(([key,value])=>[value.capital, key])), str)
                 return this.quiz.lang.countries[Object.fromEntries(Object.entries(this.quiz.allCountries).map(([key,value])=>[value.capital, key]))[str]].translatedCapital;
             }
         }
