@@ -57,6 +57,14 @@
             oceania: "Oceania"
         },
         "quiz":{
+            capitalMC: "Choose the Capital of {Object}?",
+            capitalTI: "Find the Capital of {Object}!",
+            countryQ: "Find the country, whose {Type} is {Object}!",
+            flagMC: "Choose the Flag of {Object}!",
+            populationTI: "Find the Population of {Object}? (2026)",
+            populationMC : "Choose the correct Population for {Object}!",
+            areaTI: "What is the Area of {Object} in square Kilometer?",
+            areaMC: "Choose the correct Area of {Object}!",
             correctQuestions: "Correct",
             wrongQuestions: "Incorrect",
             timeUp: "Time Up!",
@@ -149,6 +157,14 @@
             oceania: "Ozeanien"
         },
         "quiz":{
+            capitalMC: "Wähle die Hauptstadt von {Object}?",
+            capitalTI: "Finde die Hauptstadt von {Object}!",
+            countryQ: "Finde das Land, dessen {Type} {Object} ist!",
+            flagMC: "Wähle die Flagge von {Object}!",
+            populationTI: "Wie viele Einwhoner hat {Object}? (2026)",
+            populationMC : "Wähle die Einwohnerzahlt von {Object}!",
+            areaTI: "Finde die Fläche von {Object} in Quadratkilometern!",
+            areaMC: "Wähle die Fläche von {Object} in Quadratkilometern!",
             correctQuestions: "Richtig",
             wrongQuestions: "Falsch",
             timeUp: "Zeit Abgelaufen!",

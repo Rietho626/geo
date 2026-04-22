@@ -83,18 +83,18 @@ class QuizCompiler{
                 : this.settings["quiz-q-type"];
     }
 
-    getQuestionText(qObject, aType, qType){
+    getQuestionText(aType, mode){
         switch(aType){
             case "capital":
-            return `What is the capital of ${qObject}?`;
+            return this.settings.lang.quiz[(mode === "multiple-choice" ? "capitalMC" : "capitalTI")];
             case "country":
-            return `Find the country, whose ${qType} is ${qObject}!`;
+            return this.settings.lang.quiz["countryQ"];
             case "flag":
-            return `Which flag is the flag of ${qObject}?`;
+            return this.settings.lang.quiz["falgMC"];
             case "population":
-            return `What is the population of ${qObject}? (2026)`;
+            return this.settings.lang.quiz[(mode === "multiple-choice" ? "populationMC" : "populationTI")];
             case "area":
-            return `What is the area of ${qObject} in square Kilometer?`;
+            return this.settings.lang.quiz[(mode === "multiple-choice" ? "areaMC" : "areaTI")];
         }
     }
     transliterate(str){
@@ -118,7 +118,7 @@ class QuizCompiler{
             const activeQuestion = {
                 questionMode: this.settings["quiz-mode"], //maybe mixed question modes will be enabled in the future
                 questionType: qType,
-                questionText: this.getQuestionText(qObject, aType, qObjectType),
+                questionText: this.getQuestionText(qObject, aType, qObjectType, this.settings["quiz-mode"]),
                 questionObject: qObject,
                 answer: answer,
                 wrongAnswers: this.settings["quiz-mode"] === "multiple-choice" ? this.getWrongAnswers(answer, aType) : false
