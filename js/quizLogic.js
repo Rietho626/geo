@@ -36,9 +36,15 @@ class QuizLogic{
     getQuestionNr = () => this.correctQuestions.length + this.wrongQuestions.length + 1;
 
     translate(str){
-        console.log(this.transliterate(str), this.quiz.tlCapitals[this.transliterate(str)], this.quiz.tlCountries[this.transliterate(str)]);
-        if(this.quiz.tlCapitals[this.transliterate(str)]) return this.quiz.tlCapitals[this.transliterate(str)].translatedCapital;
-        if(this.quiz.tlCountries[this.transliterate(str)]) return this.quiz.tlCountries[this.transliterate(str)].translatedName;
+        if(this.quiz.lang.countries != {}){
+            const checkCountry = this.quiz.lang.countries[str];
+            const checkCapital = this.quiz.lang.countriesByCapital[this.transliterate(str)];
+            if(checkCountry){
+                return checkCountry.translatedName;
+            }else if(checkCapital){
+                return this.quiz.lang.countries[Object.fromEntries(Object.entries(allCountries).map(([key,value])=>[value.capital, key]))[str]].translatedCapital;
+            }
+        }
         return str;
     }
 
