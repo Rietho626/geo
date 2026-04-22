@@ -46,7 +46,8 @@ function activateTheme(theme){
 
 let settingsHandler = getSettingsHandler(languagePack);
 let quizDomActions = getQuizDomActions(languagePack);
-settingsHandler.enableListener(initiateQuiz);
+settingsHandler.enableSetttingsListener(initiateQuiz);
+settingsHandler.enableNavListener();
 
 function initiateQuiz(settings){
     const compiler = createQuizCompiler(settings);
