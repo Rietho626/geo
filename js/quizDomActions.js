@@ -186,7 +186,7 @@ class QuizDomActions{
         }else{
             this.question.textContent = logic.getQuestion()
                 .replace("{Object}", logic.format(logic.getQuestionObject()))
-                .replace("{Type}", logic.getAnswerType());
+                .replace("{Type}", this.lang.general[logic.getQuestionType()+"Capital"]);
             this.qImage.src = "";
         }
         if(logic.getTime() !== "no-limit") this.startTimer(logic);

@@ -29,13 +29,15 @@ class QuizLogic{
 
     getQuestionObject = () => this.activeQuestion.questionObject;
 
+    getQuestionType = () => this.activeQuestion.questionType.split("-")[0];
+
     getAnswerType = () => this.activeQuestion.questionType.split("-")[1];
 
     getQuestionNr = () => this.correctQuestions.length + this.wrongQuestions.length + 1;
 
     translate(str){
-        if(this.quiz.tlCapitals[str]) return this.quiz.tlCapitals[str].translatedCapital;
-        if(this.quiz.tlCountries[str]) return this.quiz.tlCountries[str].translatedCountry;
+        if(this.transliterate(this.quiz.tlCapitals[str])) return this.quiz.tlCapitals[str].translatedCapital;
+        if(this.transliterate(this.quiz.tlCountries[str])) return this.quiz.tlCountries[str].translatedCountry;
         return str;
     }
 
