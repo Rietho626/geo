@@ -182,7 +182,7 @@ class QuizDomActions{
         this.heading.textContent = this.lang.quiz.heading + logic.getQuestionNr();
         if(logic.getQuestionObject().startsWith("http")){
             this.question.textContent = logic.getQuestion().split("http")[0]
-                .replace("{Object}", logic.format(logic.getQuestionObject()))
+                .replace("{Object}", this.lang.quiz.displayed)
                 .replace("{Type}", this.lang.general[logic.getQuestionType()+"Capital"]);;
             this.qImage.src = this.logic.getQuestionObject();
         }else{

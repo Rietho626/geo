@@ -91,7 +91,7 @@ class QuizCompiler{
             case "country":
             return this.settings.lang.quiz["countryQ"];
             case "flag":
-            return this.settings.lang.quiz["falgMC"];
+            return this.settings.lang.quiz["flagMC"];
             case "population":
             return this.settings.lang.quiz[(mode === "multiple-choice" ? "populationMC" : "populationTI")];
             case "area":
