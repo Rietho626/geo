@@ -186,7 +186,7 @@ class QuizDomActions{
             this.question.textContent = logic.getQuestion().split("http")[0];
             this.qImage.src = this.logic.getQuestionObject();
         }else{
-            this.question.textContent = logic.getQuestion().replace(logic.getQuestionObject, this.format(logic.getQuestionObject));
+            this.question.textContent = logic.getQuestion().replace(logic.getQuestionObject(), this.format(logic.getQuestionObject()));
             this.qImage.src = "";
         }
         if(logic.getTime() !== "no-limit") this.startTimer(logic);
