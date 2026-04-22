@@ -89,6 +89,7 @@ function startQuiz(quiz){
     quizDomActions.constructQuiz(logic.getMode(), checkAnswer);
     console.log(logic.quiz, logic.activeQuestion)
     quizDomActions.updateQuestion(logic, checkAnswer);
+    quizDomActions.enabled = true;
 }
 
 function resetForm(){
