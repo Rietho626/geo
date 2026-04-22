@@ -327,7 +327,7 @@ class QuizDomActions{
             this.responseField.textContent = this.fetchResponseField("typeInIncorrect");
             setTimeout(()=>{
                 this.responseField.style.color = "yellow";
-                this.responseField.textContent = this.lang.quiz.typeInCorrAnswer + correctAnswer;
+                this.responseField.textContent = this.lang.quiz.typeInCorrAnswer + this.logic.format(correctAnswer);
             },1000)
         }
     }
