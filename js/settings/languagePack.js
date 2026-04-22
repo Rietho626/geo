@@ -57,6 +57,7 @@
             oceania: "Oceania"
         },
         "quiz":{
+            displayed: "displayed",
             capitalMC: "Choose the Capital of {Object}!",
             capitalTI: "Find the Capital of {Object}!",
             countryQ: "Find the country, whose {Type} is {Object}!",
@@ -160,6 +161,7 @@
             oceania: "Ozeanien"
         },
         "quiz":{
+            displayed: "angezeigt",
             capitalMC: "Wähle die Hauptstadt von: {Object}!",
             capitalTI: "Finde die Hauptstadt von: {Object}!",
             countryQ: "Finde das Land, dessen {Type} {Object} ist!",
