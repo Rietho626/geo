@@ -38,11 +38,11 @@ class QuizLogic{
     translate(str){
         if(this.quiz.lang.countries != {}){
             const checkCountry = this.quiz.lang.countries[str];
-            const checkCapital = this.quiz.lang.countriesByCapital[this.transliterate(str)];
+            const checkCapital = this.quiz.countriesByCapital[this.transliterate(str)];
             if(checkCountry){
                 return checkCountry.translatedName;
             }else if(checkCapital){
-                return this.quiz.lang.countries[Object.fromEntries(Object.entries(allCountries).map(([key,value])=>[value.capital, key]))[str]].translatedCapital;
+                return this.quiz.lang.countries[Object.fromEntries(Object.entries(this.quiz.allCountries).map(([key,value])=>[value.capital, key]))[str]].translatedCapital;
             }
         }
         return str;
