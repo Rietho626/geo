@@ -41,13 +41,13 @@ class SettingsHandler{
     }
     configureSettings(topic){
         const settings = this.getSettings("general", topic).concat(this.getSettings(topic)).concat(this.getSubmitButton(topic));
-        console.log(settings);
         this.appendQuizForm(settings);
     }
     appendQuizForm(settings){
         settings.forEach(obj=>{
             const td = this.createNode("td");
             const tr = this.createNode("tr");
+            console.log(obj.type, obj.attributes)
             const node = this.createNode(obj.type, obj.attributes);
             if(obj.text_content){
                 node.textContent = obj.text_content;
