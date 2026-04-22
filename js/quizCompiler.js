@@ -42,6 +42,7 @@ class QuizCompiler{
             countriesByCapital: this.transformCountriesObj(this.countries, "capital"),
             tlCountries: this.transformCountriesObj(this.settings.lang.countries, "country"),
             tlCapitals: this.transformCountriesObj(this.settings.lang.countries, "capital"),
+            tlOgCapitals: this.transformCountriesObj(this.settings.lang.countries, "ogCapital"),
             lang: this.settings.lang,
             questions: []
         }
@@ -134,10 +135,9 @@ class QuizCompiler{
         const arr = Object.entries(obj).map(([key, value])=>{
             value["country"] = this.transliterate(key);
             if(value.translatedName){
-                value["ogCapital"] = countries[key].capital;
-                return (type === "capital")
-                ? [this.transliterate(value.translatedCapital), value]
-                : [this.transliterate(value.translatedName), value];
+                if(type === "capital") return [this.transliterate(value.translatedCapital), value];
+                if(type === "country") return [this.transliterate(value.translatedName), value];
+                if(type === "ogCapital") return [countries[key].capital, value.translatedCapital];
             }else{
                  return (type === "capital")
                 ? [this.transliterate(value.capital), value]
