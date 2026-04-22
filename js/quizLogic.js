@@ -53,8 +53,10 @@ class QuizLogic{
     checkAnswer(answer){
         const aType = this.getAnswerType();
         const correctAnswer = this.getAnswer();
-        if(Boolean(Number(answer))){
-            return answer === correctAnswer;
+        const numAnswer = Number(answer);
+        if(Boolean(numAnswer)){
+            const numCorrAnswer = Number(correctAnswer);
+            return (numAnswer >= numCorrAnswer * 0.95) && (numAnswer <= numCorrAnswer * 1.05);
         }else{
             const formattedAnswer = this.transliterate(answer);
             const formattedCorrectAnswer = this.transliterate(correctAnswer);
