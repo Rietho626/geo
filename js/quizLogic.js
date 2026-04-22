@@ -36,8 +36,8 @@ class QuizLogic{
     getQuestionNr = () => this.correctQuestions.length + this.wrongQuestions.length + 1;
 
     translate(str){
-        if(this.transliterate(this.quiz.tlCapitals[str])) return this.quiz.tlCapitals[str].translatedCapital;
-        if(this.transliterate(this.quiz.tlCountries[str])) return this.quiz.tlCountries[str].translatedCountry;
+        if(this.quiz.tlCapitals[this.transliterate(str)]) return this.quiz.tlCapitals[this.transliterate(str)].translatedCapital;
+        if(this.quiz.tlCountries[this.transliterate(str)]) return this.quiz.tlCountries[this.translate(str)].translatedCountry;
         return str;
     }
 
