@@ -338,6 +338,7 @@ class QuizDomActions{
         Array.from(this.answerBox.querySelectorAll("div")).forEach(node=>node.remove());
         this.pastQuestionsContainer.remove();
         this.heading.textContent = this.lang.quiz.quizOver;
+        this.time.textContent = "";
         this.question.textContent = Math.round(this.logic.correctQuestions.length / Number(this.logic.quiz.numQuestions) *100) + "% "+this.lang.quiz.correct;
         this.answerBox.appendChild(this.createNewQuizButton);
         this.createNewQuizButton.addEventListener("click", ()=>{
