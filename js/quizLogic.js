@@ -45,7 +45,7 @@ class QuizLogic{
             if(aType === "capital"){
                 const tlCapitalObj = this.quiz.tlCapitals[formattedAnswer];
                 if(tlCapitalObj){
-                    return (transliterate(this.quiz.allCountries[tlCapitalObj["country"]]["capital"]) === formattedCorrectAnswer || formattedAnswer === correctAnswer)
+                    return (this.transliterate(this.quiz.allCountries[tlCapitalObj["country"]]["capital"]) === formattedCorrectAnswer || formattedAnswer === correctAnswer)
                     ? true 
                     : false; 
                 }
