@@ -86,6 +86,7 @@ class QuizCompiler{
     getQuestionText(aType, mode){
         switch(aType){
             case "capital":
+            console.log(mode, this.settings.lang.quiz)
             return this.settings.lang.quiz[(mode === "multiple-choice" ? "capitalMC" : "capitalTI")];
             case "country":
             return this.settings.lang.quiz["countryQ"];

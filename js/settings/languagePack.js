@@ -97,6 +97,9 @@
                 "population": [""],
                 "area": [""]
             }
+        },
+        "countries":{
+            
         }
     },
     "german": {

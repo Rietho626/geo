@@ -175,7 +175,9 @@ class QuizDomActions{
 
     toggleEnabled = (b) => this.enabled = b;
 
-    format = (str) => Boolean(Number(str)) ? new Intl.NumberFormat("at-AT").format(Number(str)) : str;
+    translate = (str) => this.lang.countries[str] ? this.lang.countries[str] : str;
+
+    format = (str) => Boolean(Number(str)) ? new Intl.NumberFormat("at-AT").format(Number(str)) : this.translate(str);
 
     updateQuestion(logic){
         this.logic = logic;
