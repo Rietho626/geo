@@ -175,6 +175,8 @@ class QuizDomActions{
 
     toggleEnabled = (b) => this.enabled = b;
 
+    format = (str) => Boolean(Number(str)) ? new Intl.NumberFormat("at-AT").format(Number(str)) : str;
+
     updateQuestion(logic){
         this.logic = logic;
         this.correctQuestions.textContent = logic.getNumCorrectQuestions();
@@ -184,7 +186,7 @@ class QuizDomActions{
             this.question.textContent = logic.getQuestion().split("http")[0];
             this.qImage.src = this.logic.getQuestionObject();
         }else{
-            this.question.textContent = logic.getQuestion();
+            this.question.textContent = logic.getQuestion().replace(logic.getQuestionObject, this.format(logic.getQuestionObject));
             this.qImage.src = "";
         }
         if(logic.getTime() !== "no-limit") this.startTimer(logic);
@@ -208,10 +210,10 @@ class QuizDomActions{
                 })
             }else{
                 Array.from(document.querySelectorAll("#answer-box img")).forEach(node=>{node.display = "none";})
-                this.leftUpperAnswer.textContent = randomizedAnswers[0], this.lu = randomizedAnswers[0];
-                this.rightUpperAnswer.textContent = randomizedAnswers[1], this.ru = randomizedAnswers[1];
-                this.leftLowerAnswer.textContent = randomizedAnswers[2], this.ll = randomizedAnswers[2];
-                this.rightLowerAnswer.textContent = randomizedAnswers[3], this.rl = randomizedAnswers[3];
+                this.leftUpperAnswer.textContent = this.format(randomizedAnswers[0]), this.lu = randomizedAnswers[0];
+                this.rightUpperAnswer.textContent = this.format(randomizedAnswers[1]), this.ru = randomizedAnswers[1];
+                this.leftLowerAnswer.textContent = this.format(randomizedAnswers[2]), this.ll = randomizedAnswers[2];
+                this.rightLowerAnswer.textContent = this.format(randomizedAnswers[3]), this.rl = randomizedAnswers[3];
             }
         }else{
             this.inputBar.value = "";
