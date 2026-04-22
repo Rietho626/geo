@@ -100,7 +100,6 @@ class QuizDomActions{
         this.appendNodes(this.correctQuestionsContainer, [this.correctQuestionsLabel, this.correctQuestions]);
         this.appendNodes(this.wrongQuestionsContainer, [this.wrongQuestionsLabel, this.wrongQuestions]);
         this.appendNodes(this.questionBox, [this.question, this.time, this.qImage]);
-        console.log(this.qImage, this.qImage.src);
 
         if(mode === "multiple-choice"){
             this.leftUpperAnswer = this.createNode("div", [["id", "left-upper-answer"]]);
@@ -197,7 +196,6 @@ class QuizDomActions{
             const answers = [...logic.getWrongAnswers(), logic.getAnswer()];
             const randomizedAnswers = logic.randomizeAnswers(answers);
             if(logic.getAnswer().startsWith("http")){
-                console.log(randomizedAnswers);
                 this.leftUpperImg.src = randomizedAnswers[0], this.lu = randomizedAnswers[0];
                 this.rightUpperImg.src= randomizedAnswers[1], this.ru = randomizedAnswers[1];
                 this.leftLowerImg.src= randomizedAnswers[2], this.ll = randomizedAnswers[2];
@@ -245,7 +243,6 @@ class QuizDomActions{
             if(e.key === "Enter" && this.timeUp === false && this.enabled && this.inputBar.value !== ""){
               checkAnswer(this.inputBar.value, this.logic, this.inputBar.id);
             }
-            console.log(e.key, this.timeUp, this.enabled, this.inputBar.value)
         })
     }
 
