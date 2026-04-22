@@ -86,7 +86,6 @@ class QuizCompiler{
     getQuestionText(aType, mode){
         switch(aType){
             case "capital":
-            console.log(mode, this.settings.lang.quiz)
             return this.settings.lang.quiz[(mode === "multiple-choice" ? "capitalMC" : "capitalTI")];
             case "country":
             return this.settings.lang.quiz["countryQ"];
@@ -119,7 +118,7 @@ class QuizCompiler{
             const activeQuestion = {
                 questionMode: this.settings["quiz-mode"], //maybe mixed question modes will be enabled in the future
                 questionType: qType,
-                questionText: this.getQuestionText(qObject, aType, qObjectType, this.settings["quiz-mode"]),
+                questionText: this.getQuestionText(aType, this.settings["quiz-mode"]),
                 questionObject: qObject,
                 answer: answer,
                 wrongAnswers: this.settings["quiz-mode"] === "multiple-choice" ? this.getWrongAnswers(answer, aType) : false
