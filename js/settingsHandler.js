@@ -17,18 +17,21 @@ class SettingsHandler{
         this.lang = languagePack[localStorage.getItem("langPref") || "english"];
     }
 
-    enableListener(cb){
+    enableNavListener(){
         this.nav.addEventListener("click", (e)=>{
             if(e.target.classList.contains("quiz-link")){
                 Array.from(document.querySelectorAll("tbody > *"))
                     .forEach(node=>node.remove());
                 this.configureSettings(e.target.id);
-                this.form.addEventListener("submit", (e)=>{
-                    this.createContainer.style.display = "none";
-                    cb(this.processForm(e))
-                });
             }
         })
+    }
+
+    enableSettingsListener(cb){
+        this.form.addEventListener("submit", (e)=>{
+            this.createContainer.style.display = "none";
+            cb(this.processForm(e))
+        });
     }
 
     createNode(type, attributes = [["class", "gneralContainer"]]){
