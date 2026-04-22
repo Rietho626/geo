@@ -119,6 +119,7 @@ class QuizDomActions{
             this.appendNodes(this.rightLowerAnswer, [this.rightLowerImg]);
 
             this.multipleChoiceListener(checkAnswer);
+            
 
         }else if(mode === "type-in-mode"){
             this.inputBar = this.createNode("input", [["type", "text"], ["id", "type-in-ipnut"]]);
@@ -220,6 +221,7 @@ class QuizDomActions{
 
     multipleChoiceListener(checkAnswer){
         this.answerBox.addEventListener("click", (e)=>{
+            console.log(e.target.id);
             if((e.target.id === "left-upper-answer" || e.target.id === "left-upper-img") && this.enabled){
                 checkAnswer(this.lu, this.logic, "left-upper-answer");
             }else if((e.target.id === "right-upper-answer" || e.target.id === "right-upper-img") && this.enabled){
