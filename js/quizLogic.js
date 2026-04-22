@@ -48,13 +48,13 @@ class QuizLogic{
         return str;
     }
 
-    format = (str) => Boolean(Number(str)) ? new Intl.NumberFormat("at-AT").format(Number(str)) : this.translate(str);
+    format = (str) => Number.isFinite(Number(str)) ? new Intl.NumberFormat("at-AT").format(Number(str)) : this.translate(str);
 
     checkAnswer(answer){
         const aType = this.getAnswerType();
         const correctAnswer = this.getAnswer();
         const numAnswer = Number(answer);
-        if(Boolean(numAnswer)){
+        if(Number.isFinite(numAnswer)){
             const numCorrAnswer = Number(correctAnswer);
             return (numAnswer >= numCorrAnswer * 0.95) && (numAnswer <= numCorrAnswer * 1.05);
         }else{
@@ -104,6 +104,8 @@ class QuizLogic{
             return (this.quiz.allCountries[formattedInput] || this.quiz.tlCountries[formattedInput]) ? true : false;
         }else if(aType === "capital"){
             return (this.quiz.countriesByCapital[formattedInput] || this.quiz.tlCapitals[formattedInput]) ? true : false;
+        }else if(aType === "population" || aType === "area"){
+            
         }
     }
 

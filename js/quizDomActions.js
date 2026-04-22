@@ -251,10 +251,14 @@ class QuizDomActions{
 
     typeInCheck(){
         this.inputBar.addEventListener("input", ()=>{
-            const isValid = this.logic.validateInput(this.inputBar.value);
-            this.submitAnswer.style.backgroundColor = (isValid) ? "lightgreen" : "red";
-            this.responseField.style.color = (isValid) ? "lightgreen" : "red";
-            this.responseField.textContent = (isValid) ? this.lang.quiz.typeInValid : this.lang.quiz.typeInInvalid;
+            if(!Number.isFinite(Number(this.logic.getAnswer()))){
+                const isValid = this.logic.validateInput(this.inputBar.value);
+                this.submitAnswer.style.backgroundColor = (isValid) ? "lightgreen" : "red";
+                this.responseField.style.color = (isValid) ? "lightgreen" : "red";
+                this.responseField.textContent = (isValid) ? this.lang.quiz.typeInValid : this.lang.quiz.typeInInvalid;
+            }else{
+                this.responseField.textContent = this.logic.format(this.inputBar.value);
+            }
         })
     }
 
