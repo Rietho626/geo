@@ -20,7 +20,7 @@ ul{
     justify-content: space-between
 }
 
-nav > ul > li{
+#cover > ul > li{
     padding: var(--navLinkPadding);
     margin: var(--navLinkMargin);
     border: var(--navLinkBorderSize) solid var(--linkBorderColor);
@@ -36,13 +36,13 @@ nav > ul > li{
     transition: 0.2s ease-in-out;
 }
 
-nav > ul > li:hover{
+#cover > ul > li:hover{
     cursor: pointer;
     transform: scale(110%);
     transition: 0.2s ease-in-out;
 }
 
-nav > ul > li:active{
+#cover > ul > li:active{
   border-color: var(--navLinkShadowColor);
 }
 
