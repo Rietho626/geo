@@ -36,7 +36,7 @@ navUl.style.zIndex = "-1";
 
 expandTopics.addEventListener("click", (e)=>{
     console.log(document.documentElement.clientWidth);
-    bavUl.style.transform = "";
+    navUl.style.transform = "";
 })
 
 const themes = new Map([
