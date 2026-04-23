@@ -12,7 +12,7 @@ export default function getSettingsHandler(){
 class SettingsHandler{
     constructor(){
         this.nav = document.querySelector("nav");
-        this.topicsUl = document.querySelector("topics-ul");
+        this.topicsUl = document.getElementById("topics-ul");
         this.createContainer = document.getElementById("create-quiz-container");
         this.form = document.getElementById("create-form")
         this.lang = languagePack[localStorage.getItem("langPref") || "english"];
