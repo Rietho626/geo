@@ -30,13 +30,13 @@ settings.addEventListener("click", (e)=>{
     }
 })
 
-navUl.style.transform = "translateY('-400px')";
+navUl.style.transform = "translateY(-400px)";
 navUl.style.zIndex = "-1";
 
 
 expandTopics.addEventListener("click", (e)=>{
     console.log(document.documentElement.clientWidth);
-    navUl.style.transform = "";
+    navUl.style.transform = "translateY(0px)";
 })
 
 const themes = new Map([
