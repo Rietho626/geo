@@ -290,6 +290,8 @@ select{
     flex-direction: column;
     left: 70px;
     width: 250px;
+    position: relative;
+    z-index: 3;
 }
 
 #themes-ul{
@@ -380,10 +382,11 @@ select{
     background-color: var(--mainColor);
     border-radius: 2px;
     transition: 0.2s ease-in-out;
+    position: relative;
+    z-index: 3;
 }
 
 nav ul{
-    z-index: -2;
     transition: 1s;
     position: relative;
     transform: translate(-530px);
@@ -391,6 +394,7 @@ nav ul{
 
 nav{
     height: 45px;
+
 }
 
 header{
@@ -405,7 +409,7 @@ header{
 
 #cover{
     background-color: var(--secondaryColor);
-    z-index: -1;
+    z-index: 2;
     position: relative;
 }
 
@@ -417,3 +421,11 @@ header{
     transform: translate(-685px);
 }
 
+
+header{
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
