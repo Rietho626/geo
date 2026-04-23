@@ -5,7 +5,7 @@
     --navLinkPadding: 7px;
     --navLinkMargin: 4px;
     --mainColor: rgb(59, 59, 214);
-    --secondaryColor: rgba(57, 180, 202, 0.932);
+    --secondaryColor: rgb(57, 180, 202);
     --navLinkShadowColor: rgb(95, 95, 148);
     --navLinkBg:radial-gradient(var(--navLinkShadowColor),var(--mainColor) 80%);
     --navLinkRevBg: radial-gradient(var(--mainColor),var(--navLinkShadowColor) 80%);
