@@ -382,3 +382,9 @@ select{
     border-radius: 2px;
     transition: 0.2s ease-in-out;
 }
+
+nav ul{
+    transform: translateX(-400px);
+    z-index: -1;
+    transition: 1s;
+}
