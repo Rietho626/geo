@@ -12,13 +12,14 @@ export default function getSettingsHandler(){
 class SettingsHandler{
     constructor(){
         this.nav = document.querySelector("nav");
+        this.topicsUl = document.querySelector("topics-ul");
         this.createContainer = document.getElementById("create-quiz-container");
         this.form = document.getElementById("create-form")
         this.lang = languagePack[localStorage.getItem("langPref") || "english"];
     }
 
     enableNavListener(){
-        this.nav.addEventListener("click", (e)=>{
+        this.topicsUl.addEventListener("click", (e)=>{
             if(e.target.classList.contains("quiz-link")){
                 Array.from(document.querySelectorAll("tbody > *"))
                     .forEach(node=>node.remove());
