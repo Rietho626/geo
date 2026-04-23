@@ -200,14 +200,14 @@ class QuizDomActions{
                 this.rightUpperImg.src= randomizedAnswers[1], this.ru = randomizedAnswers[1];
                 this.leftLowerImg.src= randomizedAnswers[2], this.ll = randomizedAnswers[2];
                 this.rightLowerImg.src = randomizedAnswers[3], this.rl = randomizedAnswers[3];
-                Array.from(document.querySelectorAll("#answer-box img")).forEach(node=>{
+                /*Array.from(document.querySelectorAll("#answer-box img")).forEach(node=>{
                     const img = new Image();
                     img.onload = function(){
                         node.style.height = img.height;
                         node.style.width = img.width;
                         node.style.display = "block";
                     }
-                })
+                })*/
             }else{
                 Array.from(document.querySelectorAll("#answer-box img")).forEach(node=>{node.display = "none";})
                 this.leftUpperAnswer.textContent = logic.format(randomizedAnswers[0]), this.lu = randomizedAnswers[0];
