@@ -23,7 +23,7 @@
             german: "German"
         },
         "nav":{
-            chooseQuizTopic: "Choose Quiz Topic",
+            chooseQuizTopic: "Quiz Topics",
             flags: "Flags",
             capitals: "Capitals",
             population: "Population",
@@ -127,7 +127,7 @@
             german: "Deutsch"
         },
         "nav":{
-            chooseQuizTopic: "Wähle ein Thema für Dein Quiz",
+            chooseQuizTopic: "Quiz Themen",
             flags: "Flaggen",
             capitals: "Hauptstädte",
             population: "Einwohner",

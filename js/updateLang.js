@@ -48,7 +48,7 @@ export default function updateLang(languagePackFull, language){
             tc: pack.nav.area
         },
          {
-            id: "topic-desc",
+            id: "expand-topics",
             tc: pack.nav.chooseQuizTopic
         }
 
