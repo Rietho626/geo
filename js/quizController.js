@@ -9,6 +9,8 @@ const settingsLink = document.getElementById("theme-settings");
 const settingsUl = document.getElementById("settings-ul");
 const themesUl = document.getElementById("themes-ul");
 const languagesUl = document.getElementById("languages-ul");
+const expandTopics = document.getElementById("expand-topics");
+const navUl = document.querySelector("nav > ul");
 
 const settings = document.getElementById("settings");
 
@@ -26,6 +28,15 @@ settings.addEventListener("click", (e)=>{
     }else if(e.target.id.startsWith("lang-")){
         updateLang(languagePack, (languages.get(e.target.id) ?? "english"));
     }
+})
+
+navUl.style.transform = "translateY('-400px')";
+navUl.style.zIndex = "-1";
+
+
+expandTopics.addEventListener("click", (e)=>{
+    console.log(document.documentElement.clientWidth);
+    bavUl.style.transform = "";
 })
 
 const themes = new Map([
