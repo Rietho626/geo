@@ -11,7 +11,7 @@ export default function getSettingsHandler(){
 
 class SettingsHandler{
     constructor(){
-        this.nav = document.querySelector("nav");
+        this.header = document.querySelector("header");
         this.topicsUl = document.getElementById("topics-ul");
         this.createContainer = document.getElementById("create-quiz-container");
         this.form = document.getElementById("create-form")
@@ -19,7 +19,8 @@ class SettingsHandler{
     }
 
     enableNavListener(){
-        this.topicsUl.addEventListener("click", (e)=>{
+        this.header.addEventListener("click", (e)=>{
+            console.log(e.target);
             if(e.target.classList.contains("quiz-link")){
                 Array.from(document.querySelectorAll("tbody > *"))
                     .forEach(node=>node.remove());

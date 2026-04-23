@@ -20,7 +20,7 @@ ul{
     justify-content: space-between
 }
 
-#cover > ul > li{
+#topics-ul > li{
     padding: var(--navLinkPadding);
     margin: var(--navLinkMargin);
     border: var(--navLinkBorderSize) solid var(--linkBorderColor);
@@ -36,13 +36,13 @@ ul{
     transition: 0.2s ease-in-out;
 }
 
-#cover > ul > li:hover{
+#topics-ul > li:hover{
     cursor: pointer;
     transform: scale(110%);
     transition: 0.2s ease-in-out;
 }
 
-#cover > ul > li:active{
+#topics-ul > li:active{
   border-color: var(--navLinkShadowColor);
 }
 
@@ -405,7 +405,7 @@ header{
 #cover{
     background-color: var(--secondaryColor);
     z-index: -1;
-    transform: translate(-520px);
+    position: relative;
 }
 
 #actual-cover{
@@ -413,4 +413,6 @@ header{
     width: 100%;
     height: 100%;
     background-color: var(--secondaryColor);
+    transform: translate(-685px);
 }
+
