@@ -19,7 +19,7 @@ class SettingsHandler{
     }
 
     enableNavListener(){
-        this.header.addEventListener("click", (e)=>{
+        this.topicsUl.addEventListener("click", (e)=>{
             console.log(e.target);
             if(e.target.classList.contains("quiz-link")){
                 Array.from(document.querySelectorAll("tbody > *"))
