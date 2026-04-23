@@ -10,7 +10,7 @@ const settingsUl = document.getElementById("settings-ul");
 const themesUl = document.getElementById("themes-ul");
 const languagesUl = document.getElementById("languages-ul");
 const expandTopics = document.getElementById("expand-topics");
-const navUl = document.querySelector("nav > ul");
+const navUl = document.querySelector("#cover > ul");
 
 const settings = document.getElementById("settings");
 
