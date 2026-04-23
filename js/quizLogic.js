@@ -11,48 +11,72 @@ class QuizLogic{
         this.activeQuestion = quiz.questions.shift();
     }
 
-    updateActive = () => this.activeQuestion = this.quiz.questions.shift();
+    updateActive(){
+        this.activeQuestion = this.quiz.questions.shift();
+    } 
  
-    getAnswer = () => this.activeQuestion.answer;
+    get answer(){
+        return this.activeQuestion.answer;
+    }
 
-    getNumCorrectQuestions = () => this.correctQuestions.length;
+    get numCorrectQuestions(){
+        return this.correctQuestions.length;
+    } 
 
-    getNumWrongQuestions = () => this.wrongQuestions.length;
+    get numWrongQuestions(){
+        return this.wrongQuestions.length;
+    }
 
-    getTime = () => this.quiz.time;
+    get time(){
+        return this.quiz.time;
+    } 
 
-    getMode = () => this.quiz.mode;
+    get mode(){
+        return this.quiz.mode;
+    }
 
-    getWrongAnswers = () => this.activeQuestion.wrongAnswers;    
+    get wrongAnswers(){
+        return this.activeQuestion.wrongAnswers;  
+    }  
 
-    getQuestion = () => this.activeQuestion.questionText;
+    get question(){
+        return this.activeQuestion.questionText;
+    }
 
-    getQuestionObject = () => this.activeQuestion.questionObject;
+    get questionObject(){
+        return this.activeQuestion.questionObject;
+    } 
 
-    getQuestionType = () => this.activeQuestion.questionType.split("-")[0];
+    get questionType(){
+       return this.activeQuestion.questionCategory;
+    }
 
-    getAnswerType = () => this.activeQuestion.questionType.split("-")[1];
+    get answerType(){
+        return this.activeQuestion.answerCategory;
+    }
 
-    getQuestionNr = () => this.correctQuestions.length + this.wrongQuestions.length + 1;
+    get questionNr(){
+        return this.correctQuestions.length + this.wrongQuestions.length + 1;
+    }
 
     translate(str){
-        if(this.quiz.lang.countries != {}){
-            const checkCountry = this.quiz.lang.countries[str];
-            const checkCapital = this.quiz.tlOgCapitals[str];
-            if(checkCountry){
-                return checkCountry.translatedName;
-            }else if(checkCapital){
-               return checkCapital;
-            }
+        const checkCountry = this.quiz.lang.countries[str];
+        const checkCapital = this.quiz.tlOgCapitals[str];
+        if(checkCountry){
+            return checkCountry.translatedName;
+        }else if(checkCapital){
+            return checkCapital;
         }
         return str;
     }
 
-    format = (str) => Number.isFinite(Number(str)) ? new Intl.NumberFormat("at-AT").format(Number(str)) : this.translate(str);
+    format(str){
+        return Number.isFinite(Number(str)) ? new Intl.NumberFormat("at-AT").format(Number(str)) : this.translate(str);
+    }
 
     checkAnswer(answer){
-        const aType = this.getAnswerType();
-        const correctAnswer = this.getAnswer();
+        const aType = this.answerType;
+        const correctAnswer = this.answer;
         const numAnswer = Number(answer);
         if(Number.isFinite(numAnswer)){
             const numCorrAnswer = Number(correctAnswer);
@@ -60,27 +84,24 @@ class QuizLogic{
         }else{
             const formattedAnswer = this.transliterate(answer);
             const formattedCorrectAnswer = this.transliterate(correctAnswer);
-
             if(aType === "capital"){
                 const tlCapitalObj = this.quiz.tlCapitals[formattedAnswer];
                 if(tlCapitalObj){
                     return (this.transliterate(this.quiz.allCountries[tlCapitalObj["country"]]["capital"]) === formattedCorrectAnswer || formattedAnswer === correctAnswer)
-                    ? true 
-                    : false; 
                 }
             }else if(aType === "country"){
                 const tlCountryObj = this.quiz.tlCountries[formattedAnswer];
                 if(tlCountryObj){
-                    return tlCountryObj["country"] === formattedCorrectAnswer || formattedAnswer === formattedCorrectAnswer
-                    ? true 
-                    : false; 
+                    return (tlCountryObj["country"] === formattedCorrectAnswer || formattedAnswer === formattedCorrectAnswer)
                 }
             }
             return formattedAnswer === formattedCorrectAnswer;
         }
     }
 
-    checkForQuizEnd = () => (!this.quiz.questions.length) ? true : false;
+    get hasQuizConcluded(){
+        return !this.quiz.questions.length;
+    }
 
     getDecrementor(time){
         return function(){
@@ -98,14 +119,12 @@ class QuizLogic{
     }
 
     validateInput(input){
-        const aType = this.getAnswerType();
+        const aType = this.answerType;
         const formattedInput = this.transliterate(input);
         if(aType === "country"){
-            return (this.quiz.allCountries[formattedInput] || this.quiz.tlCountries[formattedInput]) ? true : false;
+            return Boolean(this.quiz.allCountries[formattedInput] || this.quiz.tlCountries[formattedInput]);
         }else if(aType === "capital"){
-            return (this.quiz.countriesByCapital[formattedInput] || this.quiz.tlCapitals[formattedInput]) ? true : false;
-        }else if(aType === "population" || aType === "area"){
-            
+            return Boolean(this.quiz.countriesByCapital[formattedInput] || this.quiz.tlCapitals[formattedInput]);
         }
     }
 

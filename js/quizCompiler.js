@@ -46,7 +46,6 @@ class QuizCompiler{
             lang: this.settings.lang,
             questions: []
         }
-        console.log(this.quiz);
     }
 
     filterContinents(){
@@ -89,7 +88,7 @@ class QuizCompiler{
             case "capital":
             return this.settings.lang.quiz[(mode === "multiple-choice" ? "capitalMC" : "capitalTI")];
             case "country":
-            return this.settings.lang.quiz["countryQ"];
+            return this.settings.lang.quiz["countryQ"];   
             case "flag":
             return this.settings.lang.quiz["flagMC"];
             case "population":
@@ -121,6 +120,8 @@ class QuizCompiler{
                 questionType: qType,
                 questionText: this.getQuestionText(aType, this.settings["quiz-mode"]),
                 questionObject: qObject,
+                questionCategory: qObjectType,
+                answerCategory: aType,
                 answer: answer,
                 wrongAnswers: this.settings["quiz-mode"] === "multiple-choice" ? this.getWrongAnswers(answer, aType) : false
             }   
@@ -133,15 +134,18 @@ class QuizCompiler{
     transformCountriesObj(obj, type){
         if(!obj) return {};
         const arr = Object.entries(obj).map(([key, value])=>{
-            value["country"] = this.transliterate(key);
+            const data = {
+                ...value,
+                country: this.transliterate(key)
+            };
             if(value.translatedName){
-                if(type === "capital") return [this.transliterate(value.translatedCapital), value];
-                if(type === "country") return [this.transliterate(value.translatedName), value];
-                if(type === "ogCapital") return [countries[key].capital, value.translatedCapital];
+                if(type === "capital") return [this.transliterate(value.translatedCapital), data];
+                if(type === "country") return [this.transliterate(value.translatedName), data];
+                if(type === "ogCapital") return [countries[key].capital, data.translatedCapital];
             }else{
                  return (type === "capital")
-                ? [this.transliterate(value.capital), value]
-                : [this.transliterate(key), value];
+                ? [this.transliterate(value.capital), data]
+                : [this.transliterate(key), data];
             }
         })
         return Object.fromEntries(arr);

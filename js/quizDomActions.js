@@ -71,7 +71,9 @@ class QuizDomActions{
         document.getElementById("create-quiz-container").style.display = "block";
     }
 
-    resetQuiz = () => Array.from(document.querySelectorAll("#quiz-container > *")).forEach(node=>node.remove());
+    resetQuiz(){
+        Array.from(document.querySelectorAll("#quiz-container > *")).forEach(node=>node.remove());
+    } 
 
     constructQuiz(mode, checkAnswer){
         this.quizWrapper = this.createNode("div", [["id","quiz-wrapper"]]);
@@ -106,10 +108,10 @@ class QuizDomActions{
             this.leftLowerAnswer = this.createNode("div", [["id", "left-lower-answer"]]);
             this.rightUpperAnswer = this.createNode("div", [["id", "right-upper-answer"]]);
             this.rightLowerAnswer = this.createNode("div", [["id", "right-lower-answer"]]);
-            this.leftUpperImg = this.createNode("img", [["display", "none"], ["id","left-upper-img"]]);
-            this.rightUpperImg = this.createNode("img", [["display", "none"], ["id","right-upper-img"]]);
-            this.leftLowerImg = this.createNode("img", [["display", "none"], ["id","left-lower-img"]]);
-            this.rightLowerImg = this.createNode("img", [["display", "none"], ["id","right-lower-img"]]);
+            this.leftUpperImg = this.createNode("img", [["style", "display:none"], ["id","left-upper-img"]]);
+            this.rightUpperImg = this.createNode("img", [["style", "display:none"], ["id","right-upper-img"]]);
+            this.leftLowerImg = this.createNode("img", [["style", "display:none"], ["id","left-lower-img"]]);
+            this.rightLowerImg = this.createNode("img", [["style", "display:none"], ["id","right-lower-img"]]);
 
             this.appendNodes(this.answerBox, [this.leftUpperAnswer, this.rightUpperAnswer, this.leftLowerAnswer, this.rightLowerAnswer, this.blockContainer]);
             this.appendNodes(this.leftUpperAnswer, [this.leftUpperImg]);
@@ -148,8 +150,8 @@ class QuizDomActions{
     } 
 
     startTimer(logic){
-        this.time.textContent = logic.getTime();
-        const decrementor = logic.getDecrementor(logic.getTime());
+        this.time.textContent = logic.time;
+        const decrementor = logic.getDecrementor(logic.time);
         this.interval = setInterval(()=>{
             const currTime = decrementor();
             this.time.textContent = currTime;
@@ -176,40 +178,32 @@ class QuizDomActions{
 
     updateQuestion(logic){
         this.logic = logic;
-        this.correctQuestions.textContent = logic.getNumCorrectQuestions();
-        this.wrongQuestions.textContent = logic.getNumWrongQuestions();
-        this.heading.textContent = this.lang.quiz.heading + logic.getQuestionNr();
-        if(logic.getQuestionObject().startsWith("http")){
-            this.question.textContent = logic.getQuestion().split("http")[0]
+        this.correctQuestions.textContent = logic.numCorrectQuestions;
+        this.wrongQuestions.textContent = logic.numWrongQuestions;
+        this.heading.textContent = this.lang.quiz.heading + logic.questionNr;
+        if(logic.questionObject.startsWith("http")){
+            this.question.textContent = logic.question.split("http")[0]
                 .replace("{Object}", this.lang.quiz.displayed)
-                .replace("{Type}", this.lang.general[logic.getQuestionType()+"Capital"]);;
-            this.qImage.src = this.logic.getQuestionObject();
+                .replace("{Type}", this.lang.general[logic.questionType+"Capital"]);;
+            this.qImage.src = this.logic.questionObject;
         }else{
-            this.question.textContent = logic.getQuestion()
-                .replace("{Object}", logic.format(logic.getQuestionObject()))
-                .replace("{Type}", this.lang.general[logic.getQuestionType()+"Capital"]);
+            this.question.textContent = logic.question
+                .replace("{Object}", logic.format(logic.questionObject))
+                .replace("{Type}", this.lang.general[logic.questionType+"Capital"]);
             this.qImage.src = "";
         }
-        if(logic.getTime() !== "no-limit") this.startTimer(logic);
+        if(logic.time !== "no-limit") this.startTimer(logic);
 
-        if(logic.getMode() === "multiple-choice"){
-            const answers = [...logic.getWrongAnswers(), logic.getAnswer()];
+        if(logic.mode === "multiple-choice"){
+            const answers = [...logic.wrongAnswers, logic.answer];
             const randomizedAnswers = logic.randomizeAnswers(answers);
-            if(logic.getAnswer().startsWith("http")){
+            if(logic.answer.startsWith("http")){
                 this.leftUpperImg.src = randomizedAnswers[0], this.lu = randomizedAnswers[0];
                 this.rightUpperImg.src= randomizedAnswers[1], this.ru = randomizedAnswers[1];
                 this.leftLowerImg.src= randomizedAnswers[2], this.ll = randomizedAnswers[2];
                 this.rightLowerImg.src = randomizedAnswers[3], this.rl = randomizedAnswers[3];
-                /*Array.from(document.querySelectorAll("#answer-box img")).forEach(node=>{
-                    const img = new Image();
-                    img.onload = function(){
-                        node.style.height = img.height;
-                        node.style.width = img.width;
-                        node.style.display = "block";
-                    }
-                })*/
             }else{
-                Array.from(document.querySelectorAll("#answer-box img")).forEach(node=>{node.display = "none";})
+                Array.from(document.querySelectorAll("#answer-box img")).forEach(node=>{node.style.display = "none";})
                 this.leftUpperAnswer.textContent = logic.format(randomizedAnswers[0]), this.lu = randomizedAnswers[0];
                 this.rightUpperAnswer.textContent = logic.format(randomizedAnswers[1]), this.ru = randomizedAnswers[1];
                 this.leftLowerAnswer.textContent = logic.format(randomizedAnswers[2]), this.ll = randomizedAnswers[2];
@@ -248,7 +242,7 @@ class QuizDomActions{
 
     typeInCheck(){
         this.inputBar.addEventListener("input", ()=>{
-            if(!Number.isFinite(Number(this.logic.getAnswer()))){
+            if(!Number.isFinite(Number(this.logic.answer))){
                 const isValid = this.logic.validateInput(this.inputBar.value);
                 this.submitAnswer.style.backgroundColor = (isValid) ? "lightgreen" : "red";
                 this.responseField.style.color = (isValid) ? "lightgreen" : "red";
@@ -278,11 +272,11 @@ class QuizDomActions{
                 this.displayIncorrect(answerNode, corrAnswerNode, correctAnswer);
             }
             setTimeout(()=>{
-                if(this.logic.getMode() === "multiple-choice"){
+                if(this.logic.mode === "multiple-choice"){
                     answerNode.style.backgroundColor =  "transparent";
                     answerNode.style.color = "black";
                     if(corrAnswerNode) corrAnswerNode.style.backgroundColor = "transparent";
-                }else if(this.logic.getMode() === "type-in-mode"){
+                }else if(this.logic.mode === "type-in-mode"){
                     this.inputBar.style.backgroundColor = "white";
                     this.inputBar.style.color = "black";
                     this.submitAnswer.style.color = "black";
@@ -295,10 +289,10 @@ class QuizDomActions{
     }
 
     displayCorrect(answerNode){
-        if(this.logic.getMode() === "multiple-choice"){
+        if(this.logic.mode === "multiple-choice"){
             answerNode.style.backgroundColor =  "green";
             answerNode.style.color = "white";
-        }else if(this.logic.getMode() === "type-in-mode"){
+        }else if(this.logic.mode === "type-in-mode"){
             this.inputBar.style.backgroundColor = "green";
             this.submitAnswer.style.backgroundColor = "green";
             this.inputBar.style.color = "white";
@@ -309,13 +303,13 @@ class QuizDomActions{
     }
 
     displayIncorrect(answerNode, corrAnswerNode, correctAnswer){
-        if(this.logic.getMode() === "multiple-choice"){
+        if(this.logic.mode === "multiple-choice"){
             answerNode.style.backgroundColor =  "red";
             answerNode.style.color = "white";
             setTimeout(()=>{
                 if(corrAnswerNode) corrAnswerNode.style.backgroundColor = "lightgreen";
             },1000);
-        }else if(this.logic.getMode() === "type-in-mode"){
+        }else if(this.logic.mode === "type-in-mode"){
             this.inputBar.style.backgroundColor = "red";
             this.submitAnswer.style.backgroundColor = "red";
             this.responseField.style.color = "red";
@@ -331,8 +325,8 @@ class QuizDomActions{
 
     fetchResponseField(resType){
         let res = this.lang.quiz[resType]["default"];
-        if(this.lang.quiz[resType][this.logic.getAnswerType()]){
-            res = res.concat(this.lang.quiz[resType][this.logic.getAnswerType()]);
+        if(this.lang.quiz[resType][this.logic.answerType]){
+            res = res.concat(this.lang.quiz[resType][this.logic.answerType]);
         }
         return res[Math.floor(Math.random()*res.length)];
     }
@@ -343,7 +337,7 @@ class QuizDomActions{
         this.pastQuestionsContainer.remove();
         this.heading.textContent = this.lang.quiz.quizOver;
         this.time.textContent = "";
-        this.question.textContent = Math.round(this.logic.correctQuestions.length / Number(this.logic.quiz.numQuestions) *100) + "% "+this.lang.quiz.correct;
+        this.question.textContent = Math.round(this.logic.numCorrectQuestions / Number(this.logic.quiz.numQuestions) *100) + "% "+this.lang.quiz.correct;
         this.answerBox.appendChild(this.createNewQuizButton);
         this.createNewQuizButton.addEventListener("click", ()=>{
             this.createQuiz();

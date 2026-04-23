@@ -96,7 +96,6 @@ class SettingsHandler{
         nodes.forEach(node=>settings[node.name] = node.value);
         settings["topic"] = topic;
         settings["lang"] = languagePack[localStorage.getItem("langPref") || "english"];
-        console.log(settings);
         return settings;
     }
     
@@ -133,10 +132,6 @@ class SettingsHandler{
 
     static showValueCbRange(){
         document.getElementById("num-questions-show").textContent = document.getElementById("num-questions").value;
-    }
-
-    static enableMultipleChoiceCb(){
-        //maybe
     }
 
     getSubmitButton(topic){

@@ -57,16 +57,16 @@ function initiateQuiz(settings){
 }
 
 function startingScreen(quiz){
-    quizDomActions.startingScreen(quiz, startQuiz, newQuiz);
+    quizDomActions.startingScreen(quiz, startQuiz);
 }
 
 async function checkAnswer(answered, logic, answerBoxId){
     quizDomActions.stopTimer();
     quizDomActions.toggleEnabled(false);
-    const hasQuizEnded = logic.checkForQuizEnd();
+    const hasQuizEnded = logic.hasQuizConcluded;
     const isCorrect = logic.handleInput(answered);
     if(answered !== "timeout"){
-        await quizDomActions.displayAnswerCheck(isCorrect, answerBoxId, logic.getAnswer());
+        await quizDomActions.displayAnswerCheck(isCorrect, answerBoxId, logic.answer);
     }
     if(hasQuizEnded){
         quizDomActions.quizEnd(logic);
@@ -77,22 +77,11 @@ async function checkAnswer(answered, logic, answerBoxId){
     }
 }
 
-function newQuiz(){
-    quizDomActions = getQuizDomActions();
-    settingsHandler = getSettingsHandler();
-    settingsHandler.enableListener(initiateQuiz);
-}
-
 function startQuiz(quiz){
     const logic = getQuizLogic(quiz);
     quizDomActions.resetQuiz();
-    quizDomActions.constructQuiz(logic.getMode(), checkAnswer);
-    console.log(logic.quiz, logic.activeQuestion)
+    quizDomActions.constructQuiz(logic.mode, checkAnswer);
     quizDomActions.updateQuestion(logic, checkAnswer);
     quizDomActions.enabled = true;
-}
-
-function resetForm(){
-
 }
 
