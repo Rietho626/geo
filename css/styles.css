@@ -55,7 +55,6 @@ header{
 header > div{
     text-align: center;
     margin-right: 5%;
-    margin-top: calc(var(--navLinkBorderSize) + var(--navLinkPadding) + var(--navLinkMargin));
     font-weight: bold;
     font-size: 30px;
 }
