@@ -24,7 +24,7 @@ export default function getGeneralSettings(topic, SettingsHandler, lang){
                         ["id", "num-questions-show"]
                     ],
                     text_content: false,
-                    listener: false,
+                    listener: ["change", SettingsHandler.showValueCbRangeReverse],
                     children: false
                 },    
                 {

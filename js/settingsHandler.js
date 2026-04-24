@@ -133,7 +133,11 @@ class SettingsHandler{
     }
 
     static showValueCbRange(){
-        document.getElementById("num-questions-show").textContent = document.getElementById("num-questions").value;
+        document.getElementById("num-questions-show").value = document.getElementById("num-questions").value;
+    }
+
+    static showValueCbRangeReverse(){
+        document.getElementById("num-questions").value = document.getElementById("num-questions-show").value;
     }
 
     getSubmitButton(topic){

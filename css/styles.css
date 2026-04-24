@@ -500,3 +500,10 @@ header{
     box-shadow: 1px 1px 3px 0.3px;
     margin-left: 2px;
 }
+
+#num-questions-show{
+    padding: 0px;
+    background-color: var(--secondaryColor);
+    border: 0px;
+    text-align: center;
+}
