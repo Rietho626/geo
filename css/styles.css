@@ -511,3 +511,7 @@ header{
     border: 0px;
     text-align: center;
 }
+
+#block-container:hover{
+    transform: scale(100%);
+}
