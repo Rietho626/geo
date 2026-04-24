@@ -14,8 +14,12 @@ export default function getGeneralSettings(topic, SettingsHandler, lang){
             listener: ["change", SettingsHandler.showValueCbRange],
             siblings: [
                 {
-                    type: "span",
+                    type: "input",
                     attributes: [
+                        ["type", "number"],
+                        ["min", "10"],
+                        ["max", "50"],
+                        ["value", "50"],
                         ["class", "show-value"],
                         ["id", "num-questions-show"]
                     ],
