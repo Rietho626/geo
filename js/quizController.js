@@ -32,7 +32,7 @@ settings.addEventListener("click", (e)=>{
 
 expandTopics.addEventListener("click", (e)=>{
     console.log(document.documentElement.clientWidth);
-    navUl.style.transform = "translateX(0px)";
+    navUl.classList.toggle("covered");
 })
 
 const themes = new Map([

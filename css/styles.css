@@ -418,7 +418,6 @@ header{
     width: 100%;
     height: 100%;
     background-color: var(--secondaryColor);
-    transform: translate(-530px);
 }
 
 
@@ -428,4 +427,8 @@ header{
     top: 0;
     left: 0;
     width: 100%;
+}
+
+.covered{
+    transform: translate(-530px);
 }
