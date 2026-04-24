@@ -209,8 +209,8 @@ button:hover, input[type=submit]:hover{
 #question-box{
     font-size: 50px;
     display: flex;
+    flex-direction: column;
     padding: 10px;
-    gap: 15px;
 }
 
 #answer-box{
