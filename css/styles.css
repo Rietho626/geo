@@ -292,6 +292,7 @@ select{
     width: 250px;
     position: relative;
     z-index: 3;
+    left: 2%;
 }
 
 #themes-ul{
@@ -357,7 +358,18 @@ select{
 }
 
 #settings-button{
-    border-radius: 5px 5px 0px 0px;
+    height: 29px;
+    width: 20%;
+    min-width: 300px;
+    max-width: 350px;
+    padding: var(--navLinkPadding);
+    margin: var(--navLinkMargin);
+    border: var(--navLinkBorderSize) solid var(--linkBorderColor);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 #settings-button:hover{
@@ -430,5 +442,31 @@ header{
 }
 
 .covered{
-    transform: translate(-530px);
+    transform: translate(-730px);
 }
+
+
+
+
+header > div{
+    width: 30%;
+}
+
+nav{
+    width: 70%;
+    font-size: 1.5rem;
+}
+
+
+nav{
+    height: auto;
+}
+
+#topics-ul > li{
+    min-width: 150px;
+}
+
+#actual-cover{
+    transform: translateX(-730px)
+}
+
