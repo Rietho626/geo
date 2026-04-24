@@ -389,7 +389,6 @@ select{
 nav ul{
     transition: 1s;
     position: relative;
-    transform: translate(-530px);
 }
 
 nav{
