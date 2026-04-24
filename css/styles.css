@@ -347,9 +347,6 @@ select{
 #settings-ul li li{
     background-color: var(--tertiaryColor);
     padding: 2px;
-    border-bottom: 1px solid;
-    border-left: 1px solid;
-    border-right: 1px solid;
 }
 
 #settings-ul li li:hover{
@@ -369,6 +366,9 @@ select{
     display: flex;
     align-items: center;
     justify-content: center;
+    background: var(--navLinkRevBg);
+    font-weight: normal;
+    font-size: 24px;
 
 }
 
@@ -468,3 +468,37 @@ nav{
     transform: translateX(-730px)
 }
 
+
+header{
+    background-color: var(--tertiaryColor);
+    box-shadow: 1px 1px 3px 0.3px
+}
+
+#cover, #actual-cover{
+    background-color: var(--tertiaryColor);
+}
+
+#settings{
+    min-width: 333px;
+}
+
+
+.settings-1{
+    min-width: calc(300px + var(--navLinkPadding) + var(--navLinkBorderSize));
+    max-width: 350px;
+    margin-left: calc(var(--navLinkMargin)/2);
+    box-shadow: 1px 1px 3px 0.3px;
+    background: var(--navLinkBg)
+}
+
+#themes-ul > li, #languages-ul > li{
+    border: 0px !important;
+    width: 10%;
+}
+
+#themes-ul, #languages-ul{
+    justify-content: center;
+    min-width: 300px;
+    box-shadow: 1px 1px 3px 0.3px;
+    margin-left: 2px;
+}
