@@ -80,9 +80,13 @@ header > div{
     
 }
 
-#continent-settings > div:hover{
+#continent-settings > div.off:hover{
     cursor: pointer;
     background-color: var(--navLinkShadowColor);
+}
+
+#continent-settings > div.on:hover{
+    cursor: pointer;
 }
 
 #create-form td{
@@ -526,6 +530,18 @@ header{
 #block-container:hover{
     transform: scale(100%);
 }
+
+
+
+#create-form td:has(p){
+    justify-content: center;
+}
+
+#create-form input, #create-form select{
+    font-size: 1.5rem;
+}
+
+
 
 @media screen and (max-width: 1340px) {
     #topics-ul{
