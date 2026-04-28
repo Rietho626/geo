@@ -61,7 +61,11 @@ export default function updateLang(languagePackFull, language){
     const dynamicIdTc = [
         {
             id: "create",
-            tc: pack.main.createQuiz
+            tc = () => {
+                return (document.getElementById("create").getAttribute("dataset-topic")) 
+                ? pack.main.createQuiz + ` (${pack.general[document.getElementById("create").getAttribute("dataset-topic")+"Capital"]})`
+                : pack.main.createQuiz
+            }
         },
          {
             id: "select-above",
