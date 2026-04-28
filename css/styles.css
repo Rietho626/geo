@@ -254,7 +254,7 @@ select{
 
 #create-form table{
     margin: 0 auto;
-    width: max(40%, 800px);
+    width: max(40%, 799px);
     font-size: 1.5rem !important;
     border-spacing: 1rem;
 }
