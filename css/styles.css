@@ -403,6 +403,7 @@ select{
 
 nav ul{
     position: relative;
+            transition: transform 0.2s !important;
 }
 
 nav{
@@ -519,7 +520,6 @@ header{
         flex-direction: column;
         position: absolute;
         transform: translateY(-300px);
-        transition: transform 0s !important;
     }
 
     .quiz-link{
