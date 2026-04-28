@@ -43,6 +43,7 @@ class SettingsHandler{
         return node;
     }
     configureSettings(topic){
+        this.lang = languagePack[localStorage.getItem("langPref") || "english"];
         this.create.setAttribute("data-topic", topic);
         this.create.textContent = this.lang.main.createQuiz + ` (${this.lang.general[topic+"Capital"]})`;
         const settings = this.getSettings("general", topic).concat(this.getSettings(topic)).concat(this.getSubmitButton(topic));
