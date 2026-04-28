@@ -245,7 +245,7 @@ button:hover, input[type=submit]:hover{
     background-size: contain;
 }
 
-#answer-box > div:not(.type-in-div):hover{
+#answer-box > div:not(.type-in-div):not(#block-container):hover{
     cursor: pointer;
     transform: scale(105%);
     box-shadow: 1px 1px 5px black;
@@ -293,6 +293,10 @@ select{
     left: 0;
     top: 0;
     opacity: 0.9;
+}
+
+#block-container:hover{
+    cursor: pointer;
 }
 
 #answer-box > .type-in-div{
