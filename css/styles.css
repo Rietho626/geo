@@ -516,3 +516,13 @@ header{
 #block-container:hover{
     transform: scale(100%);
 }
+
+@media screen and (max-width: 1340px) {
+    #settings-ul{
+        flex-direction: column;
+    }
+
+    .covered{
+    transform: translateY(730px);
+}
+}
