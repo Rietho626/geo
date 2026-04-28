@@ -402,7 +402,6 @@ select{
 }
 
 nav ul{
-    transition: 1s;
     position: relative;
 }
 
@@ -524,9 +523,7 @@ header{
     }
 
     .quiz-link{
-        width: 20%;
-        min-width: 200px;
-        max-width: 250px;
+        width: 250px;
     }
 
     .covered{
@@ -535,6 +532,10 @@ header{
         box-shadow: 1px 1px 3px 0.3px;
         border-radius: 2px;
         width: 250px !important;
+        margin: 5px;
+        padding: var(--navLinkPadding);
+        justify-content: center;
+        align-items: center;
     }
 
     #expand-topics{
