@@ -10,4 +10,5 @@
     --navLinkBg:radial-gradient(var(--navLinkShadowColor),var(--mainColor) 80%);
     --navLinkRevBg: radial-gradient(var(--mainColor),var(--navLinkShadowColor) 80%);
     --tertiaryColor: rgb(70, 49, 129);
+    --secondaryOpaque: rgba(57, 180, 202, 0.6);
 }
