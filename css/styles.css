@@ -34,6 +34,7 @@ ul{
     background-color: var(--mainColor);
     border-radius: 2px;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    opacity: 1;
 }
 
 #topics-ul > li:hover{
@@ -403,7 +404,7 @@ select{
 
 nav ul{
     position: relative;
-    transition: transform 0.2s !important;
+    transition: transform 0.2s ease, opacity 0.2s ease !important;
 }
 
 nav{
@@ -446,6 +447,7 @@ header{
 
 .covered{
     transform: translate(-730px);
+    opacity: 0;
 }
 
 header > div{
@@ -547,6 +549,7 @@ header{
 
     .covered{
         transform: translateY(-300px)  !important;
+        opacity: 0;
     }
 
     #expand-topics{
