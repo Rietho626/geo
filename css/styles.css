@@ -173,12 +173,17 @@ button:hover, input[type=submit]:hover{
 }
 
 #quiz-container{
-    width: 800px;
+    font-size: 1.5rem;
+    width: max(40%, 800px);
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-      margin-top: 7%;
+    margin-top: 7%;
+}
+
+#quiz-container button{
+    font-size: 1.5rem;
 }
 
 #details-container{
