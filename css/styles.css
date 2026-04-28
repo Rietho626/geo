@@ -23,7 +23,7 @@ ul{
 #topics-ul > li{
     padding: var(--navLinkPadding);
     margin: var(--navLinkMargin);
-    border: var(--navLinkBorderSize) solid var(--linkBorderColor);
+   /* border: var(--navLinkBorderSize) solid var(--linkBorderColor);*/
     width: 30%;
     min-width: 100px;
     text-align: center;
@@ -38,12 +38,13 @@ ul{
 
 #topics-ul > li:hover{
     cursor: pointer;
-    transform: scale(110%);
+    transform: scale(105%);
+    box-shadow: 0px 0px 10px 0.4px black inset;
     transition: 0.2s ease-in-out;
 }
 
 #topics-ul > li:active{
-  border-color: var(--navLinkShadowColor);
+  transform: scale(100%);
 }
 
 
@@ -364,7 +365,7 @@ select{
     max-width: 350px;
     padding: var(--navLinkPadding);
     margin: var(--navLinkMargin);
-    border: var(--navLinkBorderSize) solid var(--linkBorderColor);
+   /* border: var(--navLinkBorderSize) solid var(--linkBorderColor);*/
     border-radius: 2px;
     display: flex;
     align-items: center;
@@ -387,7 +388,7 @@ select{
 #expand-topics{
     padding: var(--navLinkPadding);
     margin: var(--navLinkMargin);
-    border: var(--navLinkBorderSize) solid var(--linkBorderColor);
+   /* border: var(--navLinkBorderSize) solid var(--linkBorderColor);*/
     width: 20%;
     min-width: 200px;
     max-width: 250px;
