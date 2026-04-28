@@ -32,9 +32,8 @@ settings.addEventListener("click", (e)=>{
 
 expandTopics.addEventListener("click", (e)=>{
     console.log(document.documentElement.clientWidth);
-    navUl.style.transition = "0.3s";
     navUl.classList.toggle("covered");
-    navUl.style.transition = "0s";
+
 })
 
 const themes = new Map([
