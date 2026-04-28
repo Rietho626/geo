@@ -519,7 +519,7 @@ header{
         flex-direction: column;
         position: absolute;
         transform: translateY(-300px);
-        transition: 0s !important;
+        transition: transform 0s !important;
     }
 
     .quiz-link{
