@@ -519,7 +519,7 @@ header{
     #topics-ul{
         flex-direction: column;
         position: absolute;
-        transform: translateY(30px) !important;
+        transform: translateY(30px);
         background-color: var(--secondaryOpaque);
         box-shadow: 1px 1px 3px 0.3px;
         border-radius: 2px;
@@ -532,11 +532,11 @@ header{
     }
 
     .quiz-link{
-        width: 250px;
+        width: 230px !important;
     }
 
     .covered{
-        transform: translateY(-300px);
+        transform: translateY(-300px)  !important;
     }
 
     #expand-topics{
