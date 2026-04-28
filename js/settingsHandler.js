@@ -15,6 +15,7 @@ class SettingsHandler{
         this.topicsUl = document.getElementById("topics-ul");
         this.createContainer = document.getElementById("create-quiz-container");
         this.form = document.getElementById("create-form")
+        this.create = document.getElementById("create");
         this.lang = languagePack[localStorage.getItem("langPref") || "english"];
     }
 
@@ -42,6 +43,8 @@ class SettingsHandler{
         return node;
     }
     configureSettings(topic){
+        this.create.setAttribute("dataset-topic", topic);
+        this.create.textContent = this.lang.main.createQuiz + ` (${this.lang.general[topic+"Capital"]})`;
         const settings = this.getSettings("general", topic).concat(this.getSettings(topic)).concat(this.getSubmitButton(topic));
         this.appendQuizForm(settings);
     }
