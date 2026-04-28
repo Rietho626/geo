@@ -73,7 +73,7 @@ header > div{
 
 #continent-settings > div{
     padding: 2px;
-    width: 30%;
+    width: 100%;
     margin: 5px auto;
     border: 2px solid var(--linkBorderColor);
     transition: 0.2s ease-in-out;
@@ -254,7 +254,7 @@ select{
 
 #create-form table{
     margin: 0 auto;
-    width: 40%;
+    width: max(40%, 800px);
     font-size: 1.5rem !important;
     border-spacing: 1rem;
 }
