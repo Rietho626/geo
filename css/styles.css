@@ -520,6 +520,7 @@ header{
 @media screen and (max-width: 1340px) {
     #topics-ul{
         flex-direction: column;
+        position: absolute;
     }
 
     .covered{
