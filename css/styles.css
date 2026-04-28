@@ -66,13 +66,9 @@ header > div{
     background-color: var(--mainColor);
 }
 
-#create-form td:has(#continent-settings){
-    display: flex;
-    flex-direction: column-reverse;
-}
-
 #continent-settings{
-    text-align: center
+    text-align: center;
+    width: 30%;
 }
 
 #continent-settings > div{
@@ -92,28 +88,29 @@ header > div{
 #create-form td{
    display: flex;
    flex-direction: row-reverse;
-    justify-content: center;
+    justify-content: flex-end;
 }
 
 tbody span{
     align-items: center;
-    display: flex;
-    padding: 5px;
+    width: 35%
+
 }
 
 #create-form label{
-     margin: 5px 20px 5px 5px;
+     width: 35%;
 }
 
 #create-form{
-    width: 445.3px;
+    width: 100%;
     margin: 0 auto;
     margin-top: 7%;
 }
 
 th{
     font-weight: 1000;
-    font-size: 50px;
+    font-size: 100px;
+    text-align: center;
     padding-bottom: 10%;
     color: var(--mainColor);
     text-shadow: 2px 1px 0px black
@@ -125,8 +122,8 @@ select{
 
 input[type=range]{
     -webkit-appearance: none;
-    appearance: none;
-    width: 50%;
+    appearance: none; 
+    width: 25%;
     background-color: transparent;
 }
 
@@ -257,6 +254,9 @@ select{
 
 #create-form table{
     margin: 0 auto;
+    width: 40%;
+    font-size: 1.5rem !important;
+    border-spacing: 1rem;
 }
 
 #create-form p{
