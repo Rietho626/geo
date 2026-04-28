@@ -403,7 +403,7 @@ select{
 
 nav ul{
     position: relative;
-            transition: transform 0.2s !important;
+    transition: transform 0.2s !important;
 }
 
 nav{
@@ -519,14 +519,6 @@ header{
     #topics-ul{
         flex-direction: column;
         position: absolute;
-        transform: translateY(-300px);
-    }
-
-    .quiz-link{
-        width: 250px;
-    }
-
-    .covered{
         transform: translateY(30px) !important;
         background-color: var(--secondaryOpaque);
         box-shadow: 1px 1px 3px 0.3px;
@@ -536,6 +528,15 @@ header{
         padding: var(--navLinkPadding);
         justify-content: center;
         align-items: center;
+
+    }
+
+    .quiz-link{
+        width: 250px;
+    }
+
+    .covered{
+        transform: translateY(-300px);
     }
 
     #expand-topics{
