@@ -57,15 +57,17 @@ export default function updateLang(languagePackFull, language){
     idTc.forEach(el=>{
             document.getElementById(el.id).textContent = el.tc;
     })
+
+    function getCreate(){
+                return (document.getElementById("create").getAttribute("data-topic")) 
+                ? pack.main.createQuiz + ` (${pack.general[document.getElementById("create").getAttribute("data-topic")+"Capital"]})`
+                : pack.main.createQuiz
+    }
    
     const dynamicIdTc = [
         {
             id: "create",
-            tc = () => {
-                return (document.getElementById("create").getAttribute("dataset-topic")) 
-                ? pack.main.createQuiz + ` (${pack.general[document.getElementById("create").getAttribute("dataset-topic")+"Capital"]})`
-                : pack.main.createQuiz
-            }
+            tc: getCreate
         },
          {
             id: "select-above",
@@ -215,7 +217,7 @@ export default function updateLang(languagePackFull, language){
 
     dynamicIdTc.forEach(el=>{
         const node = document.getElementById(el.id);
-        if(node) node.textContent = el.tc;
+        if(node) node.textContent = typeof el.tc === "string" ? el.tc : el.tc();
     })
     
 }
