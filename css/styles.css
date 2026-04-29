@@ -546,10 +546,28 @@ header{
     justify-content: center;
 }
 
+#input-bar-container{
+    margin: 0px;
+    width: 65%;
+}
+
+#type-in-response{
+    width: 35%;
+
+}
+
 #create-form input, #create-form select{
     font-size: 1.5rem;
 }
 
+#type-in-input{
+    width: 250px;
+    font-size: 1.5rem;
+}
+
+#type-in-submit{
+    width: 230px;
+}
 
 
 @media screen and (max-width: 1340px) {

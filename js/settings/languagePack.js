@@ -116,7 +116,7 @@
             country: "land",
             countryCapital: "Land",
             question: "Frage"
-            
+
         },
         "settings":{
             settings: "Einstellungen",
@@ -195,7 +195,7 @@
                 "population": ["Achtung! In deinem Gehirn herrscht Fachkräftemangel!"],
                 "area": ["Flächt!"]
             },
-            typeInCorrAnswer: "Die RICHTIGE Antowrt ist: ",
+            typeInCorrAnswer: "Die RICHTIGE Antwort ist: ",
             responseFieldStart: {
                 "default": [""],
                 "capital" : [""],
