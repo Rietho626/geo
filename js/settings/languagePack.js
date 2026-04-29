@@ -116,6 +116,7 @@
             country: "land",
             countryCapital: "Land",
             question: "Frage"
+            
         },
         "settings":{
             settings: "Einstellungen",

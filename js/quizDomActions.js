@@ -34,11 +34,25 @@ class QuizDomActions{
         const startQuizButton = this.createNode("button", [["id", "start-quiz-button"], startClass]);
         this.createNewQuizButton = this.createNode("button", [["id", "create-new-button"], startClass]);
 
-        heading.textContent = quiz["topic"].split("")[0].toUpperCase() + quiz["topic"].slice(1) + this.lang.startingScreen.heading;
-        questionModeContainer.textContent = this.lang.startingScreen.questionModeContainer + quiz.mode;
-        questionTypeContainer.textContent = this.lang.startingScreen.questionTypeContainer + quiz.type;
-        timeLimitContainer.textContent = this.lang.startingScreen.timeLimitContainer + quiz.time;
+        heading.textContent = this.lang.general[quiz.topic + "Capital"] + " " + this.lang.startingScreen.heading;
+
+        questionModeContainer.textContent = this.lang.startingScreen.questionModeContainer + 
+        (quiz.mode === "multiple-choice" 
+            ? this.lang.startingScreen.multipleChoice 
+            : this.lang.startingScreen.typeInMode);
+
+        questionTypeContainer.textContent = this.lang.startingScreen.questionTypeContainer + 
+        (quiz.type === "mixed" 
+            ? this.lang.startingScreen.mixedQuestions
+            : this.lang.general[quiz.type.split("-")[0] + "Capital"] + " -> " + this.lang.general[quiz.type.split("-")[1] + "Capital"]);
+
+        timeLimitContainer.textContent = this.lang.startingScreen.timeLimitContainer + 
+        (quiz.time === "no-limit" 
+            ? this.lang.startingScreen.noTimeLimit
+            : quiz.time + "s");
+            
         numQuestionsContainer.textContent = this.lang.startingScreen.numQuestionsContainer + quiz.numQuestions;
+
         continentContainer.textContent = quiz.continents.reduce((string, continent)=>{
             return string + ((string) ? ", " : "") + this.lang.continents[continent];
         }, "");
