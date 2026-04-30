@@ -37,10 +37,10 @@ expandTopics.addEventListener("click", (e)=>{
 })
 
 document.body.addEventListener("click", (e)=>{
-    if(!e.target.closest("#topics-ul")){
+    if(!e.target.closest("#topics-ul" && e.target.id != "expand-topics") ){
         navUl.classList.add("covered");
     }
-    if(!e.target.closest("#settings-ul")){
+    if(!e.target.closest("#settings-ul") && e.target.id != "settings-button"){
         settingsUl.classList.add("invisible");
     }
 })
