@@ -547,12 +547,13 @@ header{
 }
 
 #input-bar-container{
-    margin: 0px;
+    margin: 0px !important;
     width: 65%;
 }
 
 #type-in-response{
-    width: 35%;
+    width: 35% !important;
+    margin: 0px !important;
 
 }
 
@@ -561,7 +562,7 @@ header{
 }
 
 #type-in-input{
-    width: 250px;
+    width: 50% !important;
     font-size: 1.5rem;
 }
 
