@@ -548,7 +548,7 @@ header{
 
 #input-bar-container{
     margin: 0px !important;
-    width: 65%;
+    width: 65% !important;
 }
 
 #type-in-response{
