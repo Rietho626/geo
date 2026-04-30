@@ -137,7 +137,7 @@ class QuizDomActions{
             
 
         }else if(mode === "type-in-mode"){
-            this.inputBar = this.createNode("input", [["type", "text"], ["id", "type-in-ipnut"]]);
+            this.inputBar = this.createNode("input", [["type", "text"], ["id", "type-in-input"]]);
             this.responseField = this.createNode("div", [["id", "type-in-response"], ["class", "type-in-div"]]);
             this.submitAnswer = this.createNode("button", [["id", "type-in-submit"]]);
             this.inputBarContainer = this.createNode("div", [["id", "input-bar-container"], ["class", "type-in-div"]]);
