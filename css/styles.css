@@ -49,10 +49,6 @@ ul{
 }
 
 
-header{
-    display: flex;
-    justify-content: flex-start;
-}
 
 header > div{
     text-align: center;
@@ -425,10 +421,6 @@ nav{
 
 }
 
-header{
-    align-items: center;
-}
-
 #settings-ul{
     position: absolute;
     margin-top: 52px;
@@ -447,15 +439,6 @@ header{
     height: 100%;
     background-color: var(--secondaryColor);
     transform: translate(-530px);
-}
-
-
-header{
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
 }
 
 .covered{
@@ -488,7 +471,16 @@ nav{
 
 header{
     background-color: var(--tertiaryColor);
-    box-shadow: 1px 1px 3px 0.3px
+    box-shadow: 1px 1px 3px 0.3px;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    padding: 2px 0px;
 }
 
 #cover, #actual-cover{
@@ -600,5 +592,6 @@ header{
         position: absolute;
         top: 0;
         margin: 5px;
+        margin-top: 5.5px;
     }
 }
