@@ -595,3 +595,7 @@ header{
         margin-top: 5.5px;
     }
 }
+
+#expand-topics:hover, select:hover{
+    cursor: pointer;
+}
