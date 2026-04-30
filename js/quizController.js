@@ -36,6 +36,15 @@ expandTopics.addEventListener("click", (e)=>{
 
 })
 
+document.body.addEventListener("click", (e)=>{
+    if(!e.target.closest("#topics-ul")){
+        navUl.classList.add("covered");
+    }
+    if(!e.target.closest("#settings-ul")){
+        settingsUl.classList.add("invisible");
+    }
+})
+
 const themes = new Map([
     ["base", "baseTheme.css"],
     ["sunset", "sunsetTheme.css"]
