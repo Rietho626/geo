@@ -47,6 +47,11 @@
             multipleChoice: "Multiple-Choice-Mode",
             typeInMode: "Type-In-Mode",
             noTimeLimit: "Unlimited",
+            notEnoughContinents: function (numCon, numQues){
+                return `The number of countries in the continents of your choice (${numCon}) is smaller than the chosen amount of questions (${numQues}). Choose at most ${numCon} questions for these settings, or add more continents to your selection.`;
+            },
+            typeInFlag: "Contrats, you found a combination that does not work. You can't type in flags. Go choose different settings."
+
         },
         "continents":{
             europe: "Europe",
@@ -151,7 +156,12 @@
             mixedQuestions: "Gemischte Fragen",
             multipleChoice: "Auswahlmodus",
             typeInMode: "Eingabemodus",
-            noTimeLimit: "Unlimitert"
+            noTimeLimit: "Unlimitert",
+            notEnoughContinents: function (numCon, numQues){
+                return `Die Anzahl der Länder in den Kontinenten deiner Wahl (${numCon}) ist geringer als die Anzahl der Fragen (${numQues}). Wähle Maximal ${numCon} Fragen für diese Einstellungen, oder füge deiner Auswahl weitere Kontinente hinzu.`;
+            },
+            typeInFlag: "Gratuliere, du hast eine Kombination gefunden, die nicht funktioniert - Flaggen kann man leider nicht eingeben. Wähle eine andere Einstellung."
+
         },
         "continents":{
             europe: "Europa",

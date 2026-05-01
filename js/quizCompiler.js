@@ -107,6 +107,12 @@ class QuizCompiler{
 
     compileQuiz(){
         this.filterContinents();
+        if(this.quizCountryNames.length < Number(this.quiz.numQuestions)){
+            return this.quiz.lang.startingScreen.notEnoughContinents(this.quizCountryNames.length, this.quiz.numQuestions);
+        }
+        if(this.quiz.mode === "type-in-mode" && (this.quiz.type === "country-flag" ||this.quiz.type === "mixed")){
+            return this.quiz.lang.typeInFlag;
+        }
         while(this.quiz.questions.length < this.quiz.numQuestions){
             const rndCountry = this.quizCountryNames[Math.floor(Math.random()*this.quizCountryNames.length)];
             const qType = this.getQuestionType();
@@ -129,6 +135,7 @@ class QuizCompiler{
             this.quizCountryNames.shift();
             this.quiz.questions.push(activeQuestion);
         }
+        return true;
     }
 
     transformCountriesObj(obj, type){

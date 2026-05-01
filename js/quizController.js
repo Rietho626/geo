@@ -68,9 +68,14 @@ settingsHandler.enableNavListener();
 
 function initiateQuiz(settings){
     const compiler = createQuizCompiler(settings);
-    compiler.compileQuiz();
-    const quiz = compiler.quiz;
-    startingScreen(quiz);
+    const compilerResponse = compiler.compileQuiz();
+    if(compilerResponse === true){
+        const quiz = compiler.quiz;
+        startingScreen(quiz);
+    }else{
+        window.alert(compilerResponse);
+    }
+   
 }
 
 function startingScreen(quiz){
