@@ -5,6 +5,7 @@ export default function getQuizDomActions(languagePack){
 class QuizDomActions{
     constructor(languagePack){
         this.quizContainer = document.getElementById("quiz-container");
+        this.createContainer = document.getElementById("create-quiz-container");
         this.languagePack = languagePack;
         this.lang = languagePack[localStorage.getItem("langPref") || "english"];
         this.enabled = true;
@@ -22,6 +23,7 @@ class QuizDomActions{
 
     startingScreen(quiz, startQuiz){
         this.lang = quiz.lang;
+        this.createContainer.style.display = "none";
         const startClass = ["class", "starting-screen"];
         const heading = this.createNode("h1", [["id","heading"],startClass]);
         const detailsContainer = this.createNode("div", [["id", "details-container"],startClass]);

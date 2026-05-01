@@ -32,7 +32,7 @@ class SettingsHandler{
 
     enableSettingsListener(cb){
         this.form.addEventListener("submit", (e)=>{
-            this.createContainer.style.display = "none";
+           // this.createContainer.style.display = "none";
             cb(this.processForm(e))
         });
     }
