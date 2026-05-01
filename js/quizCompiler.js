@@ -111,7 +111,7 @@ class QuizCompiler{
             return this.quiz.lang.startingScreen.notEnoughContinents(this.quizCountryNames.length, this.quiz.numQuestions);
         }
         if(this.quiz.mode === "type-in-mode" && (this.quiz.type === "country-flag" ||this.quiz.type === "mixed")){
-            return this.quiz.lang.typeInFlag;
+            return this.quiz.lang.startingScreen.typeInFlag;
         }
         while(this.quiz.questions.length < this.quiz.numQuestions){
             const rndCountry = this.quizCountryNames[Math.floor(Math.random()*this.quizCountryNames.length)];

@@ -73,9 +73,8 @@ function initiateQuiz(settings){
         const quiz = compiler.quiz;
         startingScreen(quiz);
     }else{
-        window.alert(compilerResponse);
-    }
-   
+        console.log(compilerResponse)
+    }  
 }
 
 function startingScreen(quiz){
