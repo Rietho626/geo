@@ -23,6 +23,7 @@ class SettingsHandler{
         this.topicsUl.addEventListener("click", (e)=>{
             console.log(e.target);
             if(e.target.classList.contains("quiz-link")){
+                this.topicsUl.classList.add("covered");
                 Array.from(document.querySelectorAll("tbody > *"))
                     .forEach(node=>node.remove());
                 this.configureSettings(e.target.id);
