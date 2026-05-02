@@ -26,9 +26,11 @@ settings.addEventListener("click", (e)=>{
     }else if(e.target.id.endsWith("-theme")){
         activateTheme(e.target.id.split("-")[0]);
         settingsUl.classList.toggle("invisible");
+        themesUl.classList.toggle("invisible");
     }else if(e.target.id.startsWith("lang-")){
         updateLang(languagePack, (languages.get(e.target.id) ?? "english"));
         settingsUl.classList.toggle("invisible");
+        languagesUl.classList.toggle("invisible");
     }
 })
 
