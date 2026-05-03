@@ -4,66 +4,9 @@ import createQuizCompiler from "./quizCompiler.js";
 import getSettingsHandler from "./settingsHandler.js";
 import languagePack from "./settings/languagePack.js";
 import updateLang from "./updateLang.js";
+import applyMenuListeners from "./menus.js";
 
-const settingsLink = document.getElementById("theme-settings");
-const settingsUl = document.getElementById("settings-ul");
-const themesUl = document.getElementById("themes-ul");
-const languagesUl = document.getElementById("languages-ul");
-const expandTopics = document.getElementById("expand-topics");
-const navUl = document.querySelector("#cover > ul");
-
-const settings = document.getElementById("settings");
-
-settingsLink.href = "./css/" + (localStorage.getItem("theme") || "baseTheme.css")
-
-settings.addEventListener("click", (e)=>{
-    if(e.target.id === "settings-button"){
-        settingsUl.classList.toggle("invisible");
-    }else if(e.target.id === "themes-button"){
-        themesUl.classList.toggle("invisible");
-    }else if(e.target.id === "languages-button"){
-        languagesUl.classList.toggle("invisible");
-    }else if(e.target.id.endsWith("-theme")){
-        activateTheme(e.target.id.split("-")[0]);
-        settingsUl.classList.toggle("invisible");
-        themesUl.classList.toggle("invisible");
-    }else if(e.target.id.startsWith("lang-")){
-        updateLang(languagePack, (languages.get(e.target.id) ?? "english"));
-        settingsUl.classList.toggle("invisible");
-        languagesUl.classList.toggle("invisible");
-    }
-})
-
-expandTopics.addEventListener("click", (e)=>{
-    console.log(document.documentElement.clientWidth);
-    navUl.classList.toggle("covered");
-
-})
-
-document.body.addEventListener("click", (e)=>{
-    if(!e.target.closest("#topics-ul") && e.target.id != "expand-topics" ){
-        navUl.classList.add("covered");
-    }
-    if(!e.target.closest("#settings-ul") && e.target.id != "settings-button"){
-        settingsUl.classList.add("invisible");
-    }
-})
-
-const themes = new Map([
-    ["base", "baseTheme.css"],
-    ["sunset", "sunsetTheme.css"]
-])
-
-const languages = new Map([
-    ["lang-en", "english"],
-    ["lang-de", "german"]
-])
-
-function activateTheme(theme){
-    settingsLink.href = "./css/" + themes.get(theme);
-    localStorage.setItem("theme", themes.get(theme))
-}
-
+applyMenuListeners();
 
 let settingsHandler = getSettingsHandler(languagePack);
 let quizDomActions = getQuizDomActions(languagePack);
