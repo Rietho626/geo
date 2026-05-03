@@ -3,7 +3,6 @@ import getQuizLogic from "./quizLogic.js";
 import createQuizCompiler from "./quizCompiler.js";
 import getSettingsHandler from "./settingsHandler.js";
 import languagePack from "./settings/languagePack.js";
-import updateLang from "./updateLang.js";
 import applyMenuListeners from "./menus.js";
 
 applyMenuListeners(languagePack);

@@ -1,3 +1,5 @@
+import updateLang from "./updateLang.js";
+
 const settingsLink = document.getElementById("theme-settings");
 const settingsUl = document.getElementById("settings-ul");
 const themesUl = document.getElementById("themes-ul");
