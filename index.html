@@ -4,6 +4,10 @@
         <title>
             Geography Quiz
         </title>
+        <script>
+            const theme = document.getElementById("theme-settings");
+            if(theme) theme.href = "./css/" + (localStorage.getItem("theme") || "baseTheme.css");
+        </script>
         <script type="module" src="./js/quizController.js">
         </script>
         <script type="module">

@@ -51,4 +51,3 @@ function startQuiz(quiz){
     quizDomActions.updateQuestion(logic, checkAnswer);
     quizDomActions.enabled = true;
 }
-
