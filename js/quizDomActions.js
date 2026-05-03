@@ -298,6 +298,7 @@ class QuizDomActions{
                     this.submitAnswer.style.color = "black";
                     this.responseField.textContent = "";
                     this.responseField.style.color = "black";
+                    this.submitAnswer.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue("--mainColor")
                 }
                 resolve(this);
             }, 3500);
