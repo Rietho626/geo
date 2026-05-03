@@ -6,7 +6,7 @@ import languagePack from "./settings/languagePack.js";
 import updateLang from "./updateLang.js";
 import applyMenuListeners from "./menus.js";
 
-applyMenuListeners();
+applyMenuListeners(languagePack);
 
 let settingsHandler = getSettingsHandler(languagePack);
 let quizDomActions = getQuizDomActions(languagePack);

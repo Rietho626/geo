@@ -43,6 +43,7 @@ class SettingsHandler{
         attributes.forEach(attr=>node.setAttribute(attr[0], attr[1]));
         return node;
     }
+
     configureSettings(topic){
         this.lang = languagePack[localStorage.getItem("langPref") || "english"];
         this.create.setAttribute("data-topic", topic);
@@ -50,6 +51,7 @@ class SettingsHandler{
         const settings = this.getSettings("general", topic).concat(this.getSettings(topic)).concat(this.getSubmitButton(topic));
         this.appendQuizForm(settings);
     }
+    
     appendQuizForm(settings){
         settings.forEach(obj=>{
             const td = this.createNode("td");

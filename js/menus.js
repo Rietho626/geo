@@ -8,7 +8,7 @@ const settings = document.getElementById("settings");
 settingsLink.href = "./css/" + (localStorage.getItem("theme") || "baseTheme.css")
 
 
-function settingsListener(e){
+function settingsListener(e, languagePack){
     if(e.target.id === "settings-button"){
         settingsUl.classList.toggle("invisible");
     }else if(e.target.id === "themes-button"){
@@ -41,7 +41,7 @@ function bodyListener(e){
 
 function activateTheme(theme){
     settingsLink.href = "./css/" + themes.get(theme);
-    localStorage.setItem("theme", themes.get(theme))
+    localStorage.setItem("theme", themes.get(theme));
 }
 
 const themes = new Map([
@@ -54,8 +54,10 @@ const languages = new Map([
     ["lang-de", "german"]
 ])
 
-export default function applyMenuListeners(){
-    settings.addEventListener("click", settingsListener)
-    expandTopics.addEventListener("click", topicsListener)
-    document.body.addEventListener("click", bodyListener)
+export default function applyMenuListeners(languagePack){
+    settings.addEventListener("click", (e)=>{
+        settingsListener(e, languagePack);
+    })
+    expandTopics.addEventListener("click", topicsListener);
+    document.body.addEventListener("click", bodyListener);
 }
