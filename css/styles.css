@@ -599,3 +599,11 @@ header{
 #expand-topics:hover, select:hover{
     cursor: pointer;
 }
+
+@media screen and (min-width: 1341px){
+    #question-img{
+        height: 65%;
+        width: 65%;
+        margin: 0 auto;
+    }
+}
