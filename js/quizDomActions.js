@@ -208,6 +208,7 @@ class QuizDomActions{
                 .replace("{Object}", logic.format(logic.questionObject))
                 .replace("{Type}", this.lang.general[logic.questionType+"Capital"]);
             this.qImage.src = "";
+            this.qImage.hidden = true;
         }
         if(logic.time !== "no-limit") this.startTimer(logic);
 
