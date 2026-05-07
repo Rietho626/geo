@@ -602,8 +602,8 @@ header{
 
 @media screen and (min-width: 1341px){
     #question-img{
-        height: 65%;
-        width: 65%;
+        height: 45%;
+        width: 45%;
         margin: 0 auto;
     }
 }
