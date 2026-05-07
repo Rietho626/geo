@@ -104,7 +104,7 @@ class QuizDomActions{
         this.wrongQuestions = this.createNode("div", [["id", "wrong-questions"]]);
         this.questionBox = this.createNode("div", [["id", "question-box"]]);
         this.question = this.createNode("div", [["id", "quiz-question"]]);
-        this.qImage = this.createNode("img", [["id", "question-img"], ["src", "nix"]]),
+        this.qImage = this.createNode("img", [["id", "question-img"], ["src", "nix"], ["hidden", true]]),
         this.time = this.createNode("div", [["id", "quiz-time"]]);
         this.answerBox = this.createNode("div", [["id", "answer-box"]]);
         this.blockContainer = this.createNode("div", [["id", "block-container"]]);
@@ -202,6 +202,7 @@ class QuizDomActions{
                 .replace("{Object}", this.lang.quiz.displayed)
                 .replace("{Type}", this.lang.general[logic.questionType+"Capital"]);;
             this.qImage.src = this.logic.questionObject;
+            this.qImage.hidden = false;
         }else{
             this.question.textContent = logic.question
                 .replace("{Object}", logic.format(logic.questionObject))
